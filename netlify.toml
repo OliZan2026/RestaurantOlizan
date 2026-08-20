@@ -5,11 +5,12 @@
   # Se publică numai directorul allowlist generat la build. Sursele backend,
   # scripturile, migrațiile, README și fișierele de dezvoltare nu sunt expuse.
   publish = "dist"
-  #  1. elimină din output instrucțiunile interne și placeholder-ele publice;
-  #  2. scrie identificatorul publicării în /sw.js;
-  #  3. regenerează politica CSP în /_headers;
-  #  4. copiază în dist/ numai fișierele care trebuie servite public.
-  command = "node scripts/prepare-public.mjs && node scripts/pwa-versiune.mjs && node scripts/csp.mjs && node scripts/build-public.mjs"
+  #  1. curăță output-ul și aplică optimizările de performanță;
+  #  2. optimizează/validează SEO pentru paginile comerciale;
+  #  3. scrie identificatorul publicării în /sw.js;
+  #  4. regenerează politica CSP în /_headers;
+  #  5. copiază în dist/ numai fișierele care trebuie servite public.
+  command = "node scripts/prepare-public.mjs && node scripts/seo-public.mjs && node scripts/pwa-versiune.mjs && node scripts/csp.mjs && node scripts/build-public.mjs"
 
 # --- Domeniul oficial ---------------------------------------------------
 # Orice alias public trimite permanent către https://www.restaurantolizan.ro.
