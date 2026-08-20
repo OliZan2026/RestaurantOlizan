@@ -1726,22 +1726,26 @@ body:not(.home-luxury) .to-top:hover{color:#151719;background:var(--lux-champagn
   border-color:#c9c1b2;box-shadow:0 8px 20px rgba(0,0,0,.16);
 }
 .footer .anpc-plate strong{color:#2b3e83}
+.footer .anpc-row{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:.55rem;width:min(500px,calc(100vw - 2.5rem));align-items:stretch;
+}
 .footer .anpc-row>.anpc-plate:nth-of-type(1){
-  width:190px;min-height:76px;padding:0;
-  background:#fff url("../img/anpc-logo.svg") center/170px auto no-repeat;
+  width:100%;min-height:64px;padding:0;
+  background:#fff url("../img/anpc-logo.svg") center/min(145px,calc(100% - 12px)) auto no-repeat;
   border-color:#aeb4c8;font-size:0;color:transparent;
 }
 .footer .anpc-row>.anpc-plate:nth-of-type(1) strong{display:none}
 .footer .anpc-row>.anpc-plate:nth-of-type(1):hover{background-color:#fff;border-color:#2b3e83}
 .footer .anpc-row>.anpc-plate:nth-of-type(2){
-  width:190px;min-height:52px;padding:0;
-  background:#fff url("../img/anpc-sal.svg") center/176px auto no-repeat;
+  width:100%;min-height:64px;padding:0;
+  background:#fff url("../img/anpc-sal.svg") center/min(150px,calc(100% - 10px)) auto no-repeat;
   border-color:#aeb4c8;font-size:0;color:transparent;
 }
 .footer .anpc-row>.anpc-plate:nth-of-type(2) strong{display:none}
 .footer .anpc-row>.anpc-plate:nth-of-type(2):hover{background-color:#fff;border-color:#2b3e83}
 .footer .anpc-row>.anpc-plate:nth-of-type(3){
-  width:190px;min-height:52px;padding:.55rem .75rem;font-size:.72rem;
+  width:100%;min-height:64px;padding:.45rem .6rem;font-size:.66rem;
 }
 .footer .anpc-row>.anpc-plate:nth-of-type(3) strong{font-size:.76rem}
 
@@ -1764,9 +1768,12 @@ body:not(.home-luxury) .to-top:hover{color:#151719;background:var(--lux-champagn
 .menu-page .prod-size:has(input:checked){border-color:var(--lux-bronze)}
 
 @media(max-width:560px){
-  .footer .anpc-row>.anpc-plate:nth-of-type(1){width:min(190px,100%);background-size:min(170px,calc(100% - 20px)) auto}
-  .footer .anpc-row>.anpc-plate:nth-of-type(2){width:min(190px,100%);background-size:min(176px,calc(100% - 18px)) auto}
-  .footer .anpc-row>.anpc-plate:nth-of-type(3){width:min(190px,100%)}
+  .footer .anpc-row{gap:.35rem;width:100%}
+  .footer .anpc-row>.anpc-plate{border-radius:8px}
+  .footer .anpc-row>.anpc-plate:nth-of-type(1){width:100%;background-size:calc(100% - 10px) auto}
+  .footer .anpc-row>.anpc-plate:nth-of-type(2){width:100%;background-size:calc(100% - 8px) auto}
+  .footer .anpc-row>.anpc-plate:nth-of-type(3){width:100%;padding:.35rem;font-size:.58rem}
+  .footer .anpc-row>.anpc-plate:nth-of-type(3) strong{font-size:.65rem}
 }
 
 /* 24 — Coș premium dark ==================================================
