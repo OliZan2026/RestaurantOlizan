@@ -6,10 +6,11 @@
   # scripturile, migrațiile, README și fișierele de dezvoltare nu sunt expuse.
   publish = "dist"
   #  1. elimină din output instrucțiunile interne și placeholder-ele publice;
-  #  2. scrie identificatorul publicării în /sw.js;
-  #  3. regenerează politica CSP în /_headers;
-  #  4. copiază în dist/ numai fișierele care trebuie servite public.
-  command = "node scripts/prepare-public.mjs && node scripts/pwa-versiune.mjs && node scripts/csp.mjs && node scripts/build-public.mjs"
+  #  2. optimizează metadata și structured data pentru SEO local, fără schimbări vizuale;
+  #  3. scrie identificatorul publicării în /sw.js;
+  #  4. regenerează politica CSP în /_headers;
+  #  5. copiază în dist/ numai fișierele care trebuie servite public.
+  command = "node scripts/prepare-public.mjs && node scripts/seo-local-public.mjs && node scripts/pwa-versiune.mjs && node scripts/csp.mjs && node scripts/build-public.mjs"
 
 # --- Domeniul oficial ---------------------------------------------------
 # Orice alias public trimite permanent către https://www.restaurantolizan.ro.
