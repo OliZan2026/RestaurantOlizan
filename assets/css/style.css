@@ -1755,3 +1755,88 @@ body:not(.home-luxury) .to-top:hover{color:#151719;background:var(--lux-champagn
 @media(max-width:560px){
   .footer .anpc-row>.anpc-plate:nth-of-type(2){width:100%;background-size:min(248px,calc(100% - 24px)) auto}
 }
+
+/* 24 — Coș premium dark ==================================================
+   Panoul de comandă urmează acum aceeași identitate charcoal–champagne.
+   Starea goală nu mai afișează totaluri de 0 lei sau blocuri fără conținut. */
+.cart-backdrop{background:rgba(3,5,5,.72);backdrop-filter:blur(5px)}
+.cart{
+  color:var(--lux-ivory);background:#101314;
+  border-left:1px solid rgba(216,198,162,.28);
+  box-shadow:-24px 0 70px rgba(0,0,0,.52);
+}
+.cart-head{
+  padding:1rem 1.25rem;background:#15191a;
+  border-bottom-color:rgba(216,198,162,.22);
+}
+.cart-head h2{color:var(--lux-champagne);font-size:1.65rem}
+.cart-close{
+  color:var(--lux-champagne);background:#101314;
+  border-color:rgba(216,198,162,.4);
+}
+.cart-close:hover{color:#121516;background:var(--lux-champagne)}
+.cart-scroll{padding:1.15rem 1.25rem calc(1.6rem + env(safe-area-inset-bottom))}
+.cart-empty{
+  position:relative;margin:1.2rem 0 0;padding:4.7rem 1.1rem 1.25rem;
+  color:#b8b2a8;background:#15191a;border:1px solid rgba(216,198,162,.18);
+  border-radius:14px;text-align:center;line-height:1.6;
+}
+.cart-empty::before{
+  content:"";position:absolute;top:1.25rem;left:50%;width:42px;height:42px;
+  transform:translateX(-50%);border:1px solid rgba(216,198,162,.45);border-radius:50%;
+  background:radial-gradient(circle,#d8c6a2 0 3px,transparent 4px),#111415;
+  box-shadow:0 0 0 7px rgba(216,198,162,.04);
+}
+.cart-sumar[hidden],.cart-form[hidden],.cart-empty[hidden]{display:none!important}
+.cart-scroll:has(.cart-empty:not([hidden])) .cart-total{display:none}
+
+.cart-item{border-bottom-color:rgba(216,198,162,.18)}
+.cart-thumb{background:#181b1c;border-color:rgba(216,198,162,.28)}
+.cart-item-name{color:var(--lux-ivory)}
+.cart-item-size{color:#17191a;background:#c9b791}
+.cart-item-ing,.cart-item-unit,.cart-item-ambalaj{color:#9f9a91}
+.cart-item-sub{color:var(--lux-champagne)}
+.qty{background:#181b1c;border-color:#343839}
+.qty-btn{color:var(--lux-champagne)}
+.qty-btn:hover{background:#262a2b}
+.qty-input{color:var(--lux-ivory)!important;background:transparent!important}
+.cart-del{color:#a8a39a;background:#15191a;border-color:#343839}
+.cart-del:hover{color:#e3a79b;background:#2a1c1a;border-color:#6f4038}
+
+.cart-sumar{
+  background:#181b1c;border-color:rgba(216,198,162,.22);
+  border-radius:12px;
+}
+.cart-sum{color:#d8d3ca}
+.cart-total{
+  background:linear-gradient(135deg,#24221d,#1a1c1b);
+  border:1px solid rgba(216,198,162,.32);border-radius:12px;
+  color:#d8d3ca;
+}
+.cart-total b{color:var(--lux-champagne)}
+.cart-form .field label,.cart-mod legend{color:#ddd7cd}
+.cart-form input,.cart-form textarea{
+  color:var(--lux-ivory)!important;background:#15191a!important;
+  border-color:#363a3b!important;
+}
+.cart-radio{color:#d7d1c7;background:#15191a;border-color:#343839}
+.cart-radio:has(input:checked){background:#24221d;border-color:var(--lux-bronze)}
+.cart-radio input{accent-color:var(--lux-bronze)}
+.cart-radio small,.cart-note{color:#969188}
+.cart-confirm{color:#d8d3ca;background:#181b1c;border-color:rgba(216,198,162,.25)}
+.cart-errors{color:#e7b3aa;background:#2a1c1a;border-color:#6f4038}
+
+.cart-btn{
+  color:var(--lux-ivory);background:#181b1c;
+  border-color:rgba(216,198,162,.42);
+}
+.cart-btn:hover{color:#151719;background:var(--lux-champagne);border-color:var(--lux-champagne)}
+.cart-count{color:#151719;background:var(--lux-champagne)}
+.cart-count.is-zero{color:#aaa49a;background:#2b2f30}
+
+@media(max-width:520px){
+  .cart{width:100%}
+  .cart-head{padding:.85rem 1rem}
+  .cart-scroll{padding:1rem 1rem calc(1.35rem + env(safe-area-inset-bottom))}
+  .cart-empty{margin-top:.5rem}
+}
