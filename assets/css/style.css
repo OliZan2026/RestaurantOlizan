@@ -1726,9 +1726,16 @@ body:not(.home-luxury) .to-top:hover{color:#151719;background:var(--lux-champagn
   border-color:#c9c1b2;box-shadow:0 8px 20px rgba(0,0,0,.16);
 }
 .footer .anpc-plate strong{color:#2b3e83}
+.footer .anpc-row>.anpc-plate:nth-of-type(1){
+  width:300px;min-height:112px;padding:0;
+  background:#fff url("../img/anpc-logo.svg") center/270px auto no-repeat;
+  border-color:#aeb4c8;font-size:0;color:transparent;
+}
+.footer .anpc-row>.anpc-plate:nth-of-type(1) strong{display:none}
+.footer .anpc-row>.anpc-plate:nth-of-type(1):hover{background-color:#fff;border-color:#2b3e83}
 .footer .anpc-row>.anpc-plate:nth-of-type(2){
-  width:268px;min-height:66px;padding:0;
-  background:#fff url("../img/anpc-sal.svg") center/248px auto no-repeat;
+  width:300px;min-height:76px;padding:0;
+  background:#fff url("../img/anpc-sal.svg") center/278px auto no-repeat;
   border-color:#aeb4c8;font-size:0;color:transparent;
 }
 .footer .anpc-row>.anpc-plate:nth-of-type(2) strong{display:none}
@@ -1753,6 +1760,7 @@ body:not(.home-luxury) .to-top:hover{color:#151719;background:var(--lux-champagn
 .menu-page .prod-size:has(input:checked){border-color:var(--lux-bronze)}
 
 @media(max-width:560px){
+  .footer .anpc-row>.anpc-plate:nth-of-type(1){width:100%;background-size:min(270px,calc(100% - 24px)) auto}
   .footer .anpc-row>.anpc-plate:nth-of-type(2){width:100%;background-size:min(248px,calc(100% - 24px)) auto}
 }
 
