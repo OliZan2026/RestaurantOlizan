@@ -26,6 +26,15 @@ function olizanPorneste() {
       .replace(/"/g, "&quot;").replace(/'/g, "&#39;");
   }
 
+  /* Siglele legale stau într-o bandă separată, sub separatorul footerului,
+     nu în interiorul coloanei „Informații legale”. */
+  (function footerLegal() {
+    var rand = $(".footer .anpc-row");
+    var grila = $(".footer .footer-grid");
+    if (!rand || !grila || !grila.parentNode) return;
+    grila.insertAdjacentElement("afterend", rand);
+  })();
+
   /* ---- 1. Header: stare la scroll + meniu mobil -------------------------- */
   (function header() {
     var head = $(".header");
