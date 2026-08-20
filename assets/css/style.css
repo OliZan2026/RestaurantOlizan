@@ -1721,18 +1721,18 @@ body:not(.home-luxury) .to-top:hover{color:#151719;background:var(--lux-champagn
 .olizan-instalare .olizan-instalare-cta:hover{background:var(--lux-ivory)}
 .olizan-instalare .olizan-instalare-x:hover{color:#17191a;background:var(--lux-champagne)}
 
-body:not(.home-luxury) .anpc-plate{
+.footer .anpc-plate{
   min-height:64px;color:#2c3034;background:#f4f2ed;
   border-color:#c9c1b2;box-shadow:0 8px 20px rgba(0,0,0,.16);
 }
-body:not(.home-luxury) .anpc-plate strong{color:#2b3e83}
-body:not(.home-luxury) .anpc-plate:nth-child(2){
+.footer .anpc-plate strong{color:#2b3e83}
+.footer .anpc-row>.anpc-plate:nth-of-type(2){
   width:268px;min-height:66px;padding:0;
   background:#fff url("../img/anpc-sal.svg") center/248px auto no-repeat;
   border-color:#aeb4c8;font-size:0;color:transparent;
 }
-body:not(.home-luxury) .anpc-plate:nth-child(2) strong{display:none}
-body:not(.home-luxury) .anpc-plate:nth-child(2):hover{background-color:#fff;border-color:#2b3e83}
+.footer .anpc-row>.anpc-plate:nth-of-type(2) strong{display:none}
+.footer .anpc-row>.anpc-plate:nth-of-type(2):hover{background-color:#fff;border-color:#2b3e83}
 
 .menu-page .menu-tab[aria-selected=true],
 .menu-page .btn--add{
@@ -1753,5 +1753,5 @@ body:not(.home-luxury) .anpc-plate:nth-child(2):hover{background-color:#fff;bord
 .menu-page .prod-size:has(input:checked){border-color:var(--lux-bronze)}
 
 @media(max-width:560px){
-  body:not(.home-luxury) .anpc-plate:nth-child(2){width:100%;background-size:min(248px,calc(100% - 24px)) auto}
+  .footer .anpc-row>.anpc-plate:nth-of-type(2){width:100%;background-size:min(248px,calc(100% - 24px)) auto}
 }
