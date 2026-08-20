@@ -4,11 +4,12 @@
 [build]
   publish = "."
   # Prelucrările de dinaintea publicării:
-  #  1. se scrie identificatorul publicării în /sw.js, ca aplicația instalată să
+  #  1. se elimină din output instrucțiunile interne și placeholder-ele publice;
+  #  2. se scrie identificatorul publicării în /sw.js, ca aplicația instalată să
   #     treacă automat pe versiunea nouă;
-  #  2. se regenerează /_headers, adică politica de securitate a conținutului
+  #  3. se regenerează /_headers, adică politica de securitate a conținutului
   #     (Content-Security-Policy), cu amprentele codului scris direct în pagini.
-  command = "node scripts/pwa-versiune.mjs && node scripts/csp.mjs"
+  command = "node scripts/final-cleanup.mjs && node scripts/pwa-versiune.mjs && node scripts/csp.mjs"
 
 # --- Domeniul oficial ---------------------------------------------------
 # Orice alias public trimite permanent către https://www.restaurantolizan.ro.
