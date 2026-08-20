@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 32" width="48" height="32" role="img" aria-label="Numerar">
+  <rect width="48" height="32" rx="4" fill="#ffffff"/>
+  <rect x=".5" y=".5" width="47" height="31" rx="3.5" fill="none" stroke="#dfd6c4"/>
+  <rect x="8" y="7.5" width="32" height="14.5" rx="2.2" fill="#eaf0e4" stroke="#5b7a4b" stroke-width="1.4"/>
+  <circle cx="24" cy="14.75" r="3.6" fill="none" stroke="#5b7a4b" stroke-width="1.4"/>
+  <path d="M24 12.7v4.1M22.9 13.5h1.7a.9.9 0 0 1 0 1.8h-1.2a.9.9 0 0 0 0 1.8h1.7" fill="none" stroke="#5b7a4b" stroke-width="1.1" stroke-linecap="round"/>
+  <circle cx="12.2" cy="14.75" r="1.1" fill="#5b7a4b"/>
+  <circle cx="35.8" cy="14.75" r="1.1" fill="#5b7a4b"/>
+  <text x="24" y="29" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="5" font-weight="700" letter-spacing=".4" fill="#2f4132">NUMERAR</text>
+</svg>
