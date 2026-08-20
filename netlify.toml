@@ -1,10 +1,9 @@
 # Configurația de publicare pentru site-ul OLIZAN Restaurant & Pizzeria
-# Site static — nu există pas de compilare (build).
+# Site public static, cu funcții Netlify pentru conturi, comenzi și administrare.
 
 [build]
   publish = "."
-  # Prelucrările de dinaintea publicării. Niciuna nu atinge paginile, stilurile
-  # sau imaginile site-ului:
+  # Prelucrările de dinaintea publicării:
   #  1. se scrie identificatorul publicării în /sw.js, ca aplicația instalată să
   #     treacă automat pe versiunea nouă;
   #  2. se regenerează /_headers, adică politica de securitate a conținutului
@@ -12,11 +11,7 @@
   command = "node scripts/pwa-versiune.mjs && node scripts/csp.mjs"
 
 # --- Domeniul oficial ---------------------------------------------------
-# Subdomeniul implicit Netlify trimite permanent (301) către domeniul
-# principal, ca să nu existe conținut duplicat pentru motoarele de căutare.
-# Regula este prima din listă, deci vizitatorul face un singur salt.
-# Deploy-urile de test (deploy-preview-*--restaurantolizan.netlify.app și
-# ramurile) au alt nume de gazdă, deci nu sunt afectate.
+# Orice alias public trimite permanent către https://www.restaurantolizan.ro.
 [[redirects]]
   from = "https://restaurantolizan.netlify.app/*"
   to = "https://www.restaurantolizan.ro/:splat"
@@ -29,7 +24,19 @@
   status = 301
   force = true
 
-# --- Adrese „curate" (fără .html) ---------------------------------------
+[[redirects]]
+  from = "https://restaurantolizan.ro/*"
+  to = "https://www.restaurantolizan.ro/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://restaurantolizan.ro/*"
+  to = "https://www.restaurantolizan.ro/:splat"
+  status = 301
+  force = true
+
+# --- Adrese curate, fără extensia .html ---------------------------------
 [[redirects]]
   from = "/index.html"
   to = "/"
@@ -41,12 +48,86 @@
   to = "/"
   status = 301
 
-# --- Antete de securitate și de memorare în cache -----------------------
-# Politica de securitate a conținutului (Content-Security-Policy) nu stă aici,
-# ci în fișierul /_headers, pentru că se generează la fiecare publicare din
-# paginile reale (vezi scripts/csp.mjs). Cele două fișiere se completează:
-# Netlify le adună pe amândouă, iar antetele de mai jos au nume diferite, deci
-# nu intră în conflict cu ea.
+[[redirects]]
+  from = "/meniu.html"
+  to = "/meniu"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/despre.html"
+  to = "/despre"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/inchiriere-sala.html"
+  to = "/inchiriere-sala"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/galerie.html"
+  to = "/galerie"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/locatie.html"
+  to = "/locatie"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/contact.html"
+  to = "/contact"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/cont.html"
+  to = "/cont"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/mesaj-trimis.html"
+  to = "/mesaj-trimis"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/politica-de-confidentialitate.html"
+  to = "/politica-de-confidentialitate"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/politica-cookie.html"
+  to = "/politica-cookie"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/protectia-datelor-gdpr.html"
+  to = "/protectia-datelor-gdpr"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/termeni-si-conditii.html"
+  to = "/termeni-si-conditii"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/politica-retur.html"
+  to = "/politica-retur"
+  status = 301
+  force = true
+
+# --- Antete de securitate și cache --------------------------------------
+# CSP este generat în /_headers de scripts/csp.mjs la fiecare publicare.
 [[headers]]
   for = "/*"
   [headers.values]
@@ -62,20 +143,22 @@
     Cache-Control = "public, max-age=31536000, immutable"
     Access-Control-Allow-Origin = "*"
 
+# Imaginile, CSS-ul și JS-ul au nume stabile. Cache-ul nu trebuie să țină
+# o versiune veche zile întregi după o actualizare a site-ului.
 [[headers]]
   for = "/assets/img/*"
   [headers.values]
-    Cache-Control = "public, max-age=2592000"
+    Cache-Control = "public, max-age=86400, stale-while-revalidate=604800"
 
 [[headers]]
   for = "/assets/css/*"
   [headers.values]
-    Cache-Control = "public, max-age=604800"
+    Cache-Control = "public, max-age=3600, stale-while-revalidate=86400"
 
 [[headers]]
   for = "/assets/js/*"
   [headers.values]
-    Cache-Control = "public, max-age=604800"
+    Cache-Control = "public, max-age=3600, stale-while-revalidate=86400"
 
 [[headers]]
   for = "/data/*"
@@ -83,9 +166,6 @@
     Cache-Control = "public, max-age=3600"
 
 # --- Aplicația instalabilă (PWA) ----------------------------------------
-# Service workerul nu se memorează în cache: browserul trebuie să verifice la
-# fiecare pornire dacă a apărut o publicare nouă. La fel și pagina de rezervă
-# folosită când lipsește internetul.
 [[headers]]
   for = "/sw.js"
   [headers.values]
@@ -102,10 +182,9 @@
   for = "/offline.html"
   [headers.values]
     Cache-Control = "public, max-age=0, must-revalidate"
-    X-Robots-Tag = "noindex, follow"
+    X-Robots-Tag = "noindex, nofollow"
 
-# --- Zona de administrare și contul clientului --------------------------
-# Nu se indexează de motoarele de căutare și nu se memorează în cache.
+# --- Pagini și rute tehnice ---------------------------------------------
 [[headers]]
   for = "/admin/*"
   [headers.values]
@@ -116,4 +195,34 @@
   for = "/cont"
   [headers.values]
     X-Robots-Tag = "noindex, follow"
+    Cache-Control = "no-store"
+
+[[headers]]
+  for = "/cont.html"
+  [headers.values]
+    X-Robots-Tag = "noindex, follow"
+    Cache-Control = "no-store"
+
+[[headers]]
+  for = "/mesaj-trimis"
+  [headers.values]
+    X-Robots-Tag = "noindex, follow"
+    Cache-Control = "no-store"
+
+[[headers]]
+  for = "/mesaj-trimis.html"
+  [headers.values]
+    X-Robots-Tag = "noindex, follow"
+    Cache-Control = "no-store"
+
+[[headers]]
+  for = "/404.html"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+    Cache-Control = "no-store"
+
+[[headers]]
+  for = "/api/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
     Cache-Control = "no-store"
