@@ -87,6 +87,13 @@
               <button class="btn btn--primary btn--block" type="submit">Intră în cont</button>
               <p class="form-status" id="login-status" role="status"></p>
             </form>
+            <button class="cont-forgot-toggle link-btn" id="btn-parola-uitata" type="button" aria-expanded="false" aria-controls="form-parola-uitata">Ai uitat parola?</button>
+            <form class="cont-reset-box" id="form-parola-uitata" hidden novalidate>
+              <p class="cont-sub">Introdu adresa contului și îți trimitem un link securizat, valabil 30 de minute.</p>
+              <div class="field"><label for="reset-email">Adresă de e-mail <span class="req">*</span></label><input id="reset-email" name="email" type="email" autocomplete="email" required></div>
+              <button class="btn btn--ghost btn--block" type="submit">Trimite linkul de resetare</button>
+              <p class="form-status" id="reset-request-status" role="status"></p>
+            </form>
           </div>
 
           <div class="form">
@@ -127,6 +134,18 @@
           </div>
         </div>
       </div>
+    </section>
+
+    <section class="section cont-reset-page" id="cont-resetare" hidden>
+      <div class="wrap cont-reset-wrap"><div class="form">
+        <p class="eyebrow">Contul tău OLIZAN</p><h2 class="cont-titlu">Alege o parolă nouă</h2>
+        <p class="cont-sub">Folosește cel puțin 8 caractere, inclusiv o literă și o cifră.</p>
+        <form id="form-parola-noua" novalidate>
+          <div class="field"><label for="parola-noua">Parola nouă <span class="req">*</span></label><input id="parola-noua" name="parola" type="password" autocomplete="new-password" minlength="8" required></div>
+          <div class="field"><label for="parola-confirma">Confirmă parola <span class="req">*</span></label><input id="parola-confirma" name="confirmare" type="password" autocomplete="new-password" minlength="8" required></div>
+          <button class="btn btn--primary btn--block" type="submit">Salvează parola nouă</button><p class="form-status" id="reset-password-status" role="status"></p>
+        </form><p class="cont-reset-login"><a href="/cont">Înapoi la autentificare</a></p>
+      </div></div>
     </section>
 
     <!-- ============================ CLIENT AUTENTIFICAT ================== -->
