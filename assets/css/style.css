@@ -1727,19 +1727,23 @@ body:not(.home-luxury) .to-top:hover{color:#151719;background:var(--lux-champagn
 }
 .footer .anpc-plate strong{color:#2b3e83}
 .footer .anpc-row>.anpc-plate:nth-of-type(1){
-  width:300px;min-height:112px;padding:0;
-  background:#fff url("../img/anpc-logo.svg") center/270px auto no-repeat;
+  width:190px;min-height:76px;padding:0;
+  background:#fff url("../img/anpc-logo.svg") center/170px auto no-repeat;
   border-color:#aeb4c8;font-size:0;color:transparent;
 }
 .footer .anpc-row>.anpc-plate:nth-of-type(1) strong{display:none}
 .footer .anpc-row>.anpc-plate:nth-of-type(1):hover{background-color:#fff;border-color:#2b3e83}
 .footer .anpc-row>.anpc-plate:nth-of-type(2){
-  width:300px;min-height:76px;padding:0;
-  background:#fff url("../img/anpc-sal.svg") center/278px auto no-repeat;
+  width:190px;min-height:52px;padding:0;
+  background:#fff url("../img/anpc-sal.svg") center/176px auto no-repeat;
   border-color:#aeb4c8;font-size:0;color:transparent;
 }
 .footer .anpc-row>.anpc-plate:nth-of-type(2) strong{display:none}
 .footer .anpc-row>.anpc-plate:nth-of-type(2):hover{background-color:#fff;border-color:#2b3e83}
+.footer .anpc-row>.anpc-plate:nth-of-type(3){
+  width:190px;min-height:52px;padding:.55rem .75rem;font-size:.72rem;
+}
+.footer .anpc-row>.anpc-plate:nth-of-type(3) strong{font-size:.76rem}
 
 .menu-page .menu-tab[aria-selected=true],
 .menu-page .btn--add{
@@ -1760,8 +1764,9 @@ body:not(.home-luxury) .to-top:hover{color:#151719;background:var(--lux-champagn
 .menu-page .prod-size:has(input:checked){border-color:var(--lux-bronze)}
 
 @media(max-width:560px){
-  .footer .anpc-row>.anpc-plate:nth-of-type(1){width:100%;background-size:min(270px,calc(100% - 24px)) auto}
-  .footer .anpc-row>.anpc-plate:nth-of-type(2){width:100%;background-size:min(248px,calc(100% - 24px)) auto}
+  .footer .anpc-row>.anpc-plate:nth-of-type(1){width:min(190px,100%);background-size:min(170px,calc(100% - 20px)) auto}
+  .footer .anpc-row>.anpc-plate:nth-of-type(2){width:min(190px,100%);background-size:min(176px,calc(100% - 18px)) auto}
+  .footer .anpc-row>.anpc-plate:nth-of-type(3){width:min(190px,100%)}
 }
 
 /* 24 — Coș premium dark ==================================================
