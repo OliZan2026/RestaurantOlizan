@@ -1,10 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="OLIZAN">
-  <rect width="64" height="64" rx="14" fill="#2f4132"/>
-  <path d="M11 54V30a21 21 0 0 1 42 0v24" fill="none" stroke="#f4ecdc" stroke-width="3.2" stroke-linecap="round"/>
-  <path d="M7 54.5h50" fill="none" stroke="#f4ecdc" stroke-width="3.2" stroke-linecap="round"/>
-  <path d="M32 47 22 27.5a11 11 0 0 1 20 0z" fill="#a8402c"/>
-  <path d="M22 27.5a11 11 0 0 1 20 0" fill="none" stroke="#d9a441" stroke-width="3.8" stroke-linecap="round"/>
-  <circle cx="28.4" cy="33" r="1.7" fill="#faf5e8"/>
-  <circle cx="35" cy="35" r="1.45" fill="#faf5e8"/>
-  <circle cx="31.6" cy="40.4" r="1.3" fill="#faf5e8"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="OLIZAN — felie de pizza aurie">
+  <defs><linearGradient id="g" x1="17" y1="10" x2="48" y2="55"><stop stop-color="#ffe9a6"/><stop offset=".5" stop-color="#bd812b"/><stop offset="1" stop-color="#f0c86d"/></linearGradient></defs>
+  <rect width="64" height="64" rx="14" fill="#080909"/>
+  <circle cx="32" cy="32" r="23" fill="none" stroke="url(#g)" stroke-width="3"/>
+  <path d="M22 25c6-7 18-10 26-5 2 1 2 3 1 5l-2 3c-6-3-13-1-17 3-1 1-2 1-3 0l-5-4c-1-1-1-2 0-2Z" fill="url(#g)"/>
+  <path d="M29 30c4-4 11-5 16-2l-9 26c-.4 1-2 1-2 0l-8-21c-.5-2 .5-3 3-3Z" fill="url(#g)"/>
+  <circle cx="35" cy="35" r="2" fill="#080909"/><circle cx="37" cy="42" r="1.6" fill="#080909"/>
 </svg>
