@@ -170,3 +170,62 @@
 }
 
 .sala-nota{font-size:.86rem;color:var(--muted);margin:.9rem 0 0}
+
+/* 4 — Temă premium charcoal–champagne ==================================== */
+body:not(.home-luxury) .sala-foto{
+  background:#15191a;border-color:rgba(216,198,162,.26);
+}
+body:not(.home-luxury) .sala-foto--gol{color:#918d86;border-color:#363a3b}
+body:not(.home-luxury) .sala-foto--gol svg{color:var(--lux-champagne)}
+body:not(.home-luxury) .sala-cutie{
+  color:#d8d3ca;
+  background:linear-gradient(155deg,#1a1d1e,#101314 80%);
+  border-color:rgba(216,198,162,.3);
+  box-shadow:0 18px 45px rgba(0,0,0,.3);
+}
+body:not(.home-luxury) .sala-cutie h3,
+body:not(.home-luxury) .sala-luna{color:var(--lux-champagne)}
+body:not(.home-luxury) .sala-cutie>p.sala-ajutor,
+body:not(.home-luxury) .sala-saptamana span,
+body:not(.home-luxury) .sala-legenda,
+body:not(.home-luxury) .sala-gol,
+body:not(.home-luxury) .sala-nota{color:#9f9a91}
+body:not(.home-luxury) .sala-nav{
+  color:var(--lux-champagne);background:#101314;
+  border-color:rgba(216,198,162,.38);
+}
+body:not(.home-luxury) .sala-nav:hover:not(:disabled){
+  color:#151719;background:var(--lux-champagne);border-color:var(--lux-champagne);
+}
+body:not(.home-luxury) .sala-zi{
+  color:#ddd7cd;background:#15191a;border-color:#343839;
+}
+body:not(.home-luxury) .sala-zi:hover{
+  color:#f4ede2;background:#24221d;border-color:var(--lux-bronze);
+}
+body:not(.home-luxury) .sala-zi.is-azi{border-color:var(--lux-champagne)}
+body:not(.home-luxury) .sala-zi.is-aleasa{
+  color:#151719;background:var(--lux-champagne);border-color:var(--lux-champagne);
+}
+body:not(.home-luxury) .sala-zi.is-aleasa:hover{background:var(--lux-ivory)}
+body:not(.home-luxury) .sala-zi.is-ocupata,
+body:not(.home-luxury) .sala-zi.is-trecuta{
+  color:#6f6c66;background:#0d1011;border-color:#202425;
+}
+body:not(.home-luxury) .sala-legenda i{background:#15191a;border-color:#3a3e3f}
+body:not(.home-luxury) .sala-legenda .sala-pastila--ocupat{background:#0d1011;border-color:#202425}
+body:not(.home-luxury) .sala-legenda .sala-pastila--aleasa{background:var(--lux-champagne);border-color:var(--lux-champagne)}
+body:not(.home-luxury) .sala-aleasa-eticheta{color:#17191a;background:var(--lux-champagne)}
+body:not(.home-luxury) .sala-gol svg{color:var(--lux-champagne)}
+body:not(.home-luxury) .sala-cutie .field label{color:#d7d1c7}
+body:not(.home-luxury) .sala-cutie .field input,
+body:not(.home-luxury) .sala-cutie .field textarea,
+body:not(.home-luxury) .sala-cutie .field select{
+  color:#eee8dd;background:#0d1011;border-color:#373b3c;
+}
+body:not(.home-luxury) .sala-cutie .field input:focus,
+body:not(.home-luxury) .sala-cutie .field textarea:focus,
+body:not(.home-luxury) .sala-cutie .field select:focus{
+  color:#fff;background:#111516;border-color:var(--lux-bronze);
+  box-shadow:0 0 0 3px rgba(157,122,73,.18);
+}
