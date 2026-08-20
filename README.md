@@ -281,19 +281,25 @@ Vechea platformă europeană SOL/ODR **nu** a fost inclusă, fiind închisă.
 
 ## 10. Adresa site-ului (domeniul)
 
-În fișiere apare adresa implicită Netlify:
+Domeniul oficial al site-ului este:
 
 ```
-https://magical-tulumba-d275f5.netlify.app
+https://www.restaurantolizan.ro
 ```
 
-Când conectezi un domeniu propriu (de ex. `https://olizan.ro`), înlocuiește această adresă
-peste tot cu funcția *Caută și înlocuiește pe tot folderul*. Apare în:
+Acest domeniu este deja folosit în toate elementele SEO importante ale proiectului:
 
-* eticheta `<link rel="canonical">` și în etichetele `og:*` din fiecare pagină `.html`;
+* etichetele `<link rel="canonical">` și `og:url` din paginile publice;
 * `sitemap.xml`;
 * `robots.txt`;
 * datele structurate (`application/ld+json`) din `index.html`.
+
+Subdomeniul Netlify `restaurantolizan.netlify.app` este doar infrastructură de publicare și
+este redirecționat permanent către domeniul oficial prin `netlify.toml`, pentru a evita
+conținutul duplicat în motoarele de căutare.
+
+Dacă domeniul oficial se schimbă vreodată, actualizează în același commit canonical-urile,
+Open Graph, sitemap-ul, robots.txt, datele structurate și redirecturile din `netlify.toml`.
 
 ---
 
