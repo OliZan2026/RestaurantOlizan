@@ -60,22 +60,6 @@ export const sessions = pgTable(
   (t) => [index("sessions_expires_idx").on(t.expiresAt)],
 );
 
-/* ----------------------------------------------- RESETAREA PAROLEI CLIENT */
-export const passwordResetTokens = pgTable(
-  "password_reset_tokens",
-  {
-    id: serial().primaryKey(),
-    customerId: integer("customer_id")
-      .notNull()
-      .references(() => customers.id, { onDelete: "cascade" }),
-    // În bază păstrăm numai SHA-256; tokenul trimis prin e-mail nu este stocat.
-    tokenHash: text("token_hash").notNull().unique(),
-    expiresAt: timestamp("expires_at", { withTimezone: true }).notNull(),
-    createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
-  },
-  (t) => [index("password_reset_customer_idx").on(t.customerId), index("password_reset_expires_idx").on(t.expiresAt)],
-);
-
 /* ------------------------------------------------- ADRESE SALVATE */
 export const addresses = pgTable(
   "addresses",
