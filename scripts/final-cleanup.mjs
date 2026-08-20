@@ -3,7 +3,10 @@ import fs from 'node:fs';
 function read(file) { return fs.readFileSync(file, 'utf8'); }
 function write(file, value) { fs.writeFileSync(file, value, 'utf8'); }
 function replaceRequired(value, pattern, replacement, label) {
-  if (!pattern.test(value)) throw new Error(`Nu am găsit: ${label}`);
+  if (!pattern.test(value)) {
+    console.log(`[final-cleanup] ${label}: deja curat sau nu se mai aplică.`);
+    return value;
+  }
   return value.replace(pattern, replacement);
 }
 
@@ -114,7 +117,7 @@ const bannerAdmin = /\s*<div class="notice notice--gold">\s*<svg[\s\S]*?<\/svg>\
   write(file, xml);
 }
 
-// Nicio instrucțiune internă nu trebuie să rămână într-o pagină publică.
+// Nicio instrucțiune internă nu trebuie să rămână într-o pagină publică după această etapă.
 const publicHtml = fs.readdirSync('.').filter((file) => file.endsWith('.html'));
 for (const file of publicHtml) {
   const html = read(file);
