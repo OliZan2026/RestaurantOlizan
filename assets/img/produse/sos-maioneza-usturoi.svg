@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="Ilustrație: sos de maioneză cu usturoi, servit într-un bol mic">
+  <rect width="960" height="540" fill="#f4ecdc"/>
+  <ellipse cx="480" cy="352" rx="308" ry="132" fill="#e8dcc3" opacity=".55"/>
+  <path d="M300 300h360c-8 100-72 158-180 158S308 400 300 300z" fill="#efe6d2"/>
+  <ellipse cx="480" cy="300" rx="180" ry="70" fill="#faf5e8" stroke="#e0d2b6" stroke-width="7"/>
+  <ellipse cx="480" cy="302" rx="150" ry="54" fill="#f5e3a8" stroke="#dcc879" stroke-width="5"/>
+  <path d="M400 306c22-18 62-18 84 0s58 16 78-4" fill="none" stroke="#e9d391" stroke-width="9" stroke-linecap="round"/>
+  <ellipse cx="428" cy="288" rx="36" ry="13" fill="#ffffff" opacity=".4"/>
+  <g>
+    <path d="M232 320c0-32 19-56 42-56s42 24 42 56c0 29-19 46-42 46s-42-17-42-46z" fill="#fbf7ee" stroke="#e0d2b6" stroke-width="6"/>
+    <path d="M274 264c-11 21-11 81 0 102" fill="none" stroke="#e0d2b6" stroke-width="5"/>
+    <path d="M274 264c6-13 13-19 23-21" fill="none" stroke="#c9b48a" stroke-width="6" stroke-linecap="round"/>
+  </g>
+  <g fill="#f2d88d" stroke="#dcc879" stroke-width="5">
+    <ellipse cx="694" cy="342" rx="46" ry="34"/>
+  </g>
+  <ellipse cx="694" cy="342" rx="22" ry="16" fill="#f5e3a8"/>
+</svg>

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="OLIZAN">
+  <rect width="64" height="64" rx="14" fill="#2f4132"/>
+  <path d="M11 54V30a21 21 0 0 1 42 0v24" fill="none" stroke="#f4ecdc" stroke-width="3.2" stroke-linecap="round"/>
+  <path d="M7 54.5h50" fill="none" stroke="#f4ecdc" stroke-width="3.2" stroke-linecap="round"/>
+  <path d="M32 47 22 27.5a11 11 0 0 1 20 0z" fill="#a8402c"/>
+  <path d="M22 27.5a11 11 0 0 1 20 0" fill="none" stroke="#d9a441" stroke-width="3.8" stroke-linecap="round"/>
+  <circle cx="28.4" cy="33" r="1.7" fill="#faf5e8"/>
+  <circle cx="35" cy="35" r="1.45" fill="#faf5e8"/>
+  <circle cx="31.6" cy="40.4" r="1.3" fill="#faf5e8"/>
+</svg>

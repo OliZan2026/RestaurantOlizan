@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="Ilustrație: sos de roșii dulce, servit într-un bol mic">
+  <rect width="960" height="540" fill="#f4ecdc"/>
+  <ellipse cx="480" cy="352" rx="308" ry="132" fill="#e8dcc3" opacity=".55"/>
+  <path d="M300 300h360c-8 100-72 158-180 158S308 400 300 300z" fill="#efe6d2"/>
+  <ellipse cx="480" cy="300" rx="180" ry="70" fill="#faf5e8" stroke="#e0d2b6" stroke-width="7"/>
+  <ellipse cx="480" cy="302" rx="150" ry="54" fill="#cf3f2a" stroke="#a83220" stroke-width="5"/>
+  <ellipse cx="428" cy="288" rx="36" ry="13" fill="#ffffff" opacity=".22"/>
+  <g fill="#a83220" opacity=".55">
+    <ellipse cx="516" cy="312" rx="16" ry="7"/><ellipse cx="440" cy="316" rx="12" ry="5"/>
+  </g>
+  <g>
+    <circle cx="258" cy="330" r="58" fill="#d14836"/>
+    <circle cx="258" cy="330" r="58" fill="none" stroke="#a83220" stroke-width="5"/>
+    <ellipse cx="238" cy="310" rx="16" ry="9" fill="#ffffff" opacity=".28"/>
+    <path d="M258 272c-16-10-34-8-42 2 12 8 26 10 42 2 16 8 30 6 42-2-8-10-26-12-42-2z" fill="#5b7a4b"/>
+    <path d="M258 258v18" stroke="#4c6a3d" stroke-width="7" stroke-linecap="round"/>
+  </g>
+  <g>
+    <circle cx="700" cy="352" r="40" fill="#d14836"/>
+    <circle cx="700" cy="352" r="40" fill="none" stroke="#a83220" stroke-width="5"/>
+    <ellipse cx="686" cy="338" rx="11" ry="6" fill="#ffffff" opacity=".28"/>
+    <path d="M700 312c-11-7-24-6-29 1 8 6 18 7 29 1 11 6 21 5 29-1-6-7-18-8-29-1z" fill="#5b7a4b"/>
+  </g>
+</svg>

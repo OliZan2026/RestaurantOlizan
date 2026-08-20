@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="Ilustrație: sos barbeque, servit într-un bol mic">
+  <rect width="960" height="540" fill="#f4ecdc"/>
+  <ellipse cx="480" cy="352" rx="308" ry="132" fill="#e8dcc3" opacity=".55"/>
+  <path d="M300 300h360c-8 100-72 158-180 158S308 400 300 300z" fill="#efe6d2"/>
+  <ellipse cx="480" cy="300" rx="180" ry="70" fill="#faf5e8" stroke="#e0d2b6" stroke-width="7"/>
+  <ellipse cx="480" cy="302" rx="150" ry="54" fill="#6d3a1f" stroke="#52290f" stroke-width="5"/>
+  <ellipse cx="428" cy="288" rx="36" ry="13" fill="#ffffff" opacity=".16"/>
+  <path d="M406 308c24-14 58-14 80 2s54 12 74-6" fill="none" stroke="#8a4a27" stroke-width="9" stroke-linecap="round" opacity=".8"/>
+  <g>
+    <rect x="196" y="286" width="152" height="20" rx="10" fill="#c9b48a"/>
+    <path d="M212 306h120l-10 74c-2 16-16 26-32 26h-36c-16 0-30-10-32-26z" fill="#a8763f"/>
+    <path d="M212 306h120l-4 30H216z" fill="#6d3a1f"/>
+    <path d="M240 260c-12-14 8-22-2-36" fill="none" stroke="#d8c7a4" stroke-width="7" stroke-linecap="round"/>
+    <path d="M300 260c-12-14 8-22-2-36" fill="none" stroke="#d8c7a4" stroke-width="7" stroke-linecap="round"/>
+  </g>
+  <g>
+    <path d="M646 372c0-30 26-54 58-54s58 24 58 54z" fill="#a8763f"/>
+    <path d="M646 372c0-30 26-54 58-54s58 24 58 54z" fill="none" stroke="#8a5c2c" stroke-width="5"/>
+    <g stroke="#6d3a1f" stroke-width="6" stroke-linecap="round">
+      <path d="M668 348h72"/><path d="M660 362h88"/>
+    </g>
+    <rect x="640" y="372" width="128" height="14" rx="7" fill="#c9b48a"/>
+  </g>
+</svg>

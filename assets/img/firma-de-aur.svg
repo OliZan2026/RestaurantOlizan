@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200" role="img" aria-label="Cupă de aur — distincția Firma de Aur">
+  <defs>
+    <!-- Aur metalic: benzile clare/închise pe orizontală dau reflexia de metal. -->
+    <linearGradient id="cupa-metal" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#6d4a11"/>
+      <stop offset=".08" stop-color="#a4761f"/>
+      <stop offset=".2" stop-color="#e6c164"/>
+      <stop offset=".31" stop-color="#fff6d8"/>
+      <stop offset=".4" stop-color="#f0d492"/>
+      <stop offset=".54" stop-color="#d9a441"/>
+      <stop offset=".66" stop-color="#f4e2ab"/>
+      <stop offset=".78" stop-color="#c08f2c"/>
+      <stop offset=".9" stop-color="#8a5f16"/>
+      <stop offset="1" stop-color="#5e3f0d"/>
+    </linearGradient>
+    <!-- Umbrire pe verticală: lumină sus, adâncime jos. -->
+    <linearGradient id="cupa-umbra" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fffaea" stop-opacity=".34"/>
+      <stop offset=".38" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset=".78" stop-color="#3a2708" stop-opacity=".24"/>
+      <stop offset="1" stop-color="#2a1c05" stop-opacity=".5"/>
+    </linearGradient>
+    <linearGradient id="cupa-buza" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#8a5f16"/>
+      <stop offset=".18" stop-color="#f0d492"/>
+      <stop offset=".33" stop-color="#fffaea"/>
+      <stop offset=".5" stop-color="#e2b45a"/>
+      <stop offset=".68" stop-color="#fdf1c6"/>
+      <stop offset=".85" stop-color="#b3831f"/>
+      <stop offset="1" stop-color="#6d4a11"/>
+    </linearGradient>
+    <linearGradient id="cupa-soclu" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f7e3a8"/>
+      <stop offset=".22" stop-color="#dcae51"/>
+      <stop offset=".72" stop-color="#a8781f"/>
+      <stop offset="1" stop-color="#7a5410"/>
+    </linearGradient>
+    <radialGradient id="cupa-umbra-sol" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#000000" stop-opacity=".45"/>
+      <stop offset=".55" stop-color="#000000" stop-opacity=".2"/>
+      <stop offset="1" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- umbra de pe „masă”, ca trofeul să pară așezat, nu lipit -->
+  <ellipse cx="100" cy="184" rx="60" ry="9" fill="url(#cupa-umbra-sol)"/>
+
+  <g transform="translate(100 101) scale(1.08) translate(-100 -101)">
+
+  <!-- torțile: bucla exterioară, apoi un fir mai deschis pentru luciu -->
+  <g fill="none" stroke-linecap="round">
+    <path d="M57 52C33 50 20 62 21 78c1 15 15 24 32 27" stroke="#6d4a11" stroke-width="12" opacity=".55"/>
+    <path d="M143 52c24-2 37 10 36 26-1 15-15 24-32 27" stroke="#6d4a11" stroke-width="12" opacity=".55"/>
+    <path d="M57 52C33 50 20 62 21 78c1 15 15 24 32 27" stroke="url(#cupa-metal)" stroke-width="9"/>
+    <path d="M143 52c24-2 37 10 36 26-1 15-15 24-32 27" stroke="url(#cupa-metal)" stroke-width="9"/>
+    <path d="M57 49C35 47 24 58 25 72" stroke="#fff6d8" stroke-width="2.4" opacity=".7"/>
+    <path d="M143 49c22-2 33 9 32 23" stroke="#fff6d8" stroke-width="2.4" opacity=".7"/>
+  </g>
+
+  <!-- cupa: buza largă, pereți curbați care se strâng spre picior -->
+  <path d="M56 48h88c0 26-3 45-11 58-6 10-17 17-33 17s-27-7-33-17c-8-13-11-32-11-58z" fill="url(#cupa-metal)"/>
+  <path d="M56 48h88c0 26-3 45-11 58-6 10-17 17-33 17s-27-7-33-17c-8-13-11-32-11-58z" fill="url(#cupa-umbra)"/>
+
+  <!-- reflexii pe peretele cupei -->
+  <path d="M71 52c0 24 2 41 7 52 2 5 5 9 9 12-11-3-18-9-22-17-5-11-7-27-7-47z" fill="#fffaea" opacity=".3"/>
+  <path d="M128 52c0 22-2 38-6 48-2 4-4 7-7 10 6-3 11-8 14-14 4-10 6-24 6-44z" fill="#3a2708" opacity=".17"/>
+
+  <!-- buza (inelul de sus), cu muchie luminoasă -->
+  <rect x="47" y="36" width="106" height="15" rx="7.5" fill="url(#cupa-buza)"/>
+  <rect x="52" y="38.5" width="96" height="3" rx="1.5" fill="#fffaea" opacity=".55"/>
+  <rect x="47" y="47" width="106" height="4" rx="2" fill="#4a3209" opacity=".28"/>
+
+  <!-- stea gravată pe cupă -->
+  <path d="M100 63.5l5 13.8 14.7.5-11.7 9 4.2 14.1-12.2-8.3-12.2 8.3 4.2-14.1-11.7-9 14.7-.5z" fill="#fffaea" opacity=".9"/>
+  <path d="M100 63.5l5 13.8 14.7.5-11.7 9 4.2 14.1-12.2-8.3z" fill="#e8d199" opacity=".55"/>
+
+  <!-- piciorul: gât, nod sferic și trunchi -->
+  <path d="M91 123h18l-2.5 9h-13z" fill="url(#cupa-metal)"/>
+  <ellipse cx="100" cy="137" rx="12" ry="7.5" fill="url(#cupa-metal)"/>
+  <ellipse cx="100" cy="135" rx="12" ry="6" fill="#fffaea" opacity=".2"/>
+  <path d="M94 143h12l3 12H91z" fill="url(#cupa-metal)"/>
+
+  <!-- soclul: taler, apoi plinta cu plăcuță gravată -->
+  <path d="M74 155h52l-3 8H77z" fill="url(#cupa-soclu)"/>
+  <rect x="62" y="162" width="76" height="18" rx="4" fill="url(#cupa-soclu)"/>
+  <rect x="62" y="162" width="76" height="3.4" rx="1.7" fill="#fffaea" opacity=".45"/>
+  <rect x="62" y="176.6" width="76" height="3.4" rx="1.7" fill="#3a2708" opacity=".3"/>
+  <rect x="76" y="167" width="48" height="9" rx="2.5" fill="#241a08" opacity=".55"/>
+  <rect x="76" y="167" width="48" height="9" rx="2.5" fill="none" stroke="#e8c877" stroke-width="1" opacity=".7"/>
+  </g>
+</svg>
