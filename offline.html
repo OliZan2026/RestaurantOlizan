@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fără conexiune — OLIZAN Restaurant &amp; Pizzeria</title>
+  <meta name="description" content="Pagina de rezervă afișată când nu există conexiune la internet.">
+  <meta name="theme-color" content="#2f4132">
+  <meta name="robots" content="noindex, nofollow">
+
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="stylesheet" href="/assets/css/fonts.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <style>
+    /* Stiluri doar pentru această pagină de rezervă. Nu se încarcă nicăieri
+       altundeva pe site și folosesc culorile și fonturile existente. */
+    .offline-ecran{min-height:100svh;display:grid;place-items:center;padding:2.5rem 0}
+    .offline-card{max-width:34rem;margin-inline:auto;text-align:center}
+    .offline-card svg.offline-marca{width:84px;height:84px;margin-inline:auto}
+    .offline-card h1{margin:1.2rem 0 .6rem}
+    .offline-card p{color:var(--muted);margin:0 auto 1.6rem;max-width:30rem}
+    .offline-actiuni{display:flex;flex-wrap:wrap;gap:.75rem;justify-content:center}
+    .offline-contact{margin-top:2rem;font-size:.92rem;color:var(--muted)}
+    .offline-contact a{font-weight:600}
+  </style>
+</head>
+<body>
+  <main class="offline-ecran">
+    <div class="wrap">
+      <div class="offline-card">
+        <svg class="offline-marca" viewBox="0 0 64 64" role="img" aria-label="Simbolul OLIZAN">
+          <path d="M9 55V29a23 23 0 0 1 46 0v26" fill="none" stroke="#2f4132" stroke-width="3.4" stroke-linecap="round"/>
+          <path d="M4.5 55.5h55" fill="none" stroke="#2f4132" stroke-width="3.4" stroke-linecap="round"/>
+          <path d="M32 47 21.5 26.5a12 12 0 0 1 21 0z" fill="#a8402c"/>
+          <path d="M21.5 26.5a12 12 0 0 1 21 0" fill="none" stroke="#d9a441" stroke-width="4" stroke-linecap="round"/>
+          <circle cx="28.2" cy="32.4" r="1.75" fill="#faf5e8"/>
+          <circle cx="35.4" cy="34.6" r="1.5" fill="#faf5e8"/>
+          <circle cx="31.6" cy="40.2" r="1.35" fill="#faf5e8"/>
+        </svg>
+
+        <p class="eyebrow eyebrow--center">OLIZAN Restaurant &amp; Pizzeria</p>
+        <h1>Momentan nu ai conexiune</h1>
+        <p>
+          Pagina nu a putut fi încărcată pentru că dispozitivul nu are acces la internet.
+          Verifică semnalul sau rețeaua Wi‑Fi și încearcă din nou.
+        </p>
+
+        <div class="offline-actiuni">
+          <button class="btn btn--olive" type="button" id="offline-reincarca">Încearcă din nou</button>
+          <a class="btn btn--ghost" href="/">Pagina principală</a>
+        </div>
+
+        <p class="offline-contact">
+          Pentru comenzi ne poți suna oricând la
+          <a href="tel:+40720409320">+40 720 409 320</a>.
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    /* Scurt și fără cereri către server: butonul reîncarcă pagina cerută,
+       iar revenirea conexiunii o reîncarcă automat. */
+    (function () {
+      "use strict";
+      var buton = document.getElementById("offline-reincarca");
+      if (buton) {
+        buton.addEventListener("click", function () { location.reload(); });
+      }
+      window.addEventListener("online", function () { location.reload(); });
+    })();
+  </script>
+</body>
+</html>

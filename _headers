@@ -1,0 +1,27 @@
+# FIȘIER GENERAT — nu se modifică de mână.
+# Sursa: scripts/csp.mjs, rulat la fiecare publicare (vezi netlify.toml).
+# Regenerare locală: node scripts/csp.mjs
+#
+# Antetul de mai jos spune browserului de unde are voie pagina să încarce
+# scripturi, stiluri, imagini, fonturi și cadre. Restul antetelor site-ului
+# (cache, X-Frame-Options, HSTS și celelalte) rămân în netlify.toml.
+#
+# 15 amprente pentru codul și stilurile scrise direct în pagini:
+#   'sha256-tt90/NUf…  contact.html
+#   'sha256-AMJ/7voG…  despre.html
+#   'sha256-ojeBZSmC…  galerie.html
+#   'sha256-uJTVydEe…  inchiriere-sala.html
+#   'sha256-tkBmn4sW…  index.html
+#   'sha256-7zp7m2Gz…  index.html
+#   'sha256-gniizFrt…  locatie.html
+#   'sha256-gwhw/Vo/…  meniu.html
+#   'sha256-tWFfqZny…  offline.html
+#   'sha256-apkipveb…  politica-cookie.html
+#   'sha256-2QlygeU8…  politica-de-confidentialitate.html
+#   'sha256-ZLDdNAvO…  politica-retur.html
+#   'sha256-anrpqwLC…  protectia-datelor-gdpr.html
+#   'sha256-m+XDbnGR…  termeni-si-conditii.html
+#   'sha256-VEmGyEC/…  offline.html
+
+/*
+  Content-Security-Policy: default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; form-action 'self'; script-src 'self' 'sha256-2QlygeU8HrExezLI6Y3VDmwrvSZDd78QQ/Gh3BpLr+s=' 'sha256-7zp7m2GzEkyjOU9b7ybCTT6HlD2cyrR9jlgH/hSUoiE=' 'sha256-AMJ/7voG4lSnTWTkUeXcJjYT6u90qcv4M9D/Xkknn9g=' 'sha256-ZLDdNAvOc9Za+EeXfsVkxTRF6b+nW8PK3EMgKHWXscE=' 'sha256-anrpqwLCGQCKvEOo8CwEf7G58Wmsu0oEtlcbd4dVT5s=' 'sha256-apkipvebf8Z/ldoOM//utNlBAoR5R7xbw85npRSKR50=' 'sha256-gniizFrtw96BrPORkojGnTMFU1QbtUVNBXozJJXG4QM=' 'sha256-gwhw/Vo/+0GuD1YvTLVo5TBqofL2ncbAqfp6xM8grnk=' 'sha256-m+XDbnGRtkVm/exHXLcm+fD4fPCcvltzLKHfsILYQxo=' 'sha256-ojeBZSmCyE1tm+tiR/3FyCfBNwq5XdKtDwL8UKH2wyc=' 'sha256-tWFfqZnyjT1XpBDfcJV7yIPzOcGEPtZggozDblC8Vs8=' 'sha256-tkBmn4sWojq84jjrj5gSw2xHR0WVbXdtjpxfiABPldI=' 'sha256-tt90/NUfpJt9eI7YH2B2RKYq/gOXlw9puGHlsUdbFPM=' 'sha256-uJTVydEedK1mGDCmEAn0zpGG5dhxaXVyFm5V+RknDRg='; script-src-attr 'none'; style-src 'self' 'unsafe-inline'; style-src-elem 'self' 'sha256-VEmGyEC/CYkX3pjloWMzEHtwrSpjtG0SSddjbuNb+Nk='; style-src-attr 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; media-src 'self'; frame-src 'self' https://www.google.com; worker-src 'self'; manifest-src 'self'; upgrade-insecure-requests

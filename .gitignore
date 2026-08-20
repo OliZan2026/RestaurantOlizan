@@ -1,0 +1,5 @@
+# Local Netlify folder
+.netlify
+
+# Dependențe npm (se instalează la publicare)
+node_modules

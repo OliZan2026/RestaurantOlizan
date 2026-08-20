@@ -1,0 +1,119 @@
+# Configurația de publicare pentru site-ul OLIZAN Restaurant & Pizzeria
+# Site static — nu există pas de compilare (build).
+
+[build]
+  publish = "."
+  # Prelucrările de dinaintea publicării. Niciuna nu atinge paginile, stilurile
+  # sau imaginile site-ului:
+  #  1. se scrie identificatorul publicării în /sw.js, ca aplicația instalată să
+  #     treacă automat pe versiunea nouă;
+  #  2. se regenerează /_headers, adică politica de securitate a conținutului
+  #     (Content-Security-Policy), cu amprentele codului scris direct în pagini.
+  command = "node scripts/pwa-versiune.mjs && node scripts/csp.mjs"
+
+# --- Domeniul oficial ---------------------------------------------------
+# Subdomeniul implicit Netlify trimite permanent (301) către domeniul
+# principal, ca să nu existe conținut duplicat pentru motoarele de căutare.
+# Regula este prima din listă, deci vizitatorul face un singur salt.
+# Deploy-urile de test (deploy-preview-*--restaurantolizan.netlify.app și
+# ramurile) au alt nume de gazdă, deci nu sunt afectate.
+[[redirects]]
+  from = "https://restaurantolizan.netlify.app/*"
+  to = "https://www.restaurantolizan.ro/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://restaurantolizan.netlify.app/*"
+  to = "https://www.restaurantolizan.ro/:splat"
+  status = 301
+  force = true
+
+# --- Adrese „curate" (fără .html) ---------------------------------------
+[[redirects]]
+  from = "/index.html"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/index"
+  to = "/"
+  status = 301
+
+# --- Antete de securitate și de memorare în cache -----------------------
+# Politica de securitate a conținutului (Content-Security-Policy) nu stă aici,
+# ci în fișierul /_headers, pentru că se generează la fiecare publicare din
+# paginile reale (vezi scripts/csp.mjs). Cele două fișiere se completează:
+# Netlify le adună pe amândouă, iar antetele de mai jos au nume diferite, deci
+# nu intră în conflict cu ea.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "SAMEORIGIN"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=(), payment=(), interest-cohort=()"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains"
+
+[[headers]]
+  for = "/assets/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+    Access-Control-Allow-Origin = "*"
+
+[[headers]]
+  for = "/assets/img/*"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000"
+
+[[headers]]
+  for = "/assets/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+[[headers]]
+  for = "/assets/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+[[headers]]
+  for = "/data/*"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
+
+# --- Aplicația instalabilă (PWA) ----------------------------------------
+# Service workerul nu se memorează în cache: browserul trebuie să verifice la
+# fiecare pornire dacă a apărut o publicare nouă. La fel și pagina de rezervă
+# folosită când lipsește internetul.
+[[headers]]
+  for = "/sw.js"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+    Service-Worker-Allowed = "/"
+
+[[headers]]
+  for = "/manifest.webmanifest"
+  [headers.values]
+    Content-Type = "application/manifest+json; charset=utf-8"
+    Cache-Control = "public, max-age=3600"
+
+[[headers]]
+  for = "/offline.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+    X-Robots-Tag = "noindex, follow"
+
+# --- Zona de administrare și contul clientului --------------------------
+# Nu se indexează de motoarele de căutare și nu se memorează în cache.
+[[headers]]
+  for = "/admin/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+    Cache-Control = "no-store"
+
+[[headers]]
+  for = "/cont"
+  [headers.values]
+    X-Robots-Tag = "noindex, follow"
+    Cache-Control = "no-store"
