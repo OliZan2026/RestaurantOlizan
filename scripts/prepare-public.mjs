@@ -97,6 +97,18 @@ const bannerAdmin = /\s*<div class="notice notice--gold">\s*<svg[\s\S]*?<\/svg>\
   write(file, html);
 }
 
+// Homepage: distincția „Firma de Aur” rămâne vizibilă, dar nu mai acoperă
+// conținutul aproape patru secunde. 1,8 s este suficient pentru recunoaștere,
+// iar eliminarea DOM este sincronizată cu tranziția CSS de 0,35 s.
+{
+  const file = 'index.html';
+  let html = read(file);
+  html = replaceOptional(html, 'se stinge singur după ~3,5 s.', 'se stinge singur după ~1,8 s.', `${file}: comentariu overlay`);
+  html = replaceOptional(html, '      }, 700);', '      }, 400);', `${file}: eliminare overlay`);
+  html = replaceOptional(html, '    ceas = window.setTimeout(inchide, 3500);', '    ceas = window.setTimeout(inchide, 1800);', `${file}: durată overlay`);
+  write(file, html);
+}
+
 // Galeria sălii este ascunsă până când există fotografii reale încărcate din panou.
 for (const file of ['index.html', 'inchiriere-sala.html']) {
   let html = read(file);
