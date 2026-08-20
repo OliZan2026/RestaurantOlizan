@@ -1,6 +1,9 @@
 # Local Netlify folder
 .netlify
 
+# Directorul public generat la build
+dist
+
 # Dependențe npm (se instalează la publicare)
 node_modules
 
