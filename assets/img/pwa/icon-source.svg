@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="OLIZAN — felie de pizza aurie">
+  <defs>
+    <linearGradient id="bg" x1="42" y1="32" x2="470" y2="488" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#151719"/><stop offset="1" stop-color="#050606"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="142" y1="106" x2="370" y2="410" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fff0b8"/><stop offset=".22" stop-color="#e7bd62"/><stop offset=".55" stop-color="#b77a22"/><stop offset=".78" stop-color="#f0ca73"/><stop offset="1" stop-color="#9b6118"/>
+    </linearGradient>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="7" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="url(#bg)"/>
+  <rect x="15" y="15" width="482" height="482" rx="99" fill="none" stroke="#5b3b16" stroke-width="2"/>
+  <!-- Sigiliul O: simplu și lizibil la dimensiunea unei pictograme Android. -->
+  <circle cx="256" cy="256" r="165" fill="none" stroke="url(#gold)" stroke-width="17"/>
+  <circle cx="256" cy="256" r="139" fill="none" stroke="#4e3418" stroke-width="2"/>
+  <!-- Felie originală, construită doar din forme vectoriale. -->
+  <path d="M183 195c36-42 110-62 161-30 10 6 14 19 8 29l-11 18c-4 7-13 10-20 6-34-17-78-6-102 21-5 6-15 6-21 1l-15-13c-10-8-10-23 0-32Z" fill="url(#gold)"/>
+  <path d="M213 231c28-26 71-36 108-17l-60 184c-2 7-12 8-15 1l-54-143c-4-10 0-19 21-25Z" fill="url(#gold)" filter="url(#glow)"/>
+  <path d="M213 244c27-20 64-29 94-16l-50 151-48-126c-1-4 0-7 4-9Z" fill="#111314" opacity=".2"/>
+  <circle cx="250" cy="268" r="13" fill="#090a0a"/>
+  <circle cx="278" cy="321" r="11" fill="#090a0a"/>
+  <circle cx="238" cy="337" r="8" fill="#090a0a"/>
+  <path d="M218 304c18-4 27 3 32 17-14 4-27-1-32-17Z" fill="#090a0a"/>
+  <path d="M165 419h182" stroke="url(#gold)" stroke-width="5" stroke-linecap="round"/>
+</svg>
