@@ -1533,3 +1533,128 @@ body.cart-open .olizan-instalare{display:none}
   .olizan-instalare{left:.65rem;bottom:calc(.65rem + env(safe-area-inset-bottom));max-width:calc(100vw - 5rem)}
   .olizan-instalare .olizan-instalare-cta{padding:.5rem .7rem;font-size:.78rem}
 }
+
+/* 22 — Meniu digital „Table & Tap” ========================================
+   O interfață compactă, caldă și rapidă: categoriile rămân la îndemână,
+   produsul se citește dintr-o privire, iar prețul și acțiunea închid cardul. */
+.menu-page{background:#111314;color:#e8e3da}
+.menu-page .page-head{
+  padding-top:clamp(2.7rem,5vw,4.2rem);padding-bottom:clamp(2.4rem,4vw,3.5rem);
+  background:radial-gradient(circle at 78% 20%,rgba(218,160,59,.13),transparent 30%),
+             linear-gradient(145deg,#171a1b,#0e1011);
+}
+.menu-page .page-head .wrap{max-width:1120px}
+.menu-page .page-head h1{font-size:clamp(2.8rem,5vw,4.4rem);margin-bottom:.25rem}
+.menu-page .page-head .lead{max-width:72ch;line-height:1.6}
+.menu-page main>.section:first-child{padding-top:2.2rem;background:#111314}
+.menu-page main>.section:first-child>.wrap{width:min(100% - 2.5rem,1240px)}
+.menu-page main>.section:first-child .notice--gold{
+  max-width:980px;margin:0 auto 1.5rem!important;padding:.85rem 1rem;
+  font-size:.88rem;line-height:1.45;border-radius:10px;
+}
+.menu-page main>.section:first-child .notice--gold p+ p{display:none}
+
+.menu-page .menu-tabs{
+  position:sticky;top:70px;z-index:35;
+  gap:.45rem;margin:0 0 1rem;padding:.7rem;
+  background:rgba(24,27,28,.94);border:1px solid rgba(218,160,59,.28);
+  border-radius:14px;box-shadow:0 12px 32px rgba(0,0,0,.28);
+  backdrop-filter:blur(14px);scrollbar-width:none;
+}
+.menu-page .menu-tabs::-webkit-scrollbar{display:none}
+.menu-page .menu-tab{
+  padding:.58rem 1rem;color:#d7d2c9;background:#202324;
+  border:1px solid #303334;border-radius:9px;font-size:.86rem;
+}
+.menu-page .menu-tab:hover{color:#f2c66e;background:#282a2b;border-color:rgba(218,160,59,.55)}
+.menu-page .menu-tab[aria-selected=true]{
+  color:#15110a;background:linear-gradient(135deg,#d39127,#f0bd5a);
+  border-color:#e5ad47;box-shadow:0 5px 16px rgba(218,160,59,.18);
+}
+.menu-page .menu-panel{
+  padding:1.15rem;border:1px solid rgba(218,160,59,.23);border-radius:16px;
+  background:#181b1c;box-shadow:0 18px 44px rgba(0,0,0,.24);
+}
+.menu-page .menu-panel-head{
+  align-items:center;margin-bottom:1rem;padding:.15rem .2rem .85rem;
+  border-bottom:1px solid rgba(218,160,59,.2);
+}
+.menu-page .menu-panel-head h3{color:#f0bd5a;font-size:1.75rem}
+.menu-page .menu-panel-head p{color:#9f9b94;font-size:.86rem}
+.menu-page .menu-panel-head img{width:68px;height:68px;object-fit:cover;border-radius:50%;border:1px solid rgba(218,160,59,.4)}
+.menu-page .menu-group+.menu-group{margin-top:1.45rem}
+.menu-page .menu-group-title{color:#e4b45d;font-size:1.18rem}
+.menu-page .menu-group-note,.menu-page .menu-nota-foto{font-size:.8rem;color:#918d86}
+.menu-page .prod-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:.75rem}
+.menu-page .prod{
+  display:grid;grid-template-columns:104px minmax(0,1fr);min-height:150px;
+  color:#e7e2d9;background:#202324;border:1px solid #323536;border-radius:12px;
+  box-shadow:0 7px 18px rgba(0,0,0,.16);overflow:hidden;
+}
+.menu-page .prod:hover{border-color:rgba(218,160,59,.62);box-shadow:0 12px 26px rgba(0,0,0,.26)}
+.menu-page .prod--fara-foto{grid-template-columns:1fr}
+.menu-page .prod-foto{height:100%;min-height:150px;background:#181a1b}
+.menu-page .prod-foto img{width:100%;height:100%;min-height:150px;aspect-ratio:auto;object-fit:cover;filter:saturate(.88) contrast(1.04)}
+.menu-page .prod-body{padding:.72rem .78rem .78rem}
+.menu-page .prod-name{color:#f5efe5;font-size:1.08rem;line-height:1.12}
+.menu-page .prod-ing{
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
+  margin:.25rem 0 0;color:#a9a59e;font-size:.76rem;line-height:1.35;
+}
+.menu-page .prod-gram{margin:.25rem 0 0;color:#d5a44c;font-size:.65rem}
+.menu-page .prod-tag{top:.45rem;left:.45rem;padding:.2rem .45rem;color:#15110a;background:#e0aa47;font-size:.58rem}
+.menu-page .prod-sizes{margin:.45rem 0 0}
+.menu-page .prod-sizes legend{color:#96918a;font-size:.62rem}
+.menu-page .prod-size{
+  gap:.3rem;margin:.28rem .22rem 0 0;padding:.27rem .48rem;
+  color:#d9d4cb;background:#181a1b;border-color:#383b3c;font-size:.7rem;
+}
+.menu-page .prod-size:hover{border-color:#d69a2d}
+.menu-page .prod-size:has(input:checked){background:#302718;border-color:#d69a2d}
+.menu-page .prod-size input:checked~.prod-size-txt{color:#f0bd5a}
+.menu-page .prod-size-pret{color:#f0bd5a}
+.menu-page .prod-buy{gap:.45rem;margin-top:auto;padding-top:.55rem}
+.menu-page .prod-price{color:#f0bd5a;font-size:1.18rem}
+.menu-page .prod-price small{color:#8f8a83;font-size:.58rem}
+.menu-page .prod-ambalaj{color:#85817a;font-size:.6rem}
+.menu-page .btn--add{
+  min-height:34px;padding:.42rem .68rem;border-radius:8px;
+  color:#161109;background:linear-gradient(135deg,#d39127,#f0bd5a);
+  font-size:.72rem;box-shadow:none;
+}
+.menu-page .btn--add:hover{color:#161109;background:#f2c66e}
+.menu-page .btn--add svg{width:14px;height:14px}
+.menu-page .prod-err{font-size:.72rem;background:#302718;color:#f0bd5a}
+.menu-page .section--cream{background:#151718}
+
+@media(max-width:1120px){
+  .menu-page .prod-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:720px){
+  .menu-page main>.section:first-child>.wrap{width:min(100% - 1.2rem,1240px)}
+  .menu-page main>.section:first-child{padding-top:1rem}
+  .menu-page main>.section:first-child .notice--gold{display:none}
+  .menu-page .menu-tabs{top:70px;margin-inline:-.2rem;padding:.5rem;border-radius:11px}
+  .menu-page .menu-tab{padding:.52rem .8rem;font-size:.78rem}
+  .menu-page .menu-panel{padding:.72rem;border-radius:13px}
+  .menu-page .menu-panel-head{margin-bottom:.7rem;padding-bottom:.65rem}
+  .menu-page .menu-panel-head h3{font-size:1.45rem}
+  .menu-page .menu-panel-head p{display:none}
+  .menu-page .menu-panel-head img{width:52px;height:52px}
+  .menu-page .prod-grid{grid-template-columns:1fr;gap:.58rem}
+  .menu-page .prod{grid-template-columns:88px minmax(0,1fr);min-height:126px}
+  .menu-page .prod--fara-foto{grid-template-columns:1fr}
+  .menu-page .prod-foto{min-height:126px}
+  .menu-page .prod-foto img,.menu-page .grid--3 .prod-foto img{height:100%;min-height:126px;max-height:none;aspect-ratio:auto}
+  .menu-page .prod-body{padding:.62rem .68rem}
+  .menu-page .prod-ing{-webkit-line-clamp:1}
+  .menu-page .btn--add{font-size:.68rem}
+  .menu-page .page-head .stack-btns{display:none}
+}
+@media(max-width:390px){
+  .menu-page .prod{grid-template-columns:76px minmax(0,1fr)}
+  .menu-page .prod-foto,.menu-page .prod-foto img,.menu-page .grid--3 .prod-foto img{min-height:120px}
+  .menu-page .prod-name{font-size:1rem}
+  .menu-page .prod-buy{align-items:flex-end}
+  .menu-page .btn--add{padding:.38rem .52rem}
+}
