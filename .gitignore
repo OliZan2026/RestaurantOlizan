@@ -3,3 +3,12 @@
 
 # Dependențe npm (se instalează la publicare)
 node_modules
+
+# Variabile locale și secrete — nu se urcă în Git
+.env
+.env.*
+!.env.example
+
+# Fișiere locale ale sistemului de operare
+.DS_Store
+Thumbs.db
