@@ -72,20 +72,11 @@
 
   var formLogin = $("#form-login");
   var formInregistrare = $("#form-inregistrare");
-  var formParolaUitata = $("#form-parola-uitata");
-  var formParolaNoua = $("#form-parola-noua");
-  var tokenReset = new URLSearchParams(window.location.search).get("reset");
   var formProfil = $("#form-profil");
   var formAdresa = $("#form-adresa");
   var listaAdrese = $("#cont-adrese");
   var zonaComenzi = $("#cont-comenzi");
 
-  if (tokenReset) {
-    if (sectiuneIncarcare) sectiuneIncarcare.hidden = true;
-    sectiuneVizitator.hidden = true;
-    sectiuneClient.hidden = true;
-    $("#cont-resetare").hidden = false;
-  }
 
   function arata(client) {
     if (sectiuneIncarcare) sectiuneIncarcare.hidden = true;
@@ -260,52 +251,6 @@
     }).then(function () { blocheaza(formLogin, false); });
   });
 
-  $("#btn-parola-uitata").addEventListener("click", function () {
-    var deschis = !formParolaUitata.hidden;
-    formParolaUitata.hidden = deschis;
-    this.setAttribute("aria-expanded", String(!deschis));
-    if (!deschis) {
-      $("#reset-email").value = $("#login-email").value.trim();
-      $("#reset-email").focus();
-    }
-  });
-
-  formParolaUitata.addEventListener("submit", function (e) {
-    e.preventDefault();
-    var status = $("#reset-request-status");
-    blocheaza(formParolaUitata, true);
-    stare(status, "Se pregătește e-mailul…");
-    cerere("/api/auth/forgot-password", {
-      method: "POST",
-      corp: { email: $("#reset-email").value.trim() }
-    }).then(function (d) {
-      stare(status, d.mesaj || "Verifică adresa de e-mail.", true);
-      formParolaUitata.reset();
-    }).catch(function (err) {
-      stare(status, err.message, false);
-    }).then(function () { blocheaza(formParolaUitata, false); });
-  });
-
-  if (formParolaNoua) formParolaNoua.addEventListener("submit", function (e) {
-    e.preventDefault();
-    var status = $("#reset-password-status");
-    var parola = $("#parola-noua").value;
-    if (parola !== $("#parola-confirma").value) {
-      stare(status, "Parolele introduse nu sunt identice.", false);
-      return;
-    }
-    blocheaza(formParolaNoua, true);
-    stare(status, "Se salvează parola…");
-    cerere("/api/auth/reset-password", { method: "POST", corp: { token: tokenReset, parola: parola } })
-      .then(function (d) {
-        stare(status, d.mesaj, true);
-        formParolaNoua.reset();
-        window.history.replaceState({}, "", "/cont");
-        setTimeout(function () { window.location.href = "/cont"; }, 1800);
-      }).catch(function (err) {
-        stare(status, err.message, false);
-      }).then(function () { blocheaza(formParolaNoua, false); });
-  });
 
   formInregistrare.addEventListener("submit", function (e) {
     e.preventDefault();
@@ -336,9 +281,7 @@
   });
 
   /* --- starea inițială ----------------------------------------------------- */
-  if (!tokenReset) {
-    cerere("/api/auth/me")
-      .then(function (d) { arata(d.autentificat ? d.client : null); })
-      .catch(function () { arata(null); });
-  }
+  cerere("/api/auth/me")
+    .then(function (d) { arata(d.autentificat ? d.client : null); })
+    .catch(function () { arata(null); });
 })();
