@@ -1362,3 +1362,134 @@ body.cart-open{overflow:hidden}
   body{background:#fff}
   .menu-panel[hidden]{display:block !important}
 }
+
+/* 21 — Temă premium black & gold ==========================================
+   Păstrează structura și componentele tuturor paginilor; schimbă exclusiv
+   prezentarea vizuală pentru continuitate cu homepage-ul luxury. */
+body:not(.home-luxury){
+  color:#ddd8cf;
+  background:#050607;
+  background-image:none;
+}
+body:not(.home-luxury) h1,
+body:not(.home-luxury) h2,
+body:not(.home-luxury) h3,
+body:not(.home-luxury) h4{color:#f0bd5a}
+body:not(.home-luxury) a{color:#e2a844}
+body:not(.home-luxury) .muted,
+body:not(.home-luxury) .lead{color:#aaa69f}
+body:not(.home-luxury) ::selection{background:#d69a2d;color:#080706}
+
+body:not(.home-luxury) .header{
+  background:rgba(2,3,3,.97);
+  border-bottom-color:rgba(214,154,45,.22);
+  box-shadow:0 10px 30px rgba(0,0,0,.22);
+}
+body:not(.home-luxury) .header.is-scrolled{background:rgba(2,3,3,.99);border-bottom-color:rgba(214,154,45,.35)}
+body:not(.home-luxury) .brand-name{color:#f0bd5a}
+body:not(.home-luxury) .brand-sub{color:#d69a2d}
+body:not(.home-luxury) .header .brand svg{filter:sepia(1) saturate(2.2) hue-rotate(355deg) brightness(1.22)}
+body:not(.home-luxury) .nav a{color:#eee9df}
+body:not(.home-luxury) .nav a:hover{color:#f0bd5a;background:rgba(214,154,45,.08)}
+body:not(.home-luxury) .nav a[aria-current=page]{color:#f0bd5a}
+body:not(.home-luxury) .nav a[aria-current=page]::after{background:#d69a2d}
+body:not(.home-luxury) .header-cta,
+body:not(.home-luxury) .btn--primary{
+  color:#090806;background:linear-gradient(135deg,#c98415,#f0bd59 54%,#d79825);
+  border-color:#e1a643;box-shadow:0 8px 24px rgba(214,154,45,.14);
+}
+body:not(.home-luxury) .btn--olive{color:#090806;background:#d69a2d}
+body:not(.home-luxury) .btn--ghost{color:#f0bd5a;border-color:rgba(214,154,45,.72)}
+body:not(.home-luxury) .btn--ghost:hover{color:#090806;background:#f0bd5a;border-color:#f0bd5a}
+
+body:not(.home-luxury) .page-head{
+  background:radial-gradient(circle at 20% 0,rgba(214,154,45,.09),transparent 34%),#080a0b;
+  border-bottom:1px solid rgba(214,154,45,.2);
+}
+body:not(.home-luxury) .breadcrumb{color:#96928b}
+body:not(.home-luxury) .breadcrumb a{color:#d6a64d}
+body:not(.home-luxury) .breadcrumb li::after{color:#6f5a32}
+body:not(.home-luxury) .eyebrow{color:#d69a2d}
+body:not(.home-luxury) .eyebrow::before{background:#d69a2d}
+body:not(.home-luxury) .section{background:#050607}
+body:not(.home-luxury) .section--cream{
+  background:radial-gradient(circle at 50% -20%,rgba(214,154,45,.05),transparent 42%),#090b0c;
+}
+body:not(.home-luxury) .section--olive{background:#090b0c;color:#ddd8cf}
+body:not(.home-luxury) .section--olive h2,
+body:not(.home-luxury) .section--olive h3{color:#f0bd5a}
+body:not(.home-luxury) .section--olive p,
+body:not(.home-luxury) .section--olive .lead{color:#aaa69f}
+
+body:not(.home-luxury) .card,
+body:not(.home-luxury) .product-card,
+body:not(.home-luxury) .contact-card,
+body:not(.home-luxury) .address-card,
+body:not(.home-luxury) .form-card,
+body:not(.home-luxury) .legal-card,
+body:not(.home-luxury) .account-card{
+  color:#ddd8cf;background:linear-gradient(160deg,#141718,#080a0b 78%);
+  border-color:rgba(214,154,45,.35);box-shadow:0 16px 34px rgba(0,0,0,.22);
+}
+body:not(.home-luxury) .card:hover,
+body:not(.home-luxury) .product-card:hover,
+body:not(.home-luxury) .contact-card:hover{border-color:#d69a2d}
+body:not(.home-luxury) .card p,
+body:not(.home-luxury) .product-card p,
+body:not(.home-luxury) .contact-card p{color:#aaa69f}
+body:not(.home-luxury) .product-card__price,
+body:not(.home-luxury) .price{color:#f0bd5a}
+body:not(.home-luxury) .menu-tabs{
+  background:#0c0e0f;border-color:rgba(214,154,45,.32);box-shadow:0 10px 30px rgba(0,0,0,.25);
+}
+body:not(.home-luxury) .menu-tab{color:#d6d1c8}
+body:not(.home-luxury) .menu-tab:hover{background:rgba(214,154,45,.08);color:#f0bd5a}
+body:not(.home-luxury) .menu-tab.is-active{background:#d69a2d;color:#090806}
+body:not(.home-luxury) .chip{color:#d8d3ca;background:#101213;border-color:rgba(214,154,45,.3)}
+body:not(.home-luxury) .chip:hover{color:#090806;background:#f0bd5a}
+
+body:not(.home-luxury) .split-frame,
+body:not(.home-luxury) .gallery-item{
+  background:#0d0f10;border-color:rgba(214,154,45,.34);box-shadow:0 15px 32px rgba(0,0,0,.25);
+}
+body:not(.home-luxury) .gallery-item figcaption{color:#d8d3ca;background:#0d0f10}
+body:not(.home-luxury) .notice{color:#d4d0c8;background:#101213;border-color:#292b2c;border-left-color:#d69a2d}
+body:not(.home-luxury) .notice--gold{color:#e2d4b7;background:#17130d;border-color:#493719;border-left-color:#d69a2d}
+body:not(.home-luxury) .cta-band{background:linear-gradient(125deg,#0e1011,#17130d);border:1px solid rgba(214,154,45,.35)}
+body:not(.home-luxury) .cta-band h2,
+body:not(.home-luxury) .cta-band h3{color:#f0bd5a}
+body:not(.home-luxury) .cta-band p{color:#aaa69f}
+body:not(.home-luxury) input,
+body:not(.home-luxury) select,
+body:not(.home-luxury) textarea{
+  color:#eee9df;background:#090b0c;border-color:rgba(214,154,45,.34);
+}
+body:not(.home-luxury) input::placeholder,
+body:not(.home-luxury) textarea::placeholder{color:#77736d}
+
+body:not(.home-luxury) .cookie{
+  color:#ddd8cf;background:#0d0f10;border-color:rgba(214,154,45,.46);
+  box-shadow:0 22px 60px rgba(0,0,0,.55);
+}
+body:not(.home-luxury) .cookie h2{color:#f0bd5a}
+body:not(.home-luxury) .cookie-opt{background:#090b0c;border-color:#2b2d2e}
+body:not(.home-luxury) .footer{
+  color:rgba(245,241,233,.75);background:#020303;background-image:none;
+  border-top:1px solid rgba(214,154,45,.32);
+}
+body:not(.home-luxury) .footer-grid{border-bottom-color:rgba(214,154,45,.22)}
+body:not(.home-luxury) .footer h4,
+body:not(.home-luxury) .footer-brand .brand-name{color:#f0bd5a}
+body:not(.home-luxury) .footer-brand .brand-sub{color:#d69a2d}
+body:not(.home-luxury) .footer-social a{background:#101213;border-color:rgba(214,154,45,.3)}
+body:not(.home-luxury) .footer-social a:hover{color:#090806;background:#d69a2d}
+body:not(.home-luxury) .anpc-plate{color:#19140c;background:#f7f0e4;border-color:#d6a64d}
+body:not(.home-luxury) .anpc-plate:hover{color:#19140c}
+body:not(.home-luxury) .anpc-plate strong{color:#9b5e0c}
+body:not(.home-luxury) .to-top{color:#090806;background:#f0bd5a;border-color:#d69a2d}
+
+@media(max-width:1000px){
+  body:not(.home-luxury) .nav{background:#080a0b;border-top-color:rgba(214,154,45,.3)}
+  body:not(.home-luxury) .nav a{border-bottom-color:rgba(214,154,45,.18)}
+  body:not(.home-luxury) .nav-toggle{color:#f0bd5a;background:transparent;border:1px solid rgba(214,154,45,.5)}
+}
