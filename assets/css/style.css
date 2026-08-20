@@ -1658,3 +1658,100 @@ body.cart-open .olizan-instalare{display:none}
   .menu-page .prod-buy{align-items:flex-end}
   .menu-page .btn--add{padding:.38rem .52rem}
 }
+
+/* 23 — Champagne charcoal ================================================
+   Aurul saturat și suprafețele WhatsApp verzi sunt înlocuite cu accente
+   champagne/bronze. Verdele rămâne doar în simbolul WhatsApp, ca indiciu
+   funcțional, nu ca element dominant al identității vizuale. */
+:root{
+  --lux-champagne:#d8c6a2;
+  --lux-bronze:#9d7a49;
+  --lux-ivory:#eee8dd;
+  --lux-muted:#aaa49a;
+  --lux-coal:#121516;
+  --lux-panel:#181b1c;
+}
+
+body:not(.home-luxury) .eyebrow,
+body:not(.home-luxury) .breadcrumb a,
+body:not(.home-luxury) .product-card__price,
+body:not(.home-luxury) .price,
+body:not(.home-luxury) .cta-band h2,
+body:not(.home-luxury) .cta-band h3,
+body:not(.home-luxury) .section--olive h2,
+body:not(.home-luxury) .section--olive h3,
+body:not(.home-luxury) .cookie h2,
+body:not(.home-luxury) .footer h4,
+body:not(.home-luxury) .footer-brand .brand-name{color:var(--lux-champagne)}
+
+body:not(.home-luxury) .footer a{color:rgba(238,232,221,.8)}
+body:not(.home-luxury) .footer a:hover{color:var(--lux-champagne)}
+body:not(.home-luxury) .footer-brand .brand-sub{color:var(--lux-bronze)}
+
+.btn--wa{
+  color:var(--lux-ivory)!important;
+  background:linear-gradient(135deg,#202425,#141718)!important;
+  border:1px solid rgba(216,198,162,.58)!important;
+  box-shadow:0 10px 26px rgba(0,0,0,.22)!important;
+}
+.btn--wa:hover{
+  color:#151719!important;background:var(--lux-champagne)!important;
+  border-color:var(--lux-champagne)!important;
+}
+.btn--wa svg{color:#78b893}
+
+.float-wa{
+  color:#78b893;background:#15191a;
+  border:1px solid rgba(216,198,162,.62);
+  box-shadow:0 12px 30px rgba(0,0,0,.38);
+}
+.float-wa:hover{color:#8fc9a6;background:#202526;border-color:var(--lux-champagne)}
+.to-top,
+body:not(.home-luxury) .to-top{
+  color:var(--lux-champagne);background:#15191a;
+  border:1px solid rgba(216,198,162,.62);
+}
+.to-top:hover,
+body:not(.home-luxury) .to-top:hover{color:#151719;background:var(--lux-champagne)}
+
+.olizan-instalare{border-color:rgba(216,198,162,.46)}
+.olizan-instalare .olizan-instalare-cta{
+  color:#17191a;background:linear-gradient(135deg,#bda77d,#e1d2b4);
+}
+.olizan-instalare .olizan-instalare-cta:hover{background:var(--lux-ivory)}
+.olizan-instalare .olizan-instalare-x:hover{color:#17191a;background:var(--lux-champagne)}
+
+body:not(.home-luxury) .anpc-plate{
+  min-height:64px;color:#2c3034;background:#f4f2ed;
+  border-color:#c9c1b2;box-shadow:0 8px 20px rgba(0,0,0,.16);
+}
+body:not(.home-luxury) .anpc-plate strong{color:#2b3e83}
+body:not(.home-luxury) .anpc-plate:nth-child(2){
+  width:268px;min-height:66px;padding:0;
+  background:#fff url("../img/anpc-sal.svg") center/248px auto no-repeat;
+  border-color:#aeb4c8;font-size:0;color:transparent;
+}
+body:not(.home-luxury) .anpc-plate:nth-child(2) strong{display:none}
+body:not(.home-luxury) .anpc-plate:nth-child(2):hover{background-color:#fff;border-color:#2b3e83}
+
+.menu-page .menu-tab[aria-selected=true],
+.menu-page .btn--add{
+  color:#17191a;background:linear-gradient(135deg,#b79b6c,#dfcfad);
+  border-color:#cbb78f;
+}
+.menu-page .menu-tab:hover,
+.menu-page .menu-panel-head h3,
+.menu-page .menu-group-title,
+.menu-page .prod-price,
+.menu-page .prod-size-pret,
+.menu-page .prod-size input:checked~.prod-size-txt{color:var(--lux-champagne)}
+.menu-page .prod-gram{color:#b79b6c}
+.menu-page .prod-tag{color:#17191a;background:#c8b58f}
+.menu-page .btn--add:hover{color:#17191a;background:var(--lux-ivory)}
+.menu-page .prod:hover{border-color:rgba(216,198,162,.6)}
+.menu-page .prod-size:hover,
+.menu-page .prod-size:has(input:checked){border-color:var(--lux-bronze)}
+
+@media(max-width:560px){
+  body:not(.home-luxury) .anpc-plate:nth-child(2){width:100%;background-size:min(248px,calc(100% - 24px)) auto}
+}
