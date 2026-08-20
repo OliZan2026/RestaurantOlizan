@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 100" role="img" aria-labelledby="title desc">
+  <title id="title">ANPC – SAL</title>
+  <desc id="desc">Autoritatea Națională pentru Protecția Consumatorilor – Soluționarea Alternativă a Litigiilor</desc>
+  <rect x="1" y="1" width="418" height="98" rx="12" fill="#fff" stroke="#2b3e83" stroke-width="2"/>
+  <g transform="translate(18 17)">
+    <path d="M33 0 62 10v22c0 18-12 29-29 36C16 61 4 50 4 32V10Z" fill="#f4f5f8" stroke="#2b3e83" stroke-width="2"/>
+    <path d="M10 14h15v39c-6-5-11-12-15-21Z" fill="#2b3e83"/>
+    <path d="M25 9h16v51c-3 2-5 3-8 4-3-1-6-3-8-4Z" fill="#fccc0b"/>
+    <path d="M41 14h15v18c-3 9-8 16-15 21Z" fill="#d92827"/>
+    <path d="M20 28h26M33 19v31M16 37h34" fill="none" stroke="#fff" stroke-width="2" opacity=".92"/>
+  </g>
+  <g font-family="Arial, Helvetica, sans-serif">
+    <text x="96" y="38" fill="#2b3e83" font-size="28" font-weight="700" letter-spacing="2">ANPC</text>
+    <text x="193" y="38" fill="#40434a" font-size="19" font-weight="700">– SAL</text>
+    <text x="96" y="61" fill="#333941" font-size="12.5" font-weight="600">SOLUȚIONAREA ALTERNATIVĂ A LITIGIILOR</text>
+    <text x="96" y="80" fill="#676c74" font-size="10.5">Autoritatea Națională pentru Protecția Consumatorilor</text>
+  </g>
+</svg>
