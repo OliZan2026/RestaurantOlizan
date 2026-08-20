@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600" role="img" aria-label="Ilustrație: desert servit pe farfurie, cu fructe de pădure">
+  <circle cx="300" cy="300" r="240" fill="#f4ecdc"/>
+  <ellipse cx="300" cy="428" rx="200" ry="46" fill="#faf5e8"/>
+  <ellipse cx="300" cy="424" rx="200" ry="46" fill="none" stroke="#e0d2b6" stroke-width="6"/>
+  <ellipse cx="300" cy="418" rx="140" ry="30" fill="#efe3c8"/>
+  <path d="M196 400V254c0-14 10-22 26-22h156c16 0 26 8 26 22v146z" fill="#e8c99a"/>
+  <path d="M196 340h208v30H196z" fill="#8a5a34"/>
+  <path d="M196 288h208v26H196z" fill="#f2e0b8"/>
+  <path d="M196 254c0-14 10-22 26-22h156c16 0 26 8 26 22v14H196z" fill="#f7ecd4"/>
+  <path d="M212 236c22-16 46 10 66-6s42 12 62-4 34 14 52 4v18H212z" fill="#faf5e8"/>
+  <g fill="#8f2f46"><circle cx="252" cy="216" r="20"/><circle cx="300" cy="204" r="17"/><circle cx="346" cy="218" r="15"/></g>
+  <g fill="#a8402c" opacity=".55"><circle cx="246" cy="210" r="5"/><circle cx="296" cy="199" r="4"/></g>
+  <path d="M320 190c14-18 34-16 40-4-8 16-30 20-40 4z" fill="#5b7a4b"/>
+  <g fill="none" stroke="#d9a441" stroke-width="6" stroke-linecap="round">
+    <path d="M150 356c20-14 30 4 44-8"/><path d="M406 366c20-14 32 4 46-8"/>
+  </g>
+</svg>

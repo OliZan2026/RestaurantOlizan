@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600" role="img" aria-label="Ilustrație: limonadă rece cu lămâie și mentă">
+  <circle cx="300" cy="300" r="240" fill="#f4ecdc"/>
+  <path d="M330 116c46 0 62 26 40 44-16 12-42 10-52 2" fill="none" stroke="#c9b48a" stroke-width="14" stroke-linecap="round"/>
+  <path d="M212 150h176l-22 316c-2 20-16 30-66 30s-64-10-66-30z" fill="#eef4e6"/>
+  <path d="M220 226h160l-18 240c-2 18-14 26-62 26s-60-8-62-26z" fill="#e9df6b"/>
+  <path d="M220 226h160l-4 52H224z" fill="#f4ee9c"/>
+  <g fill="#faf5e8" opacity=".85"><circle cx="256" cy="330" r="11"/><circle cx="330" cy="366" r="9"/><circle cx="288" cy="420" r="10"/><circle cx="344" cy="300" r="7"/><circle cx="252" cy="440" r="7"/></g>
+  <g><circle cx="352" cy="212" r="42" fill="#f2d94a"/><path d="M352 170a42 42 0 0 1 0 84z" fill="#f7e77c"/><g stroke="#e0c22c" stroke-width="4"><path d="M352 172v80"/><path d="M312 212h80"/><path d="M324 184l56 56"/><path d="M380 184l-56 56"/></g></g>
+  <path d="M252 138c-22-30-4-58 22-64-6 34 6 48 4 64z" fill="#5b7a4b"/>
+  <path d="M282 138c26-24 20-56-2-66-2 34-16 44-14 62z" fill="#7d9a63"/>
+  <path d="M208 150h184c8 0 8 16 0 16H208c-8 0-8-16 0-16z" fill="#e0d2b6"/>
+  <path d="M330 116c14-8 30 0 30 12" fill="none" stroke="#a8402c" stroke-width="14" stroke-linecap="round"/>
+</svg>

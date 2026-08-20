@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600" role="img" aria-label="Ilustrație: sosuri servite în boluri mici">
+  <circle cx="300" cy="300" r="240" fill="#f4ecdc"/>
+  <ellipse cx="300" cy="392" rx="212" ry="58" fill="#e8dcc3"/>
+  <g>
+    <path d="M108 300h136c-4 62-30 96-68 96s-64-34-68-96z" fill="#faf5e8"/>
+    <ellipse cx="176" cy="300" rx="68" ry="26" fill="#faf5e8" stroke="#e0d2b6" stroke-width="6"/>
+    <ellipse cx="176" cy="301" rx="54" ry="18" fill="#cf3f2a" stroke="#a83220" stroke-width="4"/>
+    <ellipse cx="158" cy="295" rx="14" ry="5" fill="#ffffff" opacity=".26"/>
+  </g>
+  <g>
+    <path d="M356 300h136c-4 62-30 96-68 96s-64-34-68-96z" fill="#faf5e8"/>
+    <ellipse cx="424" cy="300" rx="68" ry="26" fill="#faf5e8" stroke="#e0d2b6" stroke-width="6"/>
+    <ellipse cx="424" cy="301" rx="54" ry="18" fill="#6d3a1f" stroke="#52290f" stroke-width="4"/>
+    <ellipse cx="406" cy="295" rx="14" ry="5" fill="#ffffff" opacity=".2"/>
+  </g>
+  <g>
+    <path d="M228 214h144c-5 68-32 106-72 106s-67-38-72-106z" fill="#ffffff"/>
+    <ellipse cx="300" cy="214" rx="72" ry="28" fill="#ffffff" stroke="#e0d2b6" stroke-width="6"/>
+    <ellipse cx="300" cy="215" rx="57" ry="19" fill="#f7f2e6" stroke="#ddd2ba" stroke-width="4"/>
+    <g fill="#6b8a52"><ellipse cx="282" cy="212" rx="7" ry="3"/><ellipse cx="316" cy="219" rx="6" ry="3"/><ellipse cx="300" cy="208" rx="5" ry="2.5"/></g>
+  </g>
+  <g fill="#e8dcc3" stroke="#d8c7a4" stroke-width="4">
+    <path d="M470 176c14 0 22 12 22 26s-8 26-22 26-22-12-22-26 8-26 22-26z"/>
+  </g>
+  <path d="M470 176c-8 8-8 44 0 52" fill="none" stroke="#d8c7a4" stroke-width="4"/>
+</svg>

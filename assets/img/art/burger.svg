@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600" role="img" aria-label="Ilustrație: burger cu cheddar, bacon și salată">
+  <circle cx="300" cy="300" r="240" fill="#f4ecdc"/>
+  <ellipse cx="300" cy="470" rx="185" ry="26" fill="#e0d2b6"/>
+  <path d="M138 200c0-72 72-118 162-118s162 46 162 118z" fill="#e2a75a"/>
+  <path d="M138 200c0-72 72-118 162-118s162 46 162 118z" fill="none" stroke="#c1832f" stroke-width="5"/>
+  <g fill="#faf5e8"><circle cx="240" cy="152" r="7"/><circle cx="300" cy="128" r="7"/><circle cx="360" cy="152" r="7"/><circle cx="205" cy="182" r="6"/><circle cx="395" cy="182" r="6"/><circle cx="270" cy="176" r="6"/><circle cx="332" cy="176" r="6"/></g>
+  <path d="M132 202h336a14 14 0 0 1 0 28H132a14 14 0 0 1 0-28z" fill="#f0d68c"/>
+  <path d="M136 232c26 22 52-8 78 12s52-6 78 14 52-10 78 10 44-2 96-24v22H136z" fill="#6d9349"/>
+  <path d="M146 268h308c10 0 10 26 0 26H146c-10 0-10-26 0-26z" fill="#c94a34"/>
+  <path d="M150 292h300l-16 34H166z" fill="#f2c94c"/>
+  <path d="M154 320h292c16 0 24 12 24 26 0 16-12 26-30 26H160c-18 0-30-10-30-26 0-14 8-26 24-26z" fill="#6b3f24"/>
+  <path d="M170 366h260c8 12 6 22-8 22H178c-14 0-16-10-8-22z" fill="#a8402c"/>
+  <path d="M140 386h320c26 0 34 22 34 40 0 24-18 42-46 42H152c-28 0-46-18-46-42 0-18 8-40 34-40z" fill="#d99a4c"/>
+  <path d="M140 386h320c26 0 34 22 34 40H106c0-18 8-40 34-40z" fill="#e2a75a"/>
+</svg>

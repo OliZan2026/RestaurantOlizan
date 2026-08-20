@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600" role="img" aria-label="Ilustrație: ciorbă caldă servită în bol">
+  <circle cx="300" cy="300" r="240" fill="#f4ecdc"/>
+  <g stroke="#c9b48a" stroke-width="7" fill="none" stroke-linecap="round" opacity=".9">
+    <path d="M258 168c-18-22 14-34-4-56"/><path d="M300 156c-18-22 14-34-4-56"/><path d="M342 168c-18-22 14-34-4-56"/>
+  </g>
+  <ellipse cx="300" cy="330" rx="196" ry="52" fill="#e8dcc3"/>
+  <path d="M104 330a196 196 0 0 0 392 0z" fill="#faf5e8"/>
+  <path d="M104 330a196 196 0 0 0 392 0z" fill="none" stroke="#e0d2b6" stroke-width="6"/>
+  <ellipse cx="300" cy="330" rx="168" ry="42" fill="#d98b34"/>
+  <ellipse cx="300" cy="330" rx="168" ry="42" fill="none" stroke="#c1782a" stroke-width="4"/>
+  <g fill="#a8402c"><ellipse cx="236" cy="322" rx="18" ry="9"/><ellipse cx="352" cy="336" rx="16" ry="8"/><ellipse cx="300" cy="314" rx="15" ry="7"/></g>
+  <g fill="#f2d88d"><ellipse cx="272" cy="342" rx="14" ry="7"/><ellipse cx="386" cy="320" rx="12" ry="6"/><ellipse cx="212" cy="340" rx="11" ry="6"/></g>
+  <g fill="#5b7a4b"><ellipse cx="326" cy="322" rx="12" ry="6"/><ellipse cx="248" cy="348" rx="10" ry="5"/><ellipse cx="360" cy="316" rx="9" ry="5"/></g>
+  <path d="M462 300c34 0 46 26 24 44-12 10-30 12-40 8" fill="none" stroke="#e8dcc3" stroke-width="18" stroke-linecap="round"/>
+  <path d="M148 452h304c-8 22-26 34-56 34H204c-30 0-48-12-56-34z" fill="#e0d2b6"/>
+</svg>

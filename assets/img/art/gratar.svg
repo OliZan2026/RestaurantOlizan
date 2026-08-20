@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600" role="img" aria-label="Ilustrație: preparate la grătar cu legume">
+  <circle cx="300" cy="300" r="240" fill="#f4ecdc"/>
+  <g stroke="#e0d2b6" stroke-width="8" fill="none" stroke-linecap="round" opacity=".8">
+    <path d="M232 150c-16-20 12-30-4-50"/><path d="M300 138c-16-20 12-30-4-50"/><path d="M368 150c-16-20 12-30-4-50"/>
+  </g>
+  <ellipse cx="300" cy="352" rx="212" ry="128" fill="#4c4a44"/>
+  <ellipse cx="300" cy="344" rx="212" ry="128" fill="#5d5b53"/>
+  <ellipse cx="300" cy="344" rx="212" ry="128" fill="none" stroke="#3c3a35" stroke-width="6"/>
+  <g stroke="#46443f" stroke-width="7" opacity=".8">
+    <path d="M110 314h380"/><path d="M104 344h392"/><path d="M110 374h380"/><path d="M128 404h344"/><path d="M128 284h344"/>
+  </g>
+  <g>
+    <path d="M180 300c0-24 26-40 60-40s60 16 60 40-26 42-60 42-60-18-60-42z" fill="#8a4a2c"/>
+    <path d="M180 300c0-24 26-40 60-40s60 16 60 40" fill="#a2593a"/>
+    <g stroke="#5e2f1b" stroke-width="6" stroke-linecap="round"><path d="M198 292h84"/><path d="M194 312h92"/></g>
+  </g>
+  <g>
+    <path d="M318 360c0-22 24-36 54-36s54 14 54 36-24 38-54 38-54-16-54-38z" fill="#c98a4a"/>
+    <path d="M318 360c0-22 24-36 54-36s54 14 54 36" fill="#dda05e"/>
+    <g stroke="#8a5a2c" stroke-width="6" stroke-linecap="round"><path d="M336 354h72"/><path d="M334 372h78"/></g>
+  </g>
+  <g>
+    <ellipse cx="182" cy="386" rx="42" ry="22" transform="rotate(-12 182 386)" fill="#5b7a4b"/>
+    <ellipse cx="182" cy="382" rx="42" ry="22" transform="rotate(-12 182 382)" fill="#6d9349"/>
+  </g>
+  <g>
+    <ellipse cx="418" cy="266" rx="38" ry="20" transform="rotate(10 418 266)" fill="#a8402c"/>
+    <ellipse cx="418" cy="262" rx="38" ry="20" transform="rotate(10 418 262)" fill="#c94a34"/>
+  </g>
+  <path d="M108 424c26 22 76 34 192 34s166-12 192-34" fill="none" stroke="#3c3a35" stroke-width="10" stroke-linecap="round"/>
+</svg>

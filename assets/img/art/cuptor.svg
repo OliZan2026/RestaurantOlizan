@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" role="img" aria-label="Ilustrație: cuptor de pizza pe vatră, cu foc și paletă">
+  <rect width="800" height="600" fill="#f4ecdc"/>
+  <g fill="#e8dcc3" opacity=".7">
+    <rect x="0" y="470" width="800" height="130"/>
+  </g>
+  <g fill="#8a5a34"><rect x="150" y="470" width="500" height="26" rx="6"/></g>
+  <path d="M170 470V300a230 230 0 0 1 460 0v170z" fill="#c9b48a"/>
+  <path d="M170 470V300a230 230 0 0 1 460 0v170z" fill="none" stroke="#a89469" stroke-width="6"/>
+  <g stroke="#b5a074" stroke-width="4" opacity=".7">
+    <path d="M170 350h460"/><path d="M170 400h460"/><path d="M170 440h460"/>
+    <path d="M240 350v50"/><path d="M330 350v50"/><path d="M420 350v50"/><path d="M510 350v50"/>
+    <path d="M285 400v40"/><path d="M375 400v40"/><path d="M465 400v40"/><path d="M555 400v40"/>
+  </g>
+  <path d="M250 470V344a150 150 0 0 1 300 0v126z" fill="#8a3323"/>
+  <path d="M270 470V346a130 130 0 0 1 260 0v124z" fill="#2a1d16"/>
+  <g>
+    <path d="M400 452c-46 0-78-26-78-58 0-28 22-42 30-64 10 20 22 22 30 38 8-24 4-42-2-58 34 14 66 48 66 84 0 32-32 58-46 58z" fill="#e2a75a"/>
+    <path d="M400 452c-26 0-44-16-44-36 0-20 16-28 22-46 12 16 18 22 24 34 6-14 6-24 4-34 18 12 32 30 32 48 0 20-22 34-38 34z" fill="#d9a441"/>
+    <path d="M400 452c-14 0-24-10-24-22 0-14 12-20 16-32 10 12 14 16 18 24 4-8 4-14 2-20 10 8 16 18 16 28 0 12-14 22-28 22z" fill="#f2d88d"/>
+  </g>
+  <g>
+    <rect x="596" y="228" width="14" height="236" rx="7" fill="#8a5a34" transform="rotate(12 603 346)"/>
+    <ellipse cx="648" cy="212" rx="52" ry="34" fill="#a8763f" transform="rotate(12 648 212)"/>
+  </g>
+  <g fill="none" stroke="#c9b48a" stroke-width="8" stroke-linecap="round" opacity=".8">
+    <path d="M400 100c-22-26 16-38-2-62"/><path d="M330 130c-18-22 14-32-2-52"/><path d="M470 130c-18-22 14-32-2-52"/>
+  </g>
+</svg>

@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" role="img" aria-label="Ilustrație: interior de restaurant, mese pregătite">
+  <rect width="800" height="600" fill="#f7efdd"/>
+  <rect x="0" y="0" width="800" height="330" fill="#efe3c8"/>
+  <g fill="#e2d3b2"><rect x="0" y="326" width="800" height="14"/></g>
+  <g>
+    <rect x="70" y="90" width="180" height="150" rx="12" fill="#faf5e8" stroke="#c9b48a" stroke-width="6"/>
+    <path d="M76 96h168v138H76z" fill="#eaf0e4"/>
+    <path d="M160 90v150M70 165h180" stroke="#c9b48a" stroke-width="6"/>
+  </g>
+  <g>
+    <rect x="550" y="90" width="180" height="150" rx="12" fill="#faf5e8" stroke="#c9b48a" stroke-width="6"/>
+    <path d="M556 96h168v138H556z" fill="#eaf0e4"/>
+    <path d="M640 90v150M550 165h180" stroke="#c9b48a" stroke-width="6"/>
+  </g>
+  <g>
+    <path d="M400 60v46" stroke="#8a5a34" stroke-width="6" stroke-linecap="round"/>
+    <path d="M348 150c0-30 24-46 52-46s52 16 52 46z" fill="#a8402c"/>
+    <ellipse cx="400" cy="150" rx="52" ry="10" fill="#d9a441"/>
+  </g>
+  <g>
+    <path d="M310 300h180v14H310z" fill="#8a5a34"/>
+    <rect x="380" y="314" width="40" height="120" rx="8" fill="#8a5a34"/>
+    <path d="M340 434h120c14 0 14 16 0 16H340c-14 0-14-16 0-16z" fill="#734a2b"/>
+    <ellipse cx="400" cy="300" rx="120" ry="26" fill="#faf5e8"/>
+    <ellipse cx="400" cy="298" rx="120" ry="26" fill="none" stroke="#e0d2b6" stroke-width="5"/>
+    <ellipse cx="352" cy="294" rx="34" ry="12" fill="#f4ecdc" stroke="#e0d2b6" stroke-width="3"/>
+    <ellipse cx="448" cy="294" rx="34" ry="12" fill="#f4ecdc" stroke="#e0d2b6" stroke-width="3"/>
+    <g><rect x="392" y="252" width="16" height="42" rx="5" fill="#eaf0e4" stroke="#c9b48a" stroke-width="3"/><path d="M392 268h16" stroke="#c9b48a" stroke-width="3"/></g>
+    <g fill="#5b7a4b"><circle cx="400" cy="246" r="9"/><circle cx="388" cy="238" r="7"/><circle cx="412" cy="238" r="7"/></g>
+  </g>
+  <g fill="#2f4132">
+    <path d="M180 320h90v18h-90z"/><rect x="186" y="338" width="12" height="96" rx="5"/><rect x="252" y="338" width="12" height="96" rx="5"/>
+    <path d="M182 236h86c8 0 12 6 12 14v74h-110v-74c0-8 4-14 12-14z"/>
+  </g>
+  <g fill="#2f4132">
+    <path d="M530 320h90v18h-90z"/><rect x="536" y="338" width="12" height="96" rx="5"/><rect x="602" y="338" width="12" height="96" rx="5"/>
+    <path d="M532 236h86c8 0 12 6 12 14v74H520v-74c0-8 4-14 12-14z"/>
+  </g>
+  <g fill="#e8dcc3"><rect x="0" y="470" width="800" height="130"/></g>
+  <g stroke="#dccfae" stroke-width="4" opacity=".8">
+    <path d="M0 510h800"/><path d="M0 552h800"/><path d="M120 470v130"/><path d="M340 470v130"/><path d="M560 470v130"/><path d="M700 470v130"/>
+  </g>
+</svg>

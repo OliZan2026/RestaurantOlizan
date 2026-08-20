@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" role="img" aria-label="Ilustrație: terasă în aer liber, cu umbrelă și mese">
+  <rect width="800" height="600" fill="#eaf0e4"/>
+  <circle cx="660" cy="110" r="56" fill="#f2d88d" opacity=".85"/>
+  <g fill="#5b7a4b" opacity=".35">
+    <ellipse cx="90" cy="300" rx="90" ry="120"/>
+    <ellipse cx="730" cy="330" rx="80" ry="110"/>
+  </g>
+  <g>
+    <rect x="392" y="130" width="14" height="300" rx="7" fill="#8a5a34"/>
+    <path d="M180 200h438L399 92z" fill="#a8402c"/>
+    <path d="M180 200h438L399 92z" fill="none" stroke="#8a3323" stroke-width="5"/>
+    <g fill="#faf5e8" opacity=".85">
+      <path d="M253 200 328 92h34l-40 108z"/>
+      <path d="M436 200 400 92h34l74 108z"/>
+    </g>
+    <path d="M176 200h446c8 0 8 14 0 14H176c-8 0-8-14 0-14z" fill="#8a3323"/>
+    <circle cx="399" cy="86" r="12" fill="#d9a441"/>
+  </g>
+  <g>
+    <ellipse cx="399" cy="430" rx="150" ry="30" fill="#faf5e8"/>
+    <ellipse cx="399" cy="428" rx="150" ry="30" fill="none" stroke="#e0d2b6" stroke-width="5"/>
+    <path d="M358 452h84c8 0 8 12 0 12h-84c-8 0-8-12 0-12z" fill="#734a2b"/>
+    <ellipse cx="340" cy="424" rx="38" ry="13" fill="#f4ecdc" stroke="#e0d2b6" stroke-width="3"/>
+    <ellipse cx="460" cy="424" rx="38" ry="13" fill="#f4ecdc" stroke="#e0d2b6" stroke-width="3"/>
+    <g><path d="M300 384h20l-4 34h-12z" fill="#c9dcbe"/><ellipse cx="310" cy="384" rx="12" ry="5" fill="#eaf0e4"/></g>
+    <g><path d="M486 384h20l-4 34h-12z" fill="#c9dcbe"/><ellipse cx="496" cy="384" rx="12" ry="5" fill="#eaf0e4"/></g>
+    <g><rect x="386" y="372" width="26" height="48" rx="6" fill="#e8dcc3" stroke="#c9b48a" stroke-width="3"/><g fill="#a8402c"><circle cx="392" cy="366" r="8"/><circle cx="406" cy="362" r="7"/></g><g fill="#5b7a4b"><circle cx="399" cy="356" r="7"/></g></g>
+  </g>
+  <g fill="#2f4132">
+    <path d="M140 400h100v16H140z"/><rect x="146" y="416" width="12" height="82" rx="5"/><rect x="222" y="416" width="12" height="82" rx="5"/>
+    <path d="M144 320h92c8 0 12 6 12 14v66H132v-66c0-8 4-14 12-14z"/>
+  </g>
+  <g fill="#2f4132">
+    <path d="M560 400h100v16H560z"/><rect x="566" y="416" width="12" height="82" rx="5"/><rect x="642" y="416" width="12" height="82" rx="5"/>
+    <path d="M564 320h92c8 0 12 6 12 14v66H552v-66c0-8 4-14 12-14z"/>
+  </g>
+  <rect x="0" y="498" width="800" height="102" fill="#dfd2b4"/>
+  <g stroke="#cfc0a0" stroke-width="4" opacity=".8"><path d="M0 540h800"/><path d="M0 578h800"/><path d="M160 498v102"/><path d="M400 498v102"/><path d="M640 498v102"/></g>
+  <g fill="none" stroke="#d9a441" stroke-width="4" opacity=".7"><path d="M40 240q60-30 120 0"/><path d="M640 250q60-30 120 0"/></g>
+</svg>
