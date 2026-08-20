@@ -1,0 +1,438 @@
+<!doctype html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Panou de administrare | OLIZAN</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#1d2a1f">
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/css/fonts.css">
+  <link rel="stylesheet" href="/assets/css/admin.css">
+  <link rel="stylesheet" href="/assets/css/admin-sala.css">
+  <link rel="stylesheet" href="/assets/css/admin-bord.css">
+</head>
+<body>
+
+  <header class="bara">
+    <div class="wrap bara-inner">
+      <p class="marca">OLIZAN<small>Panou de administrare</small></p>
+      <div class="bara-drept">
+        <span class="insigna-stare" id="insigna-stare" hidden></span>
+        <span id="admin-nume"></span>
+        <a href="/" target="_blank" rel="noopener">Vezi site-ul</a>
+        <button class="buton buton--mic buton--gol" type="button" id="admin-logout">Ieși</button>
+      </div>
+    </div>
+  </header>
+
+  <nav class="taburi" aria-label="Secțiunile panoului">
+    <div class="wrap" role="tablist" style="display:flex;flex-wrap:wrap;gap:.4rem">
+      <button class="tab" type="button" role="tab" data-tab="comenzi" aria-selected="true">Comenzi</button>
+      <button class="tab" type="button" role="tab" data-tab="bord" aria-selected="false">Comenzi live<span class="tab-insigna" id="tab-bord-insigna" hidden>0</span></button>
+      <button class="tab" type="button" role="tab" data-tab="stare" aria-selected="false">Stare comenzi</button>
+      <button class="tab" type="button" role="tab" data-tab="meniu" aria-selected="false">Meniu și prețuri</button>
+      <button class="tab" type="button" role="tab" data-tab="imagini" aria-selected="false">Imagini</button>
+      <button class="tab" type="button" role="tab" data-tab="sala" aria-selected="false">Închiriere sală</button>
+      <button class="tab" type="button" role="tab" data-tab="setari" aria-selected="false">Parolă</button>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- =========================== COMENZI ============================== -->
+    <section class="panou wrap" id="panou-comenzi" role="tabpanel">
+      <div class="panou-cap">
+        <div>
+          <h1>Comenzile primite</h1>
+          <p>Toate comenzile trimise din coșul site-ului, cele mai recente primele.</p>
+        </div>
+        <div class="butoane">
+          <div class="camp" style="margin:0">
+            <select id="filtru-status" aria-label="Filtrează comenzile după stare">
+              <option value="">Toate stările</option>
+              <option value="noua">Comenzi noi</option>
+              <option value="confirmata">Confirmate</option>
+              <option value="livrata">Livrate</option>
+              <option value="anulata">Anulate</option>
+            </select>
+          </div>
+          <button class="buton buton--gol" type="button" id="reincarca-comenzi">Reîncarcă</button>
+        </div>
+      </div>
+      <div id="lista-comenzi"><p class="gol">Se încarcă…</p></div>
+    </section>
+
+    <!-- ===================== TABLA COMENZILOR (LIVE) ===================== -->
+    <section class="panou wrap bord-panou" id="panou-bord" role="tabpanel" hidden>
+      <div class="bord-cap">
+        <div>
+          <h1 class="bord-titlu">Restaurant OliZan</h1>
+          <p class="bord-sub">Comenzile primite pe WhatsApp, în timp real. O comandă apare aici în clipa în care
+            clientul o trimite.</p>
+        </div>
+        <div class="butoane">
+          <button class="buton buton--gol" type="button" id="bord-sunet" aria-pressed="false">Pornește sunetul</button>
+          <button class="buton buton--gol" type="button" id="bord-istoric-buton">Istoric comenzi</button>
+          <button class="buton buton--gol" type="button" id="bord-reincarca">Reîncarcă</button>
+        </div>
+      </div>
+
+      <p class="bord-anunt" id="bord-anunt" role="status" aria-live="assertive" hidden></p>
+
+      <div class="bord" id="bord-tabla">
+        <section class="bord-coloana bord-coloana--noua" data-coloana="noua" aria-label="Comenzi noi">
+          <header class="bord-coloana-cap">
+            <h2>Comenzi noi</h2>
+            <span class="bord-numar-fise" data-numar="noua">0</span>
+          </header>
+          <div class="bord-lista" data-lista="noua"></div>
+        </section>
+        <section class="bord-coloana" data-coloana="pregatire" aria-label="Comenzi în pregătire">
+          <header class="bord-coloana-cap">
+            <h2>În pregătire</h2>
+            <span class="bord-numar-fise" data-numar="pregatire">0</span>
+          </header>
+          <div class="bord-lista" data-lista="pregatire"></div>
+        </section>
+        <section class="bord-coloana" data-coloana="gata" aria-label="Comenzi gata de livrare sau ridicare">
+          <header class="bord-coloana-cap">
+            <h2>Gata de livrare/ridicare</h2>
+            <span class="bord-numar-fise" data-numar="gata">0</span>
+          </header>
+          <div class="bord-lista" data-lista="gata"></div>
+        </section>
+        <section class="bord-coloana bord-coloana--gata" data-coloana="finalizata" aria-label="Comenzi finalizate">
+          <header class="bord-coloana-cap">
+            <h2>Finalizate</h2>
+            <span class="bord-numar-fise" data-numar="finalizata">0</span>
+          </header>
+          <div class="bord-lista" data-lista="finalizata"></div>
+        </section>
+      </div>
+
+      <div class="bord-istoric" id="bord-istoric" hidden>
+        <div class="bord-istoric-cap">
+          <div>
+            <h2>Istoricul comenzilor</h2>
+            <p class="bord-sub">Comenzile ajunse la „Finalizate” se strâng aici. Ștergerea scoate comanda din istoric.</p>
+          </div>
+          <div class="camp" style="margin:0">
+            <label for="bord-istoric-zi">Ziua</label>
+            <select id="bord-istoric-zi"><option value="">Toate zilele</option></select>
+          </div>
+        </div>
+        <div class="bord-istoric-lista" id="bord-istoric-lista"><p class="gol">Se încarcă…</p></div>
+      </div>
+    </section>
+
+    <!-- ======================== STARE COMENZI =========================== -->
+    <section class="panou wrap" id="panou-stare" role="tabpanel" hidden>
+      <div class="panou-cap">
+        <div>
+          <h1>Preluarea comenzilor</h1>
+          <p>Alege starea site-ului. Modificarea se aplică imediat, la următoarea încărcare a paginilor.</p>
+        </div>
+        <button class="buton buton--gol" type="button" id="reincarca-stare">Reîncarcă</button>
+      </div>
+      <div class="stari" id="lista-stari"><p class="gol">Se încarcă…</p></div>
+      <p class="stare" id="stare-mesaj" role="status"></p>
+    </section>
+
+    <!-- ============================ MENIU =============================== -->
+    <section class="panou wrap" id="panou-meniu" role="tabpanel" hidden>
+      <div class="panou-cap">
+        <div>
+          <h1>Meniul restaurantului</h1>
+          <p>Modificările apar imediat pe site, la pagina de meniu și în coș.</p>
+        </div>
+        <div class="butoane">
+          <div class="camp" style="margin:0">
+            <select id="filtru-categorie" aria-label="Filtrează produsele după categorie"><option value="">Toate categoriile</option></select>
+          </div>
+          <button class="buton" type="button" id="produs-nou">Adaugă produs</button>
+        </div>
+      </div>
+
+      <div class="cutie" id="editor-produs" hidden style="margin-bottom:1.6rem">
+        <h3 id="editor-titlu">Produs nou</h3>
+        <p class="desc">Prețurile se scriu în lei, cu punct sau virgulă zecimală (ex.: 32.50).</p>
+        <form id="form-produs" novalidate>
+          <input type="hidden" id="produs-id">
+          <div class="camp-linie">
+            <div class="camp">
+              <label for="produs-nume">Denumire</label>
+              <input id="produs-nume" type="text" required>
+            </div>
+            <div class="camp">
+              <label for="produs-categorie">Categorie</label>
+              <select id="produs-categorie"></select>
+            </div>
+          </div>
+          <div class="camp">
+            <label for="produs-ing">Ingrediente / descriere</label>
+            <textarea id="produs-ing"></textarea>
+          </div>
+          <div class="camp-linie">
+            <div class="camp">
+              <label for="produs-gramaj">Gramaj sau porție</label>
+              <input id="produs-gramaj" type="text" placeholder="ex.: 350 g">
+            </div>
+            <div class="camp">
+              <label for="produs-pret">Preț (lei)</label>
+              <input id="produs-pret" type="text" inputmode="decimal" required>
+            </div>
+            <div class="camp">
+              <label for="produs-pret-mare">Preț mărime family (lei)</label>
+              <input id="produs-pret-mare" type="text" inputmode="decimal">
+              <p class="camp-ajutor">Doar pentru produsele cu două mărimi.</p>
+            </div>
+          </div>
+          <label class="camp-bifa"><input type="checkbox" id="produs-cu-marimi"> Produs cu două mărimi (pizza 33 cm și 50 cm)</label>
+          <div class="camp-linie">
+            <div class="camp">
+              <label for="produs-grup">Grup în pagină</label>
+              <input id="produs-grup" type="text" placeholder="ex.: Pizza">
+              <p class="camp-ajutor">Produsele cu același grup apar împreună, sub același titlu.</p>
+            </div>
+            <div class="camp">
+              <label for="produs-prefix">Prefix la comandă</label>
+              <input id="produs-prefix" type="text" placeholder="ex.: Pizza ">
+            </div>
+          </div>
+          <label class="camp-bifa"><input type="checkbox" id="produs-activ" checked> Produs disponibil pe site</label>
+          <div class="butoane">
+            <button class="buton" type="submit">Salvează produsul</button>
+            <button class="buton buton--gol" type="button" id="renunta-produs">Renunță</button>
+          </div>
+          <p class="stare" id="produs-stare" role="status"></p>
+        </form>
+      </div>
+
+      <div class="tabel-zona">
+        <table>
+          <thead>
+            <tr>
+              <th>Produs</th><th>Categorie</th><th class="num">Preț</th><th class="num">Family</th><th>Acțiuni</th>
+            </tr>
+          </thead>
+          <tbody id="lista-produse"><tr><td colspan="5" class="gol">Se încarcă…</td></tr></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- =========================== IMAGINI ============================== -->
+    <section class="panou wrap" id="panou-imagini" role="tabpanel" hidden>
+      <div class="panou-cap">
+        <div>
+          <h1>Imaginile site-ului</h1>
+          <p>Formate acceptate: JPG, PNG, WEBP, AVIF sau GIF, maximum 5 MB per fișier.</p>
+        </div>
+      </div>
+
+      <div class="coloane">
+        <div class="cutie">
+          <h3>Imaginea principală de pe prima pagină</h3>
+          <p class="desc">Înlocuiește fotografia mare afișată în antetul paginii de start.</p>
+          <form id="form-hero" novalidate>
+            <div class="camp">
+              <label for="hero-fisier">Fișier imagine</label>
+              <input id="hero-fisier" type="file" accept="image/*" required>
+            </div>
+            <div class="camp">
+              <label for="hero-alt">Text alternativ (pentru accesibilitate)</label>
+              <input id="hero-alt" type="text" placeholder="ex.: Pizza scoasă din cuptor">
+            </div>
+            <button class="buton" type="submit">Încarcă imaginea</button>
+            <p class="stare" id="hero-stare" role="status"></p>
+          </form>
+          <div class="galerie-admin" id="lista-hero"></div>
+        </div>
+
+        <div class="cutie">
+          <h3>Galeria foto</h3>
+          <p class="desc">Fotografiile apar în pagina Galerie, într-o secțiune proprie.</p>
+          <form id="form-galerie" novalidate>
+            <div class="camp">
+              <label for="galerie-fisier">Fișiere imagine</label>
+              <input id="galerie-fisier" type="file" accept="image/*" multiple required>
+              <p class="camp-ajutor">Poți alege mai multe fotografii deodată; se încarcă una după alta, în ordinea selectată.</p>
+            </div>
+            <div class="camp">
+              <label for="galerie-titlu">Titlu afișat sub fotografie</label>
+              <input id="galerie-titlu" type="text" placeholder="ex.: Terasa restaurantului">
+              <p class="camp-ajutor">Se aplică tuturor fotografiilor alese. Lăsat gol, fiecare fotografie primește numele fișierului.</p>
+            </div>
+            <div class="camp">
+              <label for="galerie-alt">Text alternativ</label>
+              <input id="galerie-alt" type="text">
+            </div>
+            <button class="buton" type="submit">Adaugă în galerie</button>
+            <p class="stare" id="galerie-stare" role="status"></p>
+          </form>
+          <div class="galerie-admin" id="lista-galerie"></div>
+        </div>
+
+        <div class="cutie">
+          <h3>Fotografiile produselor</h3>
+          <p class="desc">Fotografia încărcată înlocuiește ilustrația produsului în meniu și în coș.</p>
+          <form id="form-produs-foto" novalidate>
+            <div class="camp">
+              <label for="foto-produs">Produsul</label>
+              <select id="foto-produs" required></select>
+            </div>
+            <div class="camp">
+              <label for="foto-fisier">Fișier imagine</label>
+              <input id="foto-fisier" type="file" accept="image/*" required>
+            </div>
+            <div class="camp">
+              <label for="foto-alt">Text alternativ</label>
+              <input id="foto-alt" type="text">
+            </div>
+            <button class="buton" type="submit">Încarcă fotografia</button>
+            <p class="stare" id="foto-stare" role="status"></p>
+          </form>
+          <div class="galerie-admin" id="lista-produse-foto"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= ÎNCHIRIERE SALĂ =========================== -->
+    <section class="panou wrap" id="panou-sala" role="tabpanel" hidden>
+      <div class="panou-cap">
+        <div>
+          <h1>Închiriere sală</h1>
+          <p>Textul de prezentare, cele patru fotografii ale sălii și zilele ocupate din calendarul public.</p>
+        </div>
+      </div>
+
+      <div class="coloane">
+        <div class="cutie">
+          <h3>Textul de prezentare</h3>
+          <p class="desc">Apare pe prima pagină și pe pagina „Închiriere sală”, sub titlu.</p>
+          <form id="form-sala-text" novalidate>
+            <div class="camp">
+              <label for="sala-descriere">Descrierea sălii</label>
+              <textarea id="sala-descriere" rows="8" maxlength="2000"></textarea>
+              <p class="camp-ajutor">Numerele de telefon scrise aici devin apelabile pe site. Dacă lași câmpul gol, se
+                afișează din nou textul inițial.</p>
+            </div>
+            <button class="buton" type="submit">Salvează textul</button>
+            <button class="buton buton--gol" type="button" id="sala-text-implicit">Pune textul inițial</button>
+            <p class="stare" id="sala-text-stare" role="status"></p>
+          </form>
+        </div>
+
+        <div class="cutie">
+          <h3>Galeria sălii</h3>
+          <p class="desc">Exact patru fotografii. O fotografie nouă înlocuiește ce era pe locul ales și nu apare în
+            galeria foto a site-ului.</p>
+          <form id="form-sala-foto" novalidate>
+            <div class="camp-linie">
+              <div class="camp">
+                <label for="sala-loc">Locul fotografiei</label>
+                <select id="sala-loc" required>
+                  <option value="sala-1">Locul 1</option>
+                  <option value="sala-2">Locul 2</option>
+                  <option value="sala-3">Locul 3</option>
+                  <option value="sala-4">Locul 4</option>
+                </select>
+              </div>
+              <div class="camp">
+                <label for="sala-fisier">Fișier imagine</label>
+                <input id="sala-fisier" type="file" accept="image/*" required>
+              </div>
+            </div>
+            <div class="camp">
+              <label for="sala-titlu">Titlu afișat sub fotografie</label>
+              <input id="sala-titlu" type="text" placeholder="ex.: Sala pregătită pentru botez">
+            </div>
+            <div class="camp">
+              <label for="sala-alt">Text alternativ (pentru accesibilitate)</label>
+              <input id="sala-alt" type="text" placeholder="ex.: Mese aranjate în sala de evenimente">
+            </div>
+            <button class="buton" type="submit">Încarcă fotografia</button>
+            <p class="stare" id="sala-foto-stare" role="status"></p>
+          </form>
+          <div class="galerie-admin" id="lista-sala-foto"></div>
+        </div>
+      </div>
+
+      <div class="cutie" style="margin-top:1.6rem">
+        <h3>Calendarul sălii</h3>
+        <p class="desc">Apasă pe o zi ca să o marchezi „Ocupat” sau ca să o eliberezi. Doar zilele ocupate sunt blocate
+          pe site; nota rămâne doar aici, pentru evidența ta.</p>
+
+        <div class="sala-adm-grila">
+          <div>
+            <div class="sala-adm-cap">
+              <button class="sala-adm-nav" type="button" id="sala-luna-inapoi" aria-label="Luna anterioară">‹</button>
+              <p class="sala-adm-luna" id="sala-luna" aria-live="polite">&nbsp;</p>
+              <button class="sala-adm-nav" type="button" id="sala-luna-inainte" aria-label="Luna următoare">›</button>
+            </div>
+            <div class="sala-adm-saptamana" aria-hidden="true">
+              <span>L</span><span>Ma</span><span>Mi</span><span>J</span><span>V</span><span>S</span><span>D</span>
+            </div>
+            <div class="sala-adm-zile" id="sala-zile" role="group" aria-label="Zilele lunii afișate"></div>
+            <ul class="sala-adm-legenda">
+              <li><i></i> Liber</li>
+              <li><i class="is-ocupat"></i> Ocupat</li>
+            </ul>
+          </div>
+
+          <div>
+            <div class="sala-adm-editor" id="sala-editor" hidden>
+              <p class="sala-adm-zi-titlu" id="sala-editor-zi"></p>
+              <div class="camp">
+                <label for="sala-nota">Notă internă (opțional)</label>
+                <input id="sala-nota" type="text" maxlength="200" placeholder="ex.: Botez familia Pop, 60 de persoane">
+                <p class="camp-ajutor">Se vede doar în acest panou, niciodată pe site.</p>
+              </div>
+              <div class="sala-adm-butoane">
+                <button class="buton" type="button" id="sala-ocupa">Marchează „Ocupat”</button>
+                <button class="buton buton--rosu" type="button" id="sala-elibereaza" hidden>Eliberează ziua</button>
+                <button class="buton buton--gol" type="button" id="sala-renunta">Renunță</button>
+              </div>
+            </div>
+            <p class="gol" id="sala-editor-gol">Alege o zi din calendar ca să o marchezi ocupată sau să o eliberezi.</p>
+            <p class="stare" id="sala-cal-stare" role="status"></p>
+
+            <h4 class="sala-adm-subtitlu">Zile ocupate de acum înainte</h4>
+            <ul class="sala-adm-lista" id="sala-lista-ocupate"></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ PAROLĂ ============================== -->
+    <section class="panou wrap" id="panou-setari" role="tabpanel" hidden>
+      <div class="panou-cap">
+        <div>
+          <h1>Parola de administrator</h1>
+          <p>Schimbă parola contului cu care ești autentificat acum.</p>
+        </div>
+      </div>
+      <div class="cutie" style="max-width:520px">
+        <form id="form-parola" novalidate>
+          <div class="camp">
+            <label for="parola-veche">Parola actuală</label>
+            <input id="parola-veche" type="password" autocomplete="current-password" required>
+          </div>
+          <div class="camp">
+            <label for="parola-noua">Parola nouă</label>
+            <input id="parola-noua" type="password" autocomplete="new-password" required>
+            <p class="camp-ajutor">Cel puțin 8 caractere, cu litere și cifre.</p>
+          </div>
+          <button class="buton" type="submit">Schimbă parola</button>
+          <p class="stare" id="parola-stare" role="status"></p>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="/assets/js/admin.js" defer></script>
+  <script src="/assets/js/admin-sala.js" defer></script>
+  <script src="/assets/js/admin-bord.js" defer></script>
+</body>
+</html>

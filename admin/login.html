@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Autentificare administrator | OLIZAN</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#1d2a1f">
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/css/fonts.css">
+  <link rel="stylesheet" href="/assets/css/admin.css">
+</head>
+<body class="login-page">
+
+  <main class="login-card">
+    <span class="marca">OLIZAN</span>
+    <h1>Panou de administrare</h1>
+    <p class="sub">Zonă rezervată echipei restaurantului. Conturile clienților nu au acces aici.</p>
+
+    <form id="form-admin-login" novalidate>
+      <div class="camp">
+        <label for="admin-utilizator">Utilizator</label>
+        <input id="admin-utilizator" name="utilizator" type="text" autocomplete="username" required autofocus>
+      </div>
+      <div class="camp">
+        <label for="admin-parola">Parolă</label>
+        <input id="admin-parola" name="parola" type="password" autocomplete="current-password" required>
+      </div>
+      <button class="buton buton--lat" type="submit">Intră în panou</button>
+      <p class="stare" id="admin-login-stare" role="status"></p>
+    </form>
+
+    <a class="inapoi" href="/">&larr; Înapoi la site-ul public</a>
+  </main>
+
+  <script src="/assets/js/admin-login.js" defer></script>
+</body>
+</html>
