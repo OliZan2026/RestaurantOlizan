@@ -97,76 +97,6 @@ const bannerAdmin = /\s*<div class="notice notice--gold">\s*<svg[\s\S]*?<\/svg>\
   write(file, html);
 }
 
-// Homepage: distincția „Firma de Aur” rămâne vizibilă, dar nu mai acoperă
-// conținutul aproape patru secunde. 1,8 s este suficient pentru recunoaștere,
-// iar eliminarea DOM este sincronizată cu tranziția CSS de 0,35 s.
-{
-  const file = 'index.html';
-  let html = read(file);
-  html = replaceOptional(html, 'se stinge singur după ~3,5 s.', 'se stinge singur după ~1,8 s.', `${file}: comentariu overlay`);
-  html = replaceOptional(html, '      }, 700);', '      }, 400);', `${file}: eliminare overlay`);
-  html = replaceOptional(html, '    ceas = window.setTimeout(inchide, 3500);', '    ceas = window.setTimeout(inchide, 1800);', `${file}: durată overlay`);
-  write(file, html);
-}
-
-// SEO comercial: titluri și descrieri suficient de scurte pentru snippet și
-// termeni locali expliciți în paginile care trebuie să aducă trafic organic.
-{
-  const file = 'index.html';
-  let html = read(file);
-  const oldTitle = 'OLIZAN Restaurant & Pizzeria Bulgăruș — pizza, burgeri și mâncare gătită';
-  const newTitle = 'Restaurant & Pizzerie în Bulgăruș | OLIZAN';
-  const oldDesc = 'Restaurant și pizzerie în Bulgăruș, județul Timiș. Pizza coaptă la comandă, paste, burgeri, ciorbe, grătare și deserturi. Comandă pe WhatsApp la +40 723 639 875.';
-  const newDesc = 'OLIZAN Restaurant & Pizzeria din Bulgăruș, Timiș: pizza, paste, burgeri, ciorbe, grătare și deserturi. Comandă rapid prin WhatsApp.';
-  html = html.split(oldTitle).join(newTitle);
-  html = html.split(oldDesc).join(newDesc);
-  html = replaceOptional(html, '<h1>Gust italian, ospitalitate românească</h1>', '<h1>Restaurant &amp; Pizzerie în Bulgăruș</h1>', `${file}: H1 local`);
-  html = replaceOptional(
-    html,
-    '<p class="hero-sub">Pizza, paste, burgeri și preparate delicioase, pregătite cu grijă pentru fiecare client,\n            chiar în inima localității Bulgăruș.</p>',
-    '<p class="hero-sub">Gust italian, ospitalitate românească. Pizza, paste, burgeri și preparate delicioase, pregătite cu grijă pentru fiecare client.</p>',
-    `${file}: slogan hero`,
-  );
-  html = replaceOptional(html, '  "name": "OLIZAN Restaurant & Pizzeria",', '  "name": "OLIZAN Restaurant & Pizzeria",\n  "alternateName": "Pizzeria Restaurant Olizan",', `${file}: alternateName schema`);
-  write(file, html);
-}
-
-{
-  const file = 'meniu.html';
-  let html = read(file);
-  const oldTitle = 'Meniu — pizza, burgeri, ciorbe și deserturi | OLIZAN Bulgăruș';
-  const newTitle = 'Meniu OLIZAN Bulgăruș | Pizza, burgeri și preparate';
-  const oldDesc = 'Meniul complet OLIZAN Restaurant & Pizzeria din Bulgăruș: pizza normală și family, meniuri, burgeri, ciorbe, grătare, garnituri, salate, sosuri, bar și deserturi, cu prețuri actualizate.';
-  const newDesc = 'Vezi meniul OLIZAN din Bulgăruș: pizza 33/50 cm, burgeri, ciorbe, grătare, salate, deserturi și băuturi, cu prețuri actualizate.';
-  html = html.split(oldTitle).join(newTitle);
-  html = html.split(oldDesc).join(newDesc);
-  html = replaceOptional(html, '<h1>Meniu OLIZAN</h1>', '<h1>Meniu OLIZAN Bulgăruș</h1>', `${file}: H1 local`);
-  write(file, html);
-}
-
-{
-  const file = 'inchiriere-sala.html';
-  let html = read(file);
-  const oldDesc = 'Sala de evenimente a restaurantului OLIZAN din Bulgăruș, județul Timiș: 130 mp și până la 80 de persoane. Vezi fotografiile, calendarul disponibilității și trimite o cerere de rezervare.';
-  const newDesc = 'Sală de evenimente OLIZAN în Bulgăruș, Timiș: 130 mp, până la 80 de persoane, calendar de disponibilitate și cerere de rezervare.';
-  html = html.split(oldDesc).join(newDesc);
-  html = replaceOptional(html, '<h1>Închiriere sală</h1>', '<h1>Închiriere sală de evenimente în Bulgăruș</h1>', `${file}: H1 local`);
-  write(file, html);
-}
-
-// Galerie: elimină orice referință publică la README sau instrucțiuni de lucru.
-{
-  const file = 'galerie.html';
-  let html = read(file);
-  html = replaceOptional(
-    html,
-    '<p>Secțiunea este pregătită pentru fotografiile autentice ale restaurantului (preparate, interior, terasă).\n              Instrucțiunile de înlocuire se găsesc în fișierul <code>README.md</code>.</p>',
-    '<p>Fotografiile autentice încărcate de echipa OLIZAN apar automat în galerie, alături de imaginile meniului și ilustrațiile originale.</p>',
-    `${file}: fără instrucțiuni interne`,
-  );
-  write(file, html);
-}
-
 // Galeria sălii este ascunsă până când există fotografii reale încărcate din panou.
 for (const file of ['index.html', 'inchiriere-sala.html']) {
   let html = read(file);
@@ -202,7 +132,7 @@ for (const file of ['index.html', 'inchiriere-sala.html']) {
 {
   const file = 'sitemap.xml';
   let xml = read(file);
-  for (const slug of ['', 'meniu', 'despre', 'locatie', 'inchiriere-sala', 'galerie', 'politica-de-confidentialitate', 'protectia-datelor-gdpr', 'termeni-si-conditii']) {
+  for (const slug of ['', 'despre', 'locatie', 'inchiriere-sala', 'politica-de-confidentialitate', 'protectia-datelor-gdpr', 'termeni-si-conditii']) {
     const loc = slug ? `https://www\\.restaurantolizan\\.ro/${slug}` : 'https://www\\.restaurantolizan\\.ro/';
     const re = new RegExp(`(<loc>${loc}<\\/loc>\\s*<lastmod>)[^<]+`);
     xml = replaceOptional(xml, re, '$1' + '2026-08-20', `sitemap: ${slug || 'home'}`);
@@ -213,9 +143,9 @@ for (const file of ['index.html', 'inchiriere-sala.html']) {
 // Validare de producție: nu publicăm instrucțiuni interne sau placeholder-e „în curând”.
 for (const file of fs.readdirSync('.').filter((name) => name.endsWith('.html'))) {
   const html = read(file);
-  if (/Notă pentru administratorul site-ului|De completat de administrator|urmează să fie completat(?:e)? de administratorul restaurantului|Fotografii reale, în curând|Fotografie în curând|Instrucțiunile de înlocuire se găsesc în fișierul/.test(html)) {
+  if (/Notă pentru administratorul site-ului|De completat de administrator|urmează să fie completat(?:e)? de administratorul restaurantului|Fotografii reale, în curând|Fotografie în curând/.test(html)) {
     throw new Error(`Text intern/placeholder rămas în ${file}`);
   }
 }
 
-console.log('[prepare-public] Conținutul public și SEO comercial sunt curate.');
+console.log('[prepare-public] Conținutul public este curat.');
