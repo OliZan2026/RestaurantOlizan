@@ -1643,10 +1643,13 @@ body.cart-open .olizan-instalare{display:none}
   .menu-page .menu-panel-head img{width:52px;height:52px}
   .menu-page .prod-grid{grid-template-columns:1fr;gap:.58rem}
   .menu-page .prod{grid-template-columns:88px minmax(0,1fr);min-height:126px}
-  .menu-page .prod--fara-foto{grid-template-columns:1fr}
+  .menu-page .prod--fara-foto{grid-template-columns:1fr;min-height:0;height:auto}
   .menu-page .prod-foto{min-height:126px}
   .menu-page .prod-foto img,.menu-page .grid--3 .prod-foto img{height:100%;min-height:126px;max-height:none;aspect-ratio:auto}
   .menu-page .prod-body{min-width:0;padding:.62rem .68rem;overflow:hidden}
+  .menu-page .prod--fara-foto .prod-body{
+    display:block;min-height:0;padding:.78rem .85rem;overflow:visible;
+  }
   .menu-page .prod-name{
     max-width:100%;overflow-wrap:anywhere;word-break:normal;hyphens:auto;
   }
@@ -1655,8 +1658,14 @@ body.cart-open .olizan-instalare{display:none}
     display:grid;grid-template-columns:minmax(0,1fr) auto;
     align-items:end;gap:.4rem;margin-top:.45rem;padding-top:.45rem;
   }
+  .menu-page .prod--fara-foto .prod-buy{
+    display:flex;align-items:center;justify-content:space-between;
+    flex-wrap:nowrap;gap:.65rem;margin-top:.65rem;padding-top:.55rem;
+  }
   .menu-page .prod-price{min-width:0;white-space:nowrap}
-  .menu-page .btn--add{max-width:100%;font-size:.68rem;white-space:nowrap}
+  .menu-page .btn--add{
+    flex:none;max-width:100%;min-width:132px;font-size:.68rem;white-space:nowrap;
+  }
   .menu-page .page-head .stack-btns{display:none}
 }
 @media(max-width:390px){
@@ -1664,7 +1673,8 @@ body.cart-open .olizan-instalare{display:none}
   .menu-page .prod-foto,.menu-page .prod-foto img,.menu-page .grid--3 .prod-foto img{min-height:120px}
   .menu-page .prod-name{font-size:1rem}
   .menu-page .prod-buy{align-items:end}
-  .menu-page .btn--add{padding:.38rem .52rem}
+  .menu-page .prod--fara-foto .prod-buy{align-items:center}
+  .menu-page .btn--add{min-width:120px;padding:.38rem .52rem}
 }
 
 /* 23 — Champagne charcoal ================================================
