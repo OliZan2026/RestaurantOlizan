@@ -215,6 +215,10 @@ Formularul din `contact.html` funcționează prin **Netlify Forms** și este dej
 Dacă redenumești formularul, schimbă în același timp atributul `name="contact"` și câmpul
 ascuns `<input type="hidden" name="form-name" value="contact">` — trebuie să fie identice.
 
+### 7.1 E-mailurile pentru resetarea parolei
+
+Fluxul „Ai uitat parola?” folosește Resend. În **Netlify → Project configuration → Environment variables** se definesc `RESEND_API_KEY` și `PASSWORD_RESET_FROM` (de exemplu `OLIZAN <cont@restaurantolizan.ro>`). Domeniul expeditorului trebuie verificat în Resend. Tokenurile sunt stocate numai ca hash, expiră după 30 de minute și se șterg după folosire.
+
 ---
 
 ## 8. Cookie-uri și statistici
