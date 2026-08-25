@@ -86,6 +86,8 @@
   function randeazaGalerie(zona, imagini) {
     if (!zona) return;
     var lista = Array.isArray(imagini) ? imagini : [];
+    if (!lista.length) { zona.hidden = true; zona.innerHTML = ""; return; }
+    zona.hidden = false;
     var bucati = lista.slice(0, 4).map(function (f) {
       var titlu = f.titlu || f.alt || "Sala de evenimente OLIZAN";
       /* tabindex/role sunt puse aici pentru că lupa din site.js le adaugă doar
@@ -96,7 +98,6 @@
         (f.titlu ? '<figcaption>' + esc(f.titlu) + '</figcaption>' : '') +
       '</figure>';
     });
-    while (bucati.length < 4) bucati.push(locGol());
     zona.innerHTML = bucati.join("");
   }
 
