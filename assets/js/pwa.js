@@ -21,11 +21,14 @@
   if (/^\/admin(\/|$|\.html$)/.test(cale) || /^\/cont(\/|$|\.html$)/.test(cale)) return;
 
   var CHEIE_RESPINS = "olizan_pwa_instalare_respinsa_v1";
+  var CHEIE_AFISAT = "olizan_pwa_instalare_afisata_v1";
 
   var evenimentInstalare = null;
   var bara = null;
   var stiluriPuse = false;
   var observatorCookie = null;
+  var temporizatorAfisare = null;
+  var temporizatorAscundere = null;
 
   /* ---- 1. Înregistrarea și actualizarea automată ------------------------ */
 
@@ -82,6 +85,14 @@
 
   function tineMinteRespingerea() {
     try { sessionStorage.setItem(CHEIE_RESPINS, "1"); } catch (e) {}
+  }
+
+  function aFostAfisata() {
+    try { return sessionStorage.getItem(CHEIE_AFISAT) === "1"; } catch (e) { return false; }
+  }
+
+  function tineMinteAfisarea() {
+    try { sessionStorage.setItem(CHEIE_AFISAT, "1"); } catch (e) {}
   }
 
   function puneStiluri() {
@@ -163,11 +174,13 @@
       if (deSters && deSters.parentNode) deSters.parentNode.removeChild(deSters);
     }, 300);
     if (observatorCookie) { observatorCookie.disconnect(); observatorCookie = null; }
+    if (temporizatorAscundere) { window.clearTimeout(temporizatorAscundere); temporizatorAscundere = null; }
   }
 
   function arataButonul() {
-    if (bara || !document.body) return;
+    if (bara || !document.body || aFostAfisata()) return;
     puneStiluri();
+    tineMinteAfisarea();
 
     bara = document.createElement("div");
     bara.className = "olizan-instalare";
@@ -201,6 +214,10 @@
       });
     });
 
+    /* Propunerea rămâne discretă: se retrage singură după 12 secunde și nu
+       reapare pe fiecare pagină în aceeași sesiune. */
+    temporizatorAscundere = window.setTimeout(ascunde, 12000);
+
     inchide.addEventListener("click", function () {
       tineMinteRespingerea();
       ascunde();
@@ -219,6 +236,16 @@
     });
   }
 
+  function programeazaButonul() {
+    if (temporizatorAfisare || aFostAfisata()) return;
+    /* Nu concurăm vizual cu bannerul de cookie-uri și nici cu primul ecran al
+       paginii. Browserul păstrează evenimentul de instalare până la apăsare. */
+    temporizatorAfisare = window.setTimeout(function () {
+      temporizatorAfisare = null;
+      arataButonul();
+    }, 6500);
+  }
+
   /* Evenimentul apare doar în browserele care chiar pot instala aplicația și
      doar dacă manifestul și service workerul sunt valide. Fără el, butonul nu
      este creat niciodată. */
@@ -227,9 +254,9 @@
     evenimentInstalare = ev;
     if (esteDejaInstalata() || aFostRespins()) return;
     if (document.readyState === "loading") {
-      document.addEventListener("DOMContentLoaded", arataButonul, { once: true });
+      document.addEventListener("DOMContentLoaded", programeazaButonul, { once: true });
     } else {
-      arataButonul();
+      programeazaButonul();
     }
   });
 

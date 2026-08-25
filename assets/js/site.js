@@ -237,6 +237,11 @@ function olizanPorneste() {
     elemente.forEach(function (el) {
       if (!el.classList.contains("is-in")) observer.observe(el);
     });
+    /* Dacă browserul nu livrează la timp evenimentul IntersectionObserver
+       (de exemplu după restaurarea unei file), conținutul nu rămâne invizibil. */
+    window.setTimeout(function () {
+      elemente.forEach(function (el) { el.classList.add("is-in"); });
+    }, 1400);
   }
   urmareste(document);
 

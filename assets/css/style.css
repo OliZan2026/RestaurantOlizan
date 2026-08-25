@@ -1106,6 +1106,41 @@ body.cart-open{overflow:hidden}
   .cookie-actions .btn{min-width:100%}
 }
 
+/* Identitate premium unitară: toate paginile folosesc aceeași marcă aurie,
+   inclusiv șabloanele mai vechi care conțin încă sigla colorată în SVG. */
+.header .brand>svg{display:none!important}
+.header .brand::before,
+.footer-brand::before{
+  content:"";display:block;flex:none;
+  width:46px;height:46px;
+  background:url("../img/favicon.svg") center/contain no-repeat;
+}
+.footer-brand>svg{display:none!important}
+.footer-brand::before{width:52px;height:52px}
+
+/* Bannerul are aceeași paletă charcoal–champagne și pe pagina principală. */
+.home-luxury .cookie{
+  color:#ddd8cf;background:linear-gradient(155deg,#15191a,#090b0c 82%);
+  border-color:rgba(216,198,162,.46);
+  box-shadow:0 24px 70px rgba(0,0,0,.66);
+}
+.home-luxury .cookie h2{color:var(--lux-champagne)}
+.home-luxury .cookie p,
+.home-luxury .cookie-opt span{color:#aaa69f}
+.home-luxury .cookie-prefs{border-top-color:#343536}
+.home-luxury .cookie-opt{border-bottom-color:#2b2d2e}
+.home-luxury .cookie-opt strong{color:#eee8dd}
+.home-luxury .cookie-opt input{accent-color:var(--lux-bronze)}
+.home-luxury .cookie .btn--olive,
+.home-luxury .cookie .btn--primary{
+  color:#17191a;background:linear-gradient(135deg,#bda77d,#e1d2b4);
+  border-color:#d8c7a6;
+}
+.home-luxury .cookie .btn--ghost{
+  color:var(--lux-champagne);background:#101314;
+  border-color:rgba(216,198,162,.46);
+}
+
 /* 17 — Pagini legale ====================================================== */
 .page-head{
   padding:calc(var(--header-h) + 3rem) 0 2.6rem;
@@ -1512,6 +1547,7 @@ body:not(.home-luxury) .to-top{color:#090806;background:#f0bd5a;border-color:#d6
   opacity:0;transform:translateY(10px);
   transition:opacity .25s ease,transform .25s ease;
 }
+.olizan-instalare[hidden]{display:none!important}
 .olizan-instalare.is-open{opacity:1;transform:translateY(0)}
 .olizan-instalare button{margin:0;border:0;cursor:pointer;font-family:var(--ff-text);line-height:1.2}
 .olizan-instalare .olizan-instalare-cta{
@@ -1750,20 +1786,20 @@ body:not(.home-luxury) .to-top:hover{color:#151719;background:var(--lux-champagn
 }
 .footer .anpc-plate strong{color:#2b3e83}
 .footer .anpc-row{
-  display:grid;grid-template-columns:repeat(2,165px);
+  display:grid;grid-template-columns:repeat(2,150px);
   justify-content:end;gap:.45rem;width:100%;
   margin:0;padding:1rem 0 0;align-items:center;
 }
 .footer .anpc-row>.anpc-plate:nth-of-type(1){
-  width:165px;min-height:44px;padding:0;
-  background:#fff url("../img/anpc-logo.svg") center/148px auto no-repeat;
+  width:150px;min-height:40px;padding:0;
+  background:#fff url("../img/anpc-logo.svg") center/136px auto no-repeat;
   border-color:#aeb4c8;font-size:0;color:transparent;
 }
 .footer .anpc-row>.anpc-plate:nth-of-type(1) strong{display:none}
 .footer .anpc-row>.anpc-plate:nth-of-type(1):hover{background-color:#fff;border-color:#2b3e83}
 .footer .anpc-row>.anpc-plate:nth-of-type(2){
-  width:165px;min-height:44px;padding:0;
-  background:#fff url("../img/anpc-sal.svg") center/154px auto no-repeat;
+  width:150px;min-height:40px;padding:0;
+  background:#fff url("../img/anpc-sal.svg") center/140px auto no-repeat;
   border-color:#aeb4c8;font-size:0;color:transparent;
 }
 .footer .anpc-row>.anpc-plate:nth-of-type(2) strong{display:none}
