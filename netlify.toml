@@ -10,7 +10,7 @@
   #  3. scrie identificatorul publicării în /sw.js;
   #  4. regenerează politica CSP în /_headers;
   #  5. copiază în dist/ numai fișierele care trebuie servite public.
-  command = "node scripts/prepare-public.mjs && node scripts/seo-local-public.mjs && node scripts/pwa-versiune.mjs && node scripts/csp.mjs && node scripts/build-public.mjs"
+  command = "node scripts/prepare-public.mjs && node scripts/seo-local-public.mjs && node scripts/build-home-css.mjs && node scripts/pwa-versiune.mjs && node scripts/csp.mjs && node scripts/build-public.mjs"
 
 # --- Domeniul oficial ---------------------------------------------------
 # Orice alias public trimite permanent către https://www.restaurantolizan.ro.
