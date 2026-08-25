@@ -1967,3 +1967,38 @@ body:not(.home-luxury) .cont-comanda{
 body:not(.home-luxury) .cont-adresa-eticheta,
 body:not(.home-luxury) .cont-comanda-nr,
 body:not(.home-luxury) .cont-comanda-jos b{color:var(--lux-champagne)}
+
+/* 26 — Footer aerisit =====================================================
+   Navigarea repetată în subsol încărca inutil pagina. Păstrăm doar
+   identitatea, contactul și informațiile obligatorii. */
+.footer{
+  padding:clamp(2.25rem,4vw,3rem) 0 1.1rem;
+  font-size:.9rem;
+}
+.footer-grid{
+  grid-template-columns:minmax(0,1.15fr) minmax(210px,.85fr) minmax(245px,1fr);
+  gap:clamp(1.4rem,3vw,2.8rem);
+  padding-bottom:1.45rem;
+}
+.footer-grid > :nth-child(3){display:none}
+.footer h4{margin-bottom:.7rem}
+.footer-brand p{margin-top:.65rem;max-width:30ch}
+.footer ul{gap:.38rem}
+.footer address{line-height:1.65}
+.footer-social{margin-top:.75rem}
+.footer-social a{width:40px;height:40px}
+.pay-strip{padding-top:1rem}
+.pay-strip h4{margin-bottom:.65rem}
+.pay-logos img{width:40px;height:27px}
+.footer-bottom{padding-top:1rem;gap:.55rem 1rem}
+.footer-credit{margin-top:.15rem;padding-top:.7rem}
+
+@media(max-width:820px){
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .footer-grid > .footer-brand{grid-column:1/-1}
+}
+@media(max-width:620px){
+  .footer-grid{grid-template-columns:1fr;gap:1.35rem}
+  .footer-grid > .footer-brand{grid-column:auto}
+  .footer-brand p{max-width:36ch}
+}
