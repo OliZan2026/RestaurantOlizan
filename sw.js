@@ -17,7 +17,7 @@
 
 "use strict";
 
-const VERSIUNE = "1787695940549";
+const VERSIUNE = "1787725799292";
 
 const CACHE_SCOICA = "olizan-scoica-" + VERSIUNE;   /* interfața de bază */
 const CACHE_STATIC = "olizan-static-" + VERSIUNE;   /* stiluri, scripturi, fonturi, imagini */

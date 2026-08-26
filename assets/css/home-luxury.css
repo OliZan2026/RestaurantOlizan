@@ -23,3 +23,9 @@ body.home-luxury{background:var(--lux-bg);background-image:none;color:var(--lux-
 @media(max-width:700px){
   .lux-hero::before{background-image:url('/assets/img/produse/pizza-margherita-mobile.webp')}
 }
+
+/* Fotografia reală a sălii, folosită în secțiunea pentru evenimente. */
+.lux-events__media{
+  background-image:linear-gradient(90deg,#030405 0%,rgba(3,4,5,.78) 10%,transparent 35%),linear-gradient(0deg,rgba(28,15,2,.2),rgba(28,15,2,.2)),url('/assets/img/sala-evenimente-olizan.webp');
+  filter:sepia(.08) saturate(.9) brightness(.78);
+}
