@@ -78,14 +78,10 @@
   }
 
   /* --- fotografiile sălii -------------------------------------------------- */
-  function locGol() {
-    return '<figure class="sala-foto sala-foto--gol">' + ICON_FOTO +
-      '<span>Fotografie în curând</span></figure>';
-  }
 
   function randeazaGalerie(zona, imagini) {
     if (!zona) return;
-    var lista = Array.isArray(imagini) ? imagini : [];
+    var lista = (Array.isArray(imagini) ? imagini : []).filter(function (f) { return f && typeof f.src === "string" && f.src.trim() && !/placeholder|in-curand|in_curand/i.test(f.src) && !/în curând|in curand/i.test(f.titlu || f.alt || ""); });
     if (!lista.length) { zona.hidden = true; zona.innerHTML = ""; return; }
     zona.hidden = false;
     var bucati = lista.slice(0, 4).map(function (f) {
@@ -94,7 +90,7 @@
          imaginilor existente la pornire, iar acestea vin mai târziu */
       return '<figure class="sala-foto" tabindex="0" role="button" data-lb="' + esc(f.src) +
         '" data-lb-cap="' + esc(titlu) + '">' +
-        '<img src="' + esc(f.src) + '" alt="' + esc(f.alt || titlu) + '" loading="lazy" decoding="async">' +
+        '<img src="' + esc(f.src) + '" alt="' + esc(f.alt || titlu) + '" loading="lazy" decoding="async" width="800" height="600">' +
         (f.titlu ? '<figcaption>' + esc(f.titlu) + '</figcaption>' : '') +
       '</figure>';
     });

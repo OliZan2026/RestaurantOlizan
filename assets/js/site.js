@@ -262,6 +262,7 @@ function olizanPorneste() {
   /* Pictograma WhatsApp folosită în conținutul generat din JavaScript */
   var ICON_WA = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2c-5.5 0-9.96 4.46-9.96 9.96 0 1.76.46 3.48 1.34 5L2 22l5.2-1.36a9.9 9.9 0 0 0 4.84 1.24h.01c5.5 0 9.96-4.46 9.96-9.96A9.9 9.9 0 0 0 19.08 4.9 9.9 9.9 0 0 0 12.04 2Zm0 1.8c2.18 0 4.23.85 5.77 2.4a8.1 8.1 0 0 1 2.39 5.77c0 4.5-3.66 8.16-8.16 8.16a8.2 8.2 0 0 1-4.17-1.14l-.3-.18-3.09.81.82-3-.19-.31a8.1 8.1 0 0 1-1.24-4.34c0-4.5 3.66-8.17 8.17-8.17Zm-2.6 4.14c-.16 0-.42.06-.64.3-.22.24-.85.83-.85 2.03s.87 2.35.99 2.51c.12.16 1.7 2.6 4.13 3.55 2.02.8 2.43.64 2.87.6.44-.04 1.42-.58 1.62-1.15.2-.56.2-1.05.14-1.15-.06-.1-.22-.16-.46-.28-.24-.12-1.42-.7-1.64-.78-.22-.08-.38-.12-.54.12-.16.24-.62.78-.76.94-.14.16-.28.18-.52.06-.24-.12-1.01-.37-1.93-1.19-.71-.63-1.19-1.42-1.33-1.66-.14-.24-.02-.37.1-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.53-1.3-.74-1.78-.19-.45-.39-.39-.53-.4h-.47Z"/></svg>';
 
+  return window.olizanDatePublice.then(function () {
   /* ---- 4b. Oprirea comenzilor (pauză sau concediu) ----------------------- */
   /* Starea vine de la server. Cât timp este „blocat", nicăieri în pagină nu
      există buton de comandă: cardurile arată mesajul în locul butonului, coșul
@@ -420,7 +421,7 @@ function olizanPorneste() {
     var scurt = ambalajScurt(valoare);
     if (!scurt) return "";
     return '<small class="prod-ambalaj" aria-label="' + esc(AMBALAJ_ETICHETA + ": " + leiBani(valoare)) + '">' +
-      esc(scurt) + '</small>';
+      esc('Ambalaj: ' + leiBani(valoare)) + '</small>';
   }
 
   /* Denumirea completă, așa cum apare în coș și în mesajul de WhatsApp */
@@ -496,7 +497,7 @@ function olizanPorneste() {
               ' data-ambalaj="' + ambalajM + '">' +
             '<span class="prod-size-txt">' + esc(m.eticheta) + '</span>' +
             '<span class="prod-size-pret">' + esc(leiBani(pret)) +
-              (ambalajM ? ' <small class="prod-ambalaj">' + esc(ambalajScurt(ambalajM)) + '</small>' : '') +
+              (ambalajM ? ' <small class="prod-ambalaj">' + esc('Ambalaj: ' + leiBani(ambalajM)) + '</small>' : '') +
             '</span>' +
           '</label>';
         }).join("") +
@@ -509,11 +510,11 @@ function olizanPorneste() {
     var ambalajPornire = taxaAmbalaj(intrare, intrare.cuMarimi && MARIMI.length ? MARIMI[0].cod : "");
     html += '<div class="prod-buy">' +
       '<p class="prod-price">' +
-        (intrare.cuMarimi ? '<small>de la</small> ' : "") +
+        '<small class="prod-price-label" data-pret-eticheta>' + (intrare.cuMarimi ? 'Produs de la' : 'Produs') + '</small> ' +
         '<span data-pret-afisat>' + esc(leiBani(pretPornire)) + '</span>' +
         '<small class="prod-ambalaj" data-ambalaj-afisat' + (ambalajPornire ? '' : ' hidden') +
           ' aria-label="' + esc(AMBALAJ_ETICHETA + ": " + leiBani(ambalajPornire)) + '">' +
-          esc(ambalajScurt(ambalajPornire)) +
+          esc('Ambalaj: ' + leiBani(ambalajPornire)) +
         '</small>' +
       '</p>' +
       '<button class="btn btn--add" type="button" data-add="' + esc(p.id) + '">' +
@@ -550,12 +551,14 @@ function olizanPorneste() {
     if (!input || input.type !== "radio" || !input.name || input.name.indexOf("marime-") !== 0) return;
     var card = input.closest ? input.closest(".prod") : null;
     if (!card) return;
+    var label = $("[data-pret-eticheta]", card);
+    if (label) label.textContent = 'Produs';
     var afis = $("[data-pret-afisat]", card);
     if (afis) afis.textContent = leiBani(baniDinAtribut(input.getAttribute("data-pret")));
     var afisAmbalaj = $("[data-ambalaj-afisat]", card);
     if (afisAmbalaj) {
       var taxa = baniDinAtribut(input.getAttribute("data-ambalaj"));
-      afisAmbalaj.textContent = ambalajScurt(taxa);
+      afisAmbalaj.textContent = 'Ambalaj: ' + leiBani(taxa);
       afisAmbalaj.setAttribute("aria-label", AMBALAJ_ETICHETA + ": " + leiBani(taxa));
       afisAmbalaj.hidden = !taxa;
     }
@@ -635,7 +638,8 @@ function olizanPorneste() {
           '<div><h3>' + esc(c.titlu) + '</h3>' + (c.nota ? '<p>' + esc(c.nota) + '</p>' : '') + '</div>' +
           (c.imagine ? '<img src="' + esc(c.imagine) + '" alt="" aria-hidden="true" loading="lazy" decoding="async" width="600" height="600">' : '') +
         '</header>' +
-        c.grupe.map(function (g) { return randeazaGrupa(g, i); }).join("") +
+        '<div data-menu-content data-rendered="' + (i === 0 ? '1' : '0') + '">' +
+        (i === 0 ? c.grupe.map(function (g) { return randeazaGrupa(g, i); }).join("") : '') + '</div>' +
       '</section>';
     }).join("");
 
@@ -651,6 +655,11 @@ function olizanPorneste() {
     var panouri = $$(".menu-panel", panelsWrap);
 
     function activeaza(idx, cuFocus) {
+      var content = $("[data-menu-content]", panouri[idx]);
+      if (content && content.getAttribute("data-rendered") !== "1") {
+        content.innerHTML = categorii[idx].grupe.map(function (g) { return randeazaGrupa(g, idx); }).join("");
+        content.setAttribute("data-rendered", "1");
+      }
       taburi.forEach(function (t, i) {
         var activ = i === idx;
         t.setAttribute("aria-selected", activ ? "true" : "false");
@@ -1567,6 +1576,7 @@ function olizanPorneste() {
     el.textContent = String(new Date().getFullYear());
   });
 
+  });
 }
 
 /* ---- 12. Pornirea: meniul din baza de date și imaginile administrate ----- */
@@ -1606,9 +1616,17 @@ function olizanPorneste() {
     if (!hero || !hero.src) return;
     var img = document.querySelector(".hero-arch img");
     if (!img) return;
-    img.setAttribute("src", hero.src);
-    img.removeAttribute("srcset");
-    if (hero.alt) img.setAttribute("alt", hero.alt);
+    if (img.getAttribute("src") === hero.src) return;
+    var replacement = new Image();
+    replacement.onload = function () {
+      var ready = replacement.decode ? replacement.decode().catch(function () {}) : Promise.resolve();
+      ready.then(function () {
+        img.removeAttribute("srcset");
+        img.setAttribute("src", hero.src);
+        if (hero.alt) img.setAttribute("alt", hero.alt);
+      });
+    };
+    replacement.src = hero.src;
   }
 
   /* Fotografiile încărcate în galerie; lightbox-ul le preia la pornire */
@@ -1627,7 +1645,7 @@ function olizanPorneste() {
     if (sectiune) sectiune.hidden = false;
   }
 
-  cuTermen(ia("/api/menu"))
+  window.olizanDatePublice = cuTermen(ia("/api/menu"))
     .then(function (meniu) {
       if (meniu && Array.isArray(meniu.meniu) && meniu.meniu.length) OL.meniu = meniu.meniu;
       if (meniu && meniu.imagini) {
@@ -1638,8 +1656,6 @@ function olizanPorneste() {
          răspunde, site-ul pornește deschis, iar comanda tot ar fi oprită de
          server la trimitere, cu același mesaj. */
       OL.stareComenzi = meniu && meniu.comenzi ? meniu.comenzi : null;
-    })
-    .then(function () {
-      olizanPorneste();
     });
+  olizanPorneste();
 })();
