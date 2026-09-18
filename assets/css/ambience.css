@@ -1,0 +1,58 @@
+/* Shared, slightly lighter charcoal palette for every public page. */
+:root{--site-bg:#202423;--site-panel:#2a302e;--site-deep:#1b201e;--site-line:rgba(224,201,158,.32)}
+body.home-luxury,body:not(.home-luxury){background:var(--site-bg);background-image:none}
+body .header,body .header.is-scrolled{background:rgba(29,34,31,.98)}
+body .footer{background:var(--site-deep);background-image:none}
+body:not(.home-luxury) .section,body.menu-page main>.section:first-child{background:var(--site-bg)}
+body:not(.home-luxury) .page-head{background:radial-gradient(ellipse at 75% 10%,rgba(224,185,111,.1),transparent 60%),#272c29}
+body:not(.home-luxury) .section--cream,body:not(.home-luxury) .section--olive{background:#252b28}
+body:not(.home-luxury) :is(.card,.product-card,.contact-card,.address-card,.form-card,.legal-card,.account-card,.form,.sala-cutie){background:linear-gradient(145deg,#303632,#252b28);border-color:var(--site-line)}
+body:not(.home-luxury) :is(.gallery-item,.split-frame,.gallery-item figcaption,.sala-foto){background:#2b312e}
+body:not(.home-luxury) .cta-band{background:linear-gradient(120deg,#30352f,#353027)}
+body:not(.home-luxury) :is(.notice,.notice--gold){background:#333329;color:#e7ddca}
+body:not(.home-luxury) .menu-tabs{background:rgba(39,45,41,.98)}
+body.menu-page .menu-panel{background:#262d29}
+body.menu-page .prod{background:#303732;border-color:#4b524b}
+body.menu-page .prod-foto{background:#252b28}
+body.menu-page .prod-size{background:#242c27}
+body.menu-page .prod-size:has(input:checked){background:#443d2d}
+body.menu-page :is(.menu-group-note,.menu-nota-foto,.menu-panel-head p){color:#c1bcae}
+body.menu-page .prod-price .prod-ambalaj{color:#ded3c0}
+body .cart,body .cart-panel,body .cookie{background:#272e29}
+body :is(.cart-head,.cart-item,.cart-radio,.qty,.cart-confirm,.cart-summary){background:#303732}
+body:not(.home-luxury) .form :is(input,textarea,select),body:not(.home-luxury) .sala-cutie .field :is(input,textarea,select){background:#222a25}
+body:not(.home-luxury) .sala-zi:not(.is-aleasa):not(.is-ocupata):not(.is-trecuta){background:#303a32}
+body:not(.home-luxury) :is(.sala-ajutor,.sala-nota,.sala-legenda,.sala-saptamana span){color:#c7c1b5}
+.home-luxury .lux-section{background:linear-gradient(180deg,#282e2a,#202623)}
+.home-luxury .lux-section--deep,.home-luxury .lux-events{background:#212723}
+.home-luxury .lux-menu-card{background:linear-gradient(145deg,#343b33,#252c27)}
+.home-luxury .lux-menu-card img,.home-luxury .lux-gallery img{filter:saturate(.98) brightness(1)}
+.home-luxury .lux-contact{background:#2a302b}
+.home-luxury .lux-contact span{color:#d3cbbd}
+.home-luxury .lux-events__media{filter:saturate(.95) brightness(.95);background-image:linear-gradient(90deg,#212723,transparent 32%),url('/assets/img/sala-evenimente-olizan.webp')}
+.home-luxury .lux-hero{background:radial-gradient(ellipse at 75% 45%,#464732 0%,#2d342b 35%,#202623 73%)}
+.home-luxury .lux-hero::before{
+ inset:auto;right:3%;top:50%;width:min(49vw,700px);height:auto;aspect-ratio:1;
+ background-position:center;background-size:contain;background-repeat:no-repeat;
+ border-radius:50%;mask-image:radial-gradient(circle,#000 61%,transparent 71%);
+ filter:saturate(1.08) brightness(1.06);transform:translateY(-50%) rotate(0deg);
+ animation:olizan-pizza-turn 48s linear infinite;
+}
+.home-luxury .lux-hero::after{background:linear-gradient(90deg,#202623 0%,rgba(32,38,35,.98) 31%,rgba(32,38,35,.72) 44%,transparent 66%)}
+.lux-motion-toggle{display:inline-flex;align-items:center;margin-top:20px;padding:8px 13px;min-height:40px;border:1px solid var(--site-line);border-radius:30px;background:#2b322c;color:#dfd2b9;font-size:.85rem;cursor:pointer}
+.lux-motion-toggle:hover{background:#3b4237;color:#fff}
+.lux-hero.is-motion-paused::before,.lux-hero.is-outside::before{animation-play-state:paused}
+@keyframes olizan-pizza-turn{to{transform:translateY(-50%) rotate(360deg)}}
+@media(max-width:1000px){body .nav{background:#252c27}}
+@media(max-width:700px){
+ .home-luxury .lux-hero::before{width:310px;max-width:90vw;right:calc(50% - min(155px,45vw));top:168px}
+ .home-luxury .lux-hero::after{background:linear-gradient(180deg,transparent 0%,transparent 25%,#202623 48%,#202623 100%)}
+ .home-luxury .lux-hero__inner{padding-top:330px}
+}
+@media(prefers-reduced-motion:reduce){.home-luxury .lux-hero::before{animation:none}.lux-motion-toggle{display:none}}
+
+/* Match the specificity of both existing homepage and subpage themes. */
+body.home-luxury .header,body.home-luxury .header.is-scrolled,body:not(.home-luxury) .header,body:not(.home-luxury) .header.is-scrolled{background:rgba(29,34,31,.98)}
+body.home-luxury .footer,body:not(.home-luxury) .footer{background:var(--site-deep);background-image:none}
+body.home-luxury .cookie,body:not(.home-luxury) .cookie{background:#272e29}
+@media(max-width:1000px){body.home-luxury .nav,body:not(.home-luxury) .nav{background:#252c27}}
