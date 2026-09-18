@@ -56,3 +56,21 @@ body.home-luxury .header,body.home-luxury .header.is-scrolled,body:not(.home-lux
 body.home-luxury .footer,body:not(.home-luxury) .footer{background:var(--site-deep);background-image:none}
 body.home-luxury .cookie,body:not(.home-luxury) .cookie{background:#272e29}
 @media(max-width:1000px){body.home-luxury .nav,body:not(.home-luxury) .nav{background:#252c27}}
+
+/* Separate layers: a clean pizza cutout above stationary, glowing charcoal. */
+.home-luxury .lux-hero::before{
+ background-image:url('/assets/img/pizza-hero-real.webp');
+ mask-image:none;filter:drop-shadow(0 20px 24px rgba(0,0,0,.4));
+ width:min(48vw,670px);right:4%;
+}
+.lux-embers{position:absolute;inset:0;z-index:-3;pointer-events:none;background:url('/assets/img/hero-embers.webp') center/cover no-repeat}
+.lux-embers::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 83% 88%,rgba(245,86,19,.33),transparent 48%);animation:olizan-ember-glow 5s ease-in-out infinite alternate}
+@keyframes olizan-ember-glow{from{opacity:.3}to{opacity:.85}}
+.lux-hero.is-motion-paused .lux-embers::after,.lux-hero.is-outside .lux-embers::after{animation-play-state:paused}
+@media(max-width:700px){
+ .home-luxury .lux-hero::before{background-image:url('/assets/img/pizza-hero-real-mobile.webp');width:310px;right:calc(50% - min(155px,45vw))}
+ .lux-embers{background-image:url('/assets/img/hero-embers-mobile.webp');background-size:auto 440px;background-position:center top}
+}
+@media(prefers-reduced-motion:reduce){.lux-embers::after{animation:none;opacity:.45}}
+
+@media(max-width:700px){.home-luxury .lux-hero::before{z-index:0}.home-luxury .lux-hero__inner{position:relative;z-index:1}}
