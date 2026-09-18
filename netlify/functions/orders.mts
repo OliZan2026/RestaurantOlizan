@@ -1,5 +1,4 @@
-// Inregistrarea comenzilor. Functioneaza si pentru vizitatorii neautentificati,
-// iar daca vizitatorul are cont, comanda se leaga automat de contul lui.
+// Comenzile sunt disponibile fără cont. Cookie-urile vechi de client sunt ignorate.
 // Preturile se recalculeaza intotdeauna din baza de date, niciodata din
 // datele trimise de browser — la fel si taxa de ambalaj, care se ia din
 // netlify/lib/ambalaj.mts dupa categoria si marimea produsului. Fiecare
@@ -10,11 +9,10 @@
 // asa totalul inregistrat este exact suma liniilor, fara marja de eroare, si
 // coincide cu totalul aratat in cos si trimis pe WhatsApp.
 import type { Config } from "@netlify/functions";
-import { eq, inArray } from "drizzle-orm";
+import { inArray } from "drizzle-orm";
 import { db } from "../../db/index.js";
-import { addresses, menuItems, orderItems, orders } from "../../db/schema.js";
+import { menuItems, orderItems, orders } from "../../db/schema.js";
 import { taxaAmbalajBani } from "../lib/ambalaj.mjs";
-import { clientDinCerere } from "../lib/auth.mjs";
 import { numarAfisat, rezervaNumarZilnic } from "../lib/comenzi.mjs";
 import { asiguraMeniu } from "../lib/menu.mjs";
 import { corpJson, eroare, json, origineValida, text } from "../lib/http.mjs";
@@ -76,7 +74,6 @@ export default async (req: Request) => {
   if (telefon.replace(/[^0-9]/g, "").length < 9) return eroare("Numărul de telefon pare incomplet.");
   if (modalitate === "livrare" && !adresa) return eroare("Completează adresa de livrare.");
 
-  const client = await clientDinCerere(req);
 
   await asiguraMeniu();
   const ids = [...new Set(linii.map((l: Record<string, unknown>) => text(l.id, 80)).filter(Boolean))];
@@ -137,10 +134,10 @@ export default async (req: Request) => {
   const [comanda] = await db
     .insert(orders)
     .values({
-      customerId: client ? client.id : null,
+      customerId: null,
       name: nume,
       phone: telefon,
-      email: client ? client.email : "",
+      email: "",
       fulfilment: modalitate,
       address: modalitate === "livrare" ? adresa : "",
       notes: observatii,
@@ -152,17 +149,6 @@ export default async (req: Request) => {
     .returning({ id: orders.id, createdAt: orders.createdAt });
 
   await db.insert(orderItems).values(deSalvat.map((l) => ({ ...l, orderId: comanda.id })));
-
-  /* Optional: clientul poate cere salvarea adresei pentru comenzile viitoare */
-  if (client && corp.salveazaAdresa === true && modalitate === "livrare" && adresa) {
-    await db.update(addresses).set({ isDefault: false }).where(eq(addresses.customerId, client.id));
-    await db.insert(addresses).values({
-      customerId: client.id,
-      label: "Adresă de livrare",
-      street: adresa,
-      isDefault: true,
-    });
-  }
 
   return json(
     {

@@ -827,49 +827,6 @@ function olizanPorneste() {
     }
     incarca();
 
-    /* --- legătura cu contul clientului ------------------------------------ */
-    /* Dacă vizitatorul este autentificat, coșul urcă în contul lui, ca să-l
-       regăsească pe orice dispozitiv. Sesiunea stă într-un cookie HttpOnly. */
-    var contClient = (window.OLIZAN && window.OLIZAN.client) || null;
-    var temporizatorCos = null;
-    /* coșul nu urcă în cont până nu îl citim pe cel salvat, ca să nu-l ștergem */
-    var cosCitit = !contClient;
-
-    function urcaCos() {
-      if (!contClient || !cosCitit) return;
-      window.clearTimeout(temporizatorCos);
-      temporizatorCos = window.setTimeout(function () {
-        fetch("/api/account/cos", {
-          method: "PUT",
-          credentials: "same-origin",
-          headers: { "content-type": "application/json" },
-          body: JSON.stringify({ cos: linii })
-        }).catch(function () {});
-      }, 800);
-    }
-
-    function imbinaCos(dinCont) {
-      if (!Array.isArray(dinCont)) return false;
-      var schimbat = false;
-      dinCont.forEach(function (s) {
-        var intrare = produse[s.id];
-        if (!intrare) return;
-        var marime = s.marime || "";
-        if (intrare.cuMarimi && !marimeDupaCod(marime)) return;
-        if (!pretValid(pretUnitar(intrare, marime))) return;
-        var cant = Math.max(1, Math.min(99, parseInt(s.cant, 10) || 1));
-        for (var i = 0; i < linii.length; i++) {
-          if (linii[i].id === s.id && (linii[i].marime || "") === marime) {
-            if (cant > linii[i].cant) { linii[i].cant = cant; schimbat = true; }
-            return;
-          }
-        }
-        linii.push({ id: s.id, marime: marime, cant: cant });
-        schimbat = true;
-      });
-      return schimbat;
-    }
-
     /* --- calcule: preț unitar × cantitate = subtotal, apoi totalul general -
        Ambalajul se ține separat de produse, ca să poată fi arătat clientului
        ca linie distinctă în coș și în mesajul de WhatsApp.
@@ -933,7 +890,6 @@ function olizanPorneste() {
         '<div class="cart-total"><span>Total comandă</span><b id="cart-total">' + esc(leiBani(0)) + '</b></div>' +
         '<div class="cart-oprit" id="cart-oprit" hidden></div>' +
         '<form class="cart-form" id="cart-form" novalidate>' +
-          '<div class="cart-cont" id="cart-cont" hidden></div>' +
           '<div class="field"><label for="cart-nume">Nume și prenume *</label>' +
             '<input id="cart-nume" name="nume" type="text" autocomplete="name" required></div>' +
           '<div class="field"><label for="cart-telefon">Telefon *</label>' +
@@ -946,10 +902,6 @@ function olizanPorneste() {
           '</fieldset>' +
           '<div class="field" id="cart-adresa-camp" hidden><label for="cart-adresa">Adresa de livrare *</label>' +
             '<input id="cart-adresa" name="adresa" type="text" autocomplete="street-address"></div>' +
-          '<label class="cart-salveaza" id="cart-salveaza" hidden>' +
-            '<input type="checkbox" id="cart-salveaza-check">' +
-            '<span>Salvează adresa în contul meu, pentru comenzile viitoare.</span>' +
-          '</label>' +
           '<div class="field"><label for="cart-obs">Observații</label>' +
             '<textarea id="cart-obs" name="observatii" rows="2" placeholder="Ex.: Pizza fără ardei iute."></textarea></div>' +
           '<p class="cart-errors" id="cart-errors" role="alert" hidden></p>' +
@@ -1113,7 +1065,6 @@ function olizanPorneste() {
         if (reveniri) reveniri.focus();
       }
       salveaza();
-      urcaCos();
     }
 
     /* --- operațiuni pe coș -------------------------------------------------*/
@@ -1219,9 +1170,6 @@ function olizanPorneste() {
     var campTel = $("#cart-telefon", drawer);
     var campAdr = $("#cart-adresa", drawer);
     var campObs = $("#cart-obs", drawer);
-    var randSalveaza = $("#cart-salveaza", drawer);
-    var bifaSalveaza = $("#cart-salveaza-check", drawer);
-    var notaCont = $("#cart-cont", drawer);
 
     function modalitateAleasa() {
       var r = $("input[name=modalitate]:checked", drawer);
@@ -1231,7 +1179,6 @@ function olizanPorneste() {
       var livrare = modalitateAleasa() === "livrare";
       campAdresa.hidden = !livrare;
       campAdr.required = livrare;
-      randSalveaza.hidden = !livrare || !contClient;
     }
     formEl.addEventListener("change", function () {
       actualizeazaAdresa();
@@ -1251,43 +1198,6 @@ function olizanPorneste() {
     var radioSalvat = $("input[name=modalitate][value=" + (client.modalitate === "livrare" ? "livrare" : "ridicare") + "]", drawer);
     if (radioSalvat) radioSalvat.checked = true;
     actualizeazaAdresa();
-
-    /* --- datele venite din contul clientului ------------------------------ */
-    if (contClient) {
-      notaCont.innerHTML = '<span>Comanzi din contul <b>' + esc(contClient.email) + '</b>. ' +
-        'Comenzile se salvează automat în <a href="/cont">contul tău</a>.</span>';
-      notaCont.hidden = false;
-      if (!campNume.value.trim() && contClient.nume) campNume.value = contClient.nume;
-      if (!campTel.value.trim() && contClient.telefon) campTel.value = contClient.telefon;
-
-      /* coșul salvat în cont se îmbină cu cel din browser */
-      fetch("/api/account/cos", { credentials: "same-origin", headers: { accept: "application/json" } })
-        .then(function (r) { return r.ok ? r.json() : null; })
-        .then(function (d) {
-          cosCitit = true;
-          if (d && imbinaCos(d.cos)) randeaza();
-          else urcaCos();
-        })
-        .catch(function () { cosCitit = true; });
-
-      /* adresa implicită completează câmpul de livrare, dacă e gol */
-      fetch("/api/account/adrese", { credentials: "same-origin", headers: { accept: "application/json" } })
-        .then(function (r) { return r.ok ? r.json() : null; })
-        .then(function (d) {
-          if (!d || !Array.isArray(d.adrese) || !d.adrese.length) return;
-          var implicita = d.adrese[0];
-          if (campAdr.value.trim()) return;
-          campAdr.value = implicita.street + (implicita.city ? ", " + implicita.city : "") +
-            (implicita.details ? " (" + implicita.details + ")" : "");
-          client.adresa = campAdr.value;
-          salveaza();
-        })
-        .catch(function () {});
-    } else {
-      notaCont.innerHTML = '<span>Ai <a href="/cont">cont OLIZAN</a>? ' +
-        'Autentifică-te ca să-ți salvezi adresa și să vezi istoricul comenzilor.</span>';
-      notaCont.hidden = false;
-    }
 
     function arataErori(lista, camp) {
       erori.innerHTML = lista.map(function (t) { return esc(t); }).join("<br>");
@@ -1451,8 +1361,7 @@ function olizanPorneste() {
           telefon: client.telefon,
           modalitate: livrare ? "livrare" : "ridicare",
           adresa: livrare ? client.adresa : "",
-          observatii: client.observatii,
-          salveazaAdresa: !!(contClient && livrare && bifaSalveaza && bifaSalveaza.checked)
+          observatii: client.observatii
         })
       }).then(function (r) {
         return r.json().catch(function () { return null; }).then(function (d) {
@@ -1718,10 +1627,8 @@ function olizanPorneste() {
     if (sectiune) sectiune.hidden = false;
   }
 
-  Promise.all([cuTermen(ia("/api/menu")), cuTermen(ia("/api/auth/me"))])
-    .then(function (raspunsuri) {
-      var meniu = raspunsuri[0];
-      var cont = raspunsuri[1];
+  cuTermen(ia("/api/menu"))
+    .then(function (meniu) {
       if (meniu && Array.isArray(meniu.meniu) && meniu.meniu.length) OL.meniu = meniu.meniu;
       if (meniu && meniu.imagini) {
         aplicaHero(meniu.imagini.hero);
@@ -1731,7 +1638,6 @@ function olizanPorneste() {
          răspunde, site-ul pornește deschis, iar comanda tot ar fi oprită de
          server la trimitere, cu același mesaj. */
       OL.stareComenzi = meniu && meniu.comenzi ? meniu.comenzi : null;
-      OL.client = cont && cont.autentificat ? cont.client : null;
     })
     .then(function () {
       olizanPorneste();

@@ -1,5 +1,5 @@
 # Configurația de publicare pentru site-ul OLIZAN Restaurant & Pizzeria
-# Frontend static + Netlify Functions pentru conturi, comenzi și administrare.
+# Frontend static + Netlify Functions pentru comenzi fără cont și administrare.
 
 [build]
   # Se publică numai directorul allowlist generat la build. Sursele backend,
@@ -88,7 +88,7 @@
 
 [[redirects]]
   from = "/cont.html"
-  to = "/cont"
+  to = "/meniu"
   status = 301
   force = true
 
@@ -228,3 +228,16 @@
   [headers.values]
     X-Robots-Tag = "noindex, nofollow"
     Cache-Control = "no-store"
+
+# Conturile clienților au fost retrase; autentificarea administratorului rămâne la /admin/login.
+[[redirects]]
+  from = "/cont"
+  to = "/meniu"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/cont/"
+  to = "/meniu"
+  status = 301
+  force = true

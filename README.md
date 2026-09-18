@@ -132,7 +132,7 @@ Mesajul precompletat trimis pe WhatsApp se schimbă în `data/menu.js`, la `mesa
 
 Fiecare comandă trimisă din coșul site-ului primește un număr de ordine pe ziua
 respectivă — `01`, `02`, `03`… — care apare în mesajul de WhatsApp, în panoul de
-administrare și în istoricul contului clientului. Numerotarea repornește singură
+administrare. Numerotarea repornește singură
 de la `01` la fiecare miezul nopții, după ora României; nu ai nimic de resetat
 manual. Comenzile înregistrate înainte de introducerea numerotării se afișează în
 continuare cu numărul lor intern din baza de date.
@@ -215,9 +215,9 @@ Formularul din `contact.html` funcționează prin **Netlify Forms** și este dej
 Dacă redenumești formularul, schimbă în același timp atributul `name="contact"` și câmpul
 ascuns `<input type="hidden" name="form-name" value="contact">` — trebuie să fie identice.
 
-### 7.1 E-mailurile pentru resetarea parolei
+### 7.1 Comenzi fără cont
 
-Fluxul „Ai uitat parola?” folosește Resend. În **Netlify → Project configuration → Environment variables** se definesc `RESEND_API_KEY` și `PASSWORD_RESET_FROM` (de exemplu `OLIZAN <cont@restaurantolizan.ro>`). Domeniul expeditorului trebuie verificat în Resend. Tokenurile sunt stocate numai ca hash, expiră după 30 de minute și se șterg după folosire.
+Autentificarea clienților a fost eliminată. Coșul și datele introduse rămân în browser; comenzile noi nu sunt asociate conturilor. Rutele /cont și /cont.html redirecționează la meniu. API-urile vechi de cont și autentificare răspund cu 410 (GET /api/auth/me returnează sesiune anonimă). Datele istorice sunt păstrate. Autentificarea administratorului și protecția /api/admin/* sunt neschimbate.
 
 ---
 
