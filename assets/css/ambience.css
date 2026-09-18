@@ -74,3 +74,26 @@ body.home-luxury .cookie,body:not(.home-luxury) .cookie{background:#272e29}
 @media(prefers-reduced-motion:reduce){.lux-embers::after{animation:none;opacity:.45}}
 
 @media(max-width:700px){.home-luxury .lux-hero::before{z-index:0}.home-luxury .lux-hero__inner{position:relative;z-index:1}}
+
+/* Slightly smaller cards, while keeping prices and touch targets readable. */
+.home-luxury .lux-menu-grid{gap:20px}
+.home-luxury .lux-menu-card{width:100%;max-width:285px;justify-self:center;padding:17px 16px 20px}
+.home-luxury .lux-menu-card img{width:min(100%,225px)}
+.home-luxury .lux-menu-card h3{margin-top:14px;font-size:1.5rem}
+.home-luxury .lux-gallery img{aspect-ratio:1.65}
+body.menu-page .prod{width:100%;max-width:355px;justify-self:center}
+body.menu-page .prod-foto{aspect-ratio:3/2;padding:10px}
+body.menu-page .prod-foto img,body.menu-page .grid--3 .prod-foto img{aspect-ratio:3/2}
+body.menu-page .prod-body{padding:16px;gap:6px}
+body.menu-page .prod-name{font-size:1.25rem}
+body.menu-page .prod-size{padding:9px 11px;min-height:46px}
+body.menu-page .prod-buy{gap:12px;padding-top:13px}
+body:not(.home-luxury) :is(.contact-card,.card,.product-card){padding:22px}
+body:not(.home-luxury) .sala-cutie{padding:22px}
+@media(max-width:700px){
+ .home-luxury .lux-menu-grid{gap:12px}
+ .home-luxury .lux-menu-card{padding:10px 10px 15px}
+ .home-luxury .lux-menu-card h3{font-size:1.12rem}
+ body.menu-page .prod-body{padding:15px}
+ body:not(.home-luxury) :is(.contact-card,.card,.product-card,.sala-cutie){padding:18px}
+}
