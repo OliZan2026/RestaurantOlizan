@@ -1,0 +1,18 @@
+/* One wordmark shared by public headers and footers. */
+.header .brand::before,.footer-brand::before{display:none}
+body .header .brand{min-width:0;gap:0}
+body .brand-name.brand-wordmark{display:inline-flex;align-items:center;gap:.025em;font-family:var(--ff-display);font-size:2.15rem;font-weight:700;line-height:1;letter-spacing:.035em;color:#f0bd5a;white-space:nowrap}
+.brand-wordmark .brand-z{display:inline-block;transform:rotate(-8deg);font-size:1.1em;margin-inline:.025em}
+.brand-wordmark .brand-pizza{position:relative;display:inline-block;flex:none;width:1.2em;height:1.2em;margin-right:.04em;isolation:isolate}
+.brand-wordmark .brand-pizza img{position:absolute;inset:-12%;width:124%;height:124%;max-width:none;object-fit:contain}
+.brand-wordmark .brand-pizza::after{content:"";position:absolute;inset:-12%;z-index:1;pointer-events:none;background:url('/assets/img/pizza-letter-fire.webp') center/contain no-repeat;mask-image:radial-gradient(circle closest-side,transparent 64%,#000 76%);mix-blend-mode:screen;animation:brand-fire 2.2s ease-in-out infinite alternate}
+@keyframes brand-fire{from{opacity:.12;transform:scaleY(.98)}to{opacity:.42;transform:scaleY(1.025)}}
+body .header .brand-sub{font-size:.53rem;letter-spacing:.13em;margin-top:5px;color:#d2b879;text-align:right}
+body .footer-brand .brand-text{display:inline-flex!important;margin-top:0!important}
+.footer-brand .brand-text>br{display:none}
+body .footer-brand .brand-name.brand-wordmark{font-size:2.2rem}
+body .footer-brand .brand-sub{font-size:.58rem!important;letter-spacing:.13em!important;margin-top:5px;color:#d2b879}
+body.brand-motion-paused .brand-pizza::after{animation-play-state:paused}
+@media(max-width:700px){body .header .brand-name.brand-wordmark{font-size:1.85rem}body .header .brand-sub{font-size:.47rem}}
+@media(max-width:370px){body .header .brand-name.brand-wordmark{font-size:1.6rem}body .header .brand-sub{font-size:.42rem}}
+@media(prefers-reduced-motion:reduce){.brand-wordmark .brand-pizza::after{animation:none;opacity:.2}}

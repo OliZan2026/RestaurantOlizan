@@ -7,6 +7,7 @@
   var paused = false, inView = true;
   function update() {
     hero.classList.toggle("is-motion-paused", paused);
+    document.body.classList.toggle("brand-motion-paused", paused || document.hidden);
     hero.classList.toggle("is-outside", !inView || document.hidden);
     button.setAttribute("aria-pressed", String(paused));
     button.textContent = paused ? "Pornește animația" : "Pauză animație";
