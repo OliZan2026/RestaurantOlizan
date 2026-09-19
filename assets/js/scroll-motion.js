@@ -26,7 +26,7 @@
     });
   }, { threshold: 0, rootMargin: "0px 0px -24px 0px" });
   function register(el) {
-    if (seen.has(el)) return;
+    if (seen.has(el) || el.matches(".lux-menu-card") || el.closest(".lux-menu-grid")) return;
     if (el.matches(".reveal") && !el.matches(cards) && el.querySelector(cards)) return;
     if (el.parentElement && el.parentElement.closest(cards)) return;
     seen.add(el);

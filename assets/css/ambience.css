@@ -91,3 +91,7 @@ body:not(.home-luxury) .sala-cutie{padding:22px}
 /* Keep category photos stable before and after lazy image decoding. */
 .home-luxury .lux-menu-card img{display:block;height:auto;aspect-ratio:1;object-fit:cover}
 @media(hover:none){.home-luxury .lux-menu-card:hover{transform:none}}
+
+/* Category tiles stay anchored while scrolling or passing under the pointer. */
+.home-luxury .lux-menu-card,.home-luxury .lux-menu-card:hover,.home-luxury .lux-menu-card:focus-visible{transform:none;translate:none;animation:none;transition:border-color .2s,box-shadow .2s}
+.home-luxury .lux-menu-card img{transform:none;translate:none;animation:none;transition:none}
