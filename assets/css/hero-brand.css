@@ -54,3 +54,17 @@
 @keyframes olizan-real-fire{0%{opacity:.16;transform:scale(1,.98)}37%{opacity:.38;transform:scale(.99,1.025)}68%{opacity:.2;transform:scale(1.01,1)}100%{opacity:.45;transform:scale(1,1.035)}}
 .lux-hero.is-motion-paused .lux-pizza-letter::after,.lux-hero.is-outside .lux-pizza-letter::after{animation-play-state:paused}
 @media(prefers-reduced-motion:reduce){.lux-pizza-letter::after{animation:none;opacity:.2}}
+
+/* Decorative oven layers must never intercept calls to action. */
+.home-luxury .lux-hero__inner{pointer-events:auto}
+.lux-oven{pointer-events:none}
+.home-luxury .lux-actions{position:relative;z-index:4}
+.home-luxury .lux-actions a{pointer-events:auto}
+/* Reserve the complete wordmark width; OLI stays visible from first paint. */
+.lux-wordmark .lux-letter-z{animation:olizan-enter-z .85s cubic-bezier(.2,.75,.2,1) .45s both}
+.lux-wordmark .lux-letter-a{animation:olizan-enter-a .85s cubic-bezier(.2,.75,.2,1) .65s both}
+.lux-wordmark .lux-letter-n{animation:olizan-enter-n .85s cubic-bezier(.2,.75,.2,1) .85s both}
+@keyframes olizan-enter-z{from{opacity:0;transform:translateX(2em) rotate(-8deg)}to{opacity:1;transform:translateX(0) rotate(-8deg)}}
+@keyframes olizan-enter-a{from{opacity:0;transform:translateY(-1.3em)}to{opacity:1;transform:translateY(0)}}
+@keyframes olizan-enter-n{from{opacity:0;transform:translateY(1.3em)}to{opacity:1;transform:translateY(0)}}
+@media(prefers-reduced-motion:reduce){.lux-wordmark .lux-letter-z,.lux-wordmark .lux-letter-a,.lux-wordmark .lux-letter-n{animation:none;opacity:1}}

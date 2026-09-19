@@ -11,12 +11,12 @@ const surse = [
 
 const continut = (await Promise.all(surse.map((fisier) => readFile(fisier, "utf8")))).join("\n");
 
-// Homepage-ul primește o singură cerere CSS, compactată. Ordinea surselor
+// Nu elimina spațiul dinaintea pseudo-claselor: „.parent :is(a,button)”\n// este un selector diferit de „.parent:is(a,button)”.\n// Homepage-ul primește o singură cerere CSS, compactată. Ordinea surselor
 // rămâne identică celei din HTML, deci aspectul și suprascrierile nu se schimbă.
 const compact = continut
   .replace(/\/\*[\s\S]*?\*\//g, "")
   .replace(/\s+/g, " ")
-  .replace(/\s*([{}:;,>])\s*/g, "$1")
+  .replace(/\s*([{};,>])\s*/g, "$1")
   .trim();
 
 await writeFile("assets/css/home-bundle.min.css", `${compact}\n`, "utf8");
