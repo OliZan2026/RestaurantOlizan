@@ -46,3 +46,11 @@
 @media(max-width:1000px) and (min-width:701px){.lux-oven{opacity:.72}.home-luxury .lux-hero__inner{background:linear-gradient(90deg,#202623 22%,transparent 85%)}}
 @media(max-width:700px){.lux-oven{top:0;right:0;width:100%;height:345px;aspect-ratio:auto;transform:none;mask-image:linear-gradient(180deg,#000 85%,transparent)}.home-luxury .lux-hero__inner{padding-top:350px}.home-luxury .lux-hero h1.lux-wordmark{font-size:clamp(3.6rem,19vw,6rem)}}
 @media(prefers-reduced-motion:reduce){.lux-oven-glow,.lux-oven-fire i,.lux-oven-sparks i{animation:none}.lux-oven-sparks{display:none}}
+
+/* Photographic flame contours replace the geometric flame shapes. */
+.lux-wordmark .lux-pizza-letter{width:.9em;height:.9em;margin-right:.03em}
+.lux-pizza-letter img{position:absolute;left:-14%;top:-18%;width:128%;height:128%;max-width:none;object-fit:contain;filter:none;animation:none}
+.lux-pizza-letter::after{content:"";position:absolute;left:-14%;top:-18%;width:128%;height:128%;z-index:3;pointer-events:none;background:url('/assets/img/pizza-letter-fire.webp') center/contain no-repeat;mask-image:radial-gradient(circle closest-side,transparent 64%,#000 76%);mix-blend-mode:screen;transform-origin:50% 75%;animation:olizan-real-fire 1.7s ease-in-out infinite alternate}
+@keyframes olizan-real-fire{0%{opacity:.16;transform:scale(1,.98)}37%{opacity:.38;transform:scale(.99,1.025)}68%{opacity:.2;transform:scale(1.01,1)}100%{opacity:.45;transform:scale(1,1.035)}}
+.lux-hero.is-motion-paused .lux-pizza-letter::after,.lux-hero.is-outside .lux-pizza-letter::after{animation-play-state:paused}
+@media(prefers-reduced-motion:reduce){.lux-pizza-letter::after{animation:none;opacity:.2}}
