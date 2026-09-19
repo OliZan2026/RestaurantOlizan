@@ -52,8 +52,9 @@
 }</script>
   <link rel="stylesheet" href="/assets/css/ambience.css?v=20260919-scroll-cards">
 <link rel="stylesheet" href="/assets/css/brand-logo.css?v=20260919-fire">
+  <link rel="stylesheet" href="/assets/css/pages-refresh.css?v=20260919-air">
 </head>
-<body>
+<body class="refresh-page galerie-page">
   <a class="skip" href="#continut">Sari la conținut</a>
   <header class="header">
     <div class="header-inner">
@@ -88,8 +89,7 @@
       </nav>
       <p class="eyebrow">Galerie</p>
       <h1>Meniul nostru, în imagini</h1>
-      <p class="lead">Apasă pe orice imagine pentru a o vedea mărită. Folosește săgețile de pe tastatură pentru a naviga
-        și tasta Esc pentru a închide.</p>
+      <p class="lead">Fotografii de răsfoit în tihnă. Apasă pe o imagine pentru detalii.</p>
     </div>
   </section>
 
@@ -99,7 +99,7 @@
         <div class="section-head">
           <p class="eyebrow">Din restaurant</p>
           <h2>Fotografiile noastre</h2>
-          <p class="lead">Imagini încărcate de echipa OLIZAN direct din panoul restaurantului.</p>
+          <p class="lead">Momente și detalii din restaurantul nostru.</p>
         </div>
         <div class="gallery" data-galerie-incarcata></div>
       </div>
@@ -107,16 +107,7 @@
 
     <section class="section">
       <div class="wrap">
-        <div class="notice notice--gold" style="margin-bottom:2.4rem">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 16v-5"/><path d="M12 8h.01"/></svg>
-          <div>
-            <p><strong>Ce vezi aici.</strong> Fotografiile din prima secțiune sunt imagini reale ale meniului tipărit din
-              restaurant. Imaginile din a doua secțiune sunt imagini ilustrative, realizate special pentru OLIZAN — nu
-              sunt fotografii ale preparatelor noastre și nu sunt prezentate ca atare.</p>
-            <p>Secțiunea este pregătită pentru fotografiile autentice ale restaurantului (preparate, interior, terasă).
-              Instrucțiunile de înlocuire se găsesc în fișierul <code>README.md</code>.</p>
-          </div>
-        </div>
+
 
         <div class="section-head">
           <p class="eyebrow">Fotografii reale</p>
@@ -143,19 +134,15 @@
       <div class="wrap">
         <div class="section-head">
           <p class="eyebrow">Imagini ilustrative</p>
-          <h2>Preparatele noastre, în imagini</h2>
-          <p class="lead">Până la sesiunea foto profesională, categoriile din meniu sunt reprezentate prin imagini
-            ilustrative pregătite pentru OLIZAN.</p>
+          <h2>Inspirație din meniu</h2>
+          
         </div>
         <div class="gallery">
           <figure class="gallery-item " data-lb="/assets/img/art/pizza.webp" data-lb-cap="Pizza coaptă în cuptor">
             <img src="/assets/img/art/pizza.webp" width="1200" height="900" alt="Imagine ilustrativă cu o pizza cu salam și busuioc, coaptă în cuptor" loading="lazy" decoding="async">
             <figcaption>Pizza coaptă în cuptor</figcaption>
           </figure>
-          <figure class="gallery-item " data-lb="/assets/img/art/paste.svg" data-lb-cap="Paste cu sos de roșii">
-            <img src="/assets/img/art/paste.svg" width="600" height="600" alt="Ilustrație cu o farfurie de paste cu sos de roșii" loading="lazy" decoding="async">
-            <figcaption>Paste cu sos de roșii</figcaption>
-          </figure>
+
           <figure class="gallery-item " data-lb="/assets/img/art/burger.webp" data-lb-cap="Burger pregătit la comandă">
             <img src="/assets/img/art/burger.webp" width="1200" height="900" alt="Imagine ilustrativă cu un burger cu cheddar, salată și cartofi prăjiți" loading="lazy" decoding="async">
             <figcaption>Burger pregătit la comandă</figcaption>
@@ -180,36 +167,14 @@
             <img src="/assets/img/art/bautura.webp" width="1200" height="900" alt="Imagine ilustrativă cu băuturi de la bar: cafea, limonadă cu lămâie și mentă, răcoritoare și bere" loading="lazy" decoding="async">
             <figcaption>De la bar</figcaption>
           </figure>
-          <figure class="gallery-item gallery-item--wide" data-lb="/assets/img/art/cuptor.svg" data-lb-cap="Cuptorul nostru de pizza">
-            <img src="/assets/img/art/cuptor.svg" width="800" height="600" alt="Ilustrație cu cuptorul de pizza" loading="lazy" decoding="async">
-            <figcaption>Cuptorul nostru de pizza</figcaption>
-          </figure>
-          <figure class="gallery-item " data-lb="/assets/img/art/interior.svg" data-lb-cap="Interior — mese pregătite">
-            <img src="/assets/img/art/interior.svg" width="800" height="600" alt="Ilustrație cu interiorul restaurantului" loading="lazy" decoding="async">
-            <figcaption>Interior — mese pregătite</figcaption>
-          </figure>
-          <figure class="gallery-item " data-lb="/assets/img/art/terasa.svg" data-lb-cap="Terasa, la umbră">
-            <img src="/assets/img/art/terasa.svg" width="800" height="600" alt="Ilustrație cu terasa restaurantului" loading="lazy" decoding="async">
-            <figcaption>Terasa, la umbră</figcaption>
-          </figure>
+
+
+
         </div>
       </div>
     </section>
 
-    <section class="section">
-      <div class="wrap">
-        <div class="cta-band">
-          <div>
-            <h2>Ai văzut ceva ce îți place?</h2>
-            <p>Comandă direct pe WhatsApp sau vino la noi, în Bulgăruș, nr. 245/A.</p>
-          </div>
-          <div class="stack-btns">
-            <a class="btn btn--wa" href="https://wa.me/40723639875?text=Bun%C4%83%20ziua!%20Doresc%20s%C4%83%20plasez%20o%20comand%C4%83%20la%20OLIZAN%20Restaurant%20%26%20Pizzeria." target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2c-5.5 0-9.96 4.46-9.96 9.96 0 1.76.46 3.48 1.34 5L2 22l5.2-1.36a9.9 9.9 0 0 0 4.84 1.24h.01c5.5 0 9.96-4.46 9.96-9.96A9.9 9.9 0 0 0 19.08 4.9 9.9 9.9 0 0 0 12.04 2Zm0 1.8c2.18 0 4.23.85 5.77 2.4a8.1 8.1 0 0 1 2.39 5.77c0 4.5-3.66 8.16-8.16 8.16a8.2 8.2 0 0 1-4.17-1.14l-.3-.18-3.09.81.82-3-.19-.31a8.1 8.1 0 0 1-1.24-4.34c0-4.5 3.66-8.17 8.17-8.17Zm-2.6 4.14c-.16 0-.42.06-.64.3-.22.24-.85.83-.85 2.03s.87 2.35.99 2.51c.12.16 1.7 2.6 4.13 3.55 2.02.8 2.43.64 2.87.6.44-.04 1.42-.58 1.62-1.15.2-.56.2-1.05.14-1.15-.06-.1-.22-.16-.46-.28-.24-.12-1.42-.7-1.64-.78-.22-.08-.38-.12-.54.12-.16.24-.62.78-.76.94-.14.16-.28.18-.52.06-.24-.12-1.01-.37-1.93-1.19-.71-.63-1.19-1.42-1.33-1.66-.14-.24-.02-.37.1-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.53-1.3-.74-1.78-.19-.45-.39-.39-.53-.4h-.47Z"/></svg> Comandă pe WhatsApp</a>
-            <a class="btn btn--ghost" href="/meniu">Vezi meniul</a>
-          </div>
-        </div>
-      </div>
-    </section>
+    <section class="section"><div class="wrap gallery-end"><p>Ți-am făcut poftă?</p><a class="btn btn--primary" href="/meniu">Descoperă meniul</a></div></section>
   </main>
   <footer class="footer">
     <div class="wrap">

@@ -53,8 +53,9 @@
 }</script>
   <link rel="stylesheet" href="/assets/css/ambience.css?v=20260919-scroll-cards">
 <link rel="stylesheet" href="/assets/css/brand-logo.css?v=20260919-fire">
+  <link rel="stylesheet" href="/assets/css/pages-refresh.css?v=20260919-air">
 </head>
-<body>
+<body class="refresh-page inchiriere-sala-page">
   <a class="skip" href="#continut">Sari la conținut</a>
   <header class="header">
     <div class="header-inner">
@@ -97,20 +98,13 @@
   <main id="continut">
     <section class="section" id="inchiriere-sala" data-sala>
       <div class="wrap">
-        <div class="section-head center">
-          <p class="eyebrow eyebrow--center">Despre sală</p>
-          <h2>Sala de evenimente</h2>
-          <p class="lead sala-intro" data-sala-descriere>Sala noastră dispune de 130 mp și poate găzdui până la 80 de
-            persoane. Organizăm botezuri, aniversări, cine festive și evenimente de familie, iar la cerere ne ocupăm și
-            de meniul evenimentului. Pentru detalii, disponibilitate și ofertă de preț ne puteți suna la
-            <a href="tel:+40720409320">+40 720 409 320</a>.</p>
-        </div>
+<div class="venue-intro"><div class="reveal"><p class="eyebrow">Evenimentul tău, la OLIZAN</p><h2>Un loc pentru<br>momentele voastre.</h2><p class="lead sala-intro" data-sala-descriere>O sală pentru botezuri, aniversări, cine festive și întâlniri de familie. Discutăm împreună detaliile și, la cerere, meniul evenimentului.</p><dl class="venue-facts"><div><dt>130 m²</dt><dd>suprafața sălii</dd></div><div><dt>80</dt><dd>persoane, capacitate maximă</dd></div></dl><div class="stack-btns"><a class="btn btn--primary" href="#disponibilitate">Alege data</a><a class="btn btn--ghost" href="tel:+40720409320">Discută evenimentul</a></div></div><figure class="venue-photo reveal"><img src="/assets/img/sala-evenimente-olizan.webp" width="1200" height="900" alt="Sala OLIZAN pregătită pentru evenimente" decoding="async"><figcaption>OLIZAN · Bulgăruș, Timiș</figcaption></figure></div>
 
         <div class="sala-galerie reveal" data-sala-galerie hidden></div>
 
-        <div class="sala-rezervare">
+        <div class="section-head booking-heading" id="disponibilitate"><p class="eyebrow">Planificăm împreună</p><h2>Primul pas: data evenimentului.</h2><p>Alege o zi și trimite detaliile. Confirmăm personal disponibilitatea și oferta.</p></div><div class="sala-rezervare">
           <div class="sala-cutie reveal">
-            <h3>Calendar disponibilitate</h3>
+            <h3>01 / Alege data</h3>
             <p class="sala-ajutor">Zilele tăiate sunt deja ocupate. Alege o zi liberă și trimite-ne o cerere.</p>
             <div class="sala-cal-cap">
               <button class="sala-nav" type="button" data-sala-inapoi aria-label="Luna anterioară"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button>
@@ -129,7 +123,7 @@
           </div>
 
           <div class="sala-cutie reveal reveal-d1" data-sala-form-zona>
-            <h3>Cerere de rezervare</h3>
+            <h3>02 / Detaliile evenimentului</h3>
             <p class="sala-gol" data-sala-fara-zi><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 16v-5"/><path d="M12 8h.01"/></svg><span>Alege o zi disponibilă din calendar, apoi completează datele evenimentului.</span></p>
 
             <form data-sala-form hidden novalidate>
