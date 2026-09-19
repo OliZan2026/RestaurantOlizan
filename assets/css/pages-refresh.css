@@ -67,3 +67,7 @@ body.galerie-page .gallery-item figcaption{font-size:.8rem}
 .locatie-page .map-shell{min-height:300px}
 }
 @media(prefers-reduced-motion:reduce){.oven-light,.oven-fire{animation:none}}
+
+/* Override the legacy gallery surface, including its caption selector. */
+body.galerie-page main .gallery .gallery-item{background:transparent;aspect-ratio:auto;overflow:visible}
+body.galerie-page main .gallery .gallery-item figcaption{background:transparent}
