@@ -17,7 +17,7 @@
 
 "use strict";
 
-const VERSIUNE = "1787725799292";
+const VERSIUNE = "20260919-pizza-pwa";
 
 const CACHE_SCOICA = "olizan-scoica-" + VERSIUNE;   /* interfața de bază */
 const CACHE_STATIC = "olizan-static-" + VERSIUNE;   /* stiluri, scripturi, fonturi, imagini */
@@ -38,8 +38,8 @@ const SCOICA = [
   "/assets/fonts/jost-500-latin.woff2",
   "/assets/img/favicon.svg",
   "/assets/img/logo-olizan.svg",
-  "/assets/img/pwa/icon-192.png",
-  "/assets/img/pwa/icon-512.png",
+  "/assets/img/pwa/icon-192-pizza-fire.png",
+  "/assets/img/pwa/icon-512-pizza-fire.png",
   "/manifest.webmanifest"
 ];
 

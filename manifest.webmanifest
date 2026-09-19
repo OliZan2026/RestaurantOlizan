@@ -15,25 +15,25 @@
   "categories": ["food", "lifestyle"],
   "icons": [
     {
-      "src": "/assets/img/pwa/icon-192.png?v=20260825-gold",
+      "src": "/assets/img/pwa/icon-192-pizza-fire.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/assets/img/pwa/icon-512.png?v=20260825-gold",
+      "src": "/assets/img/pwa/icon-512-pizza-fire.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/assets/img/pwa/icon-maskable-192.png?v=20260825-gold",
+      "src": "/assets/img/pwa/icon-maskable-192-pizza-fire.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "maskable"
     },
     {
-      "src": "/assets/img/pwa/icon-maskable-512.png?v=20260825-gold",
+      "src": "/assets/img/pwa/icon-maskable-512-pizza-fire.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
@@ -44,13 +44,13 @@
       "name": "Meniu",
       "short_name": "Meniu",
       "url": "/meniu",
-      "icons": [{ "src": "/assets/img/pwa/icon-192.png?v=20260825-gold", "sizes": "192x192", "type": "image/png" }]
+      "icons": [{ "src": "/assets/img/pwa/icon-192-pizza-fire.png", "sizes": "192x192", "type": "image/png" }]
     },
     {
       "name": "Contact",
       "short_name": "Contact",
       "url": "/contact",
-      "icons": [{ "src": "/assets/img/pwa/icon-192.png?v=20260825-gold", "sizes": "192x192", "type": "image/png" }]
+      "icons": [{ "src": "/assets/img/pwa/icon-192-pizza-fire.png", "sizes": "192x192", "type": "image/png" }]
     }
   ]
 }
