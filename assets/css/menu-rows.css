@@ -1,0 +1,62 @@
+/* Restaurant menu: photo, description, then a separate price column. */
+body.menu-page .page-head{padding-block:2.4rem}
+body.menu-page .page-head h1{font-size:clamp(2.4rem,4vw,3.4rem)}
+body.menu-page .page-head .lead{max-width:65ch;font-size:1rem}
+body.menu-page .menu-panel{padding:24px;background:#262d29;border-radius:14px;box-shadow:none}
+body.menu-page .menu-panel-head{padding:0 0 20px;margin:0 0 4px}
+body.menu-page .menu-panel-head img{display:none}
+body.menu-page .menu-panel-head h3{font-size:2rem}
+body.menu-page .prod-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:0}
+body.menu-page .prod{display:grid;grid-template-columns:190px minmax(0,1fr);align-items:center;gap:24px;width:100%;max-width:none;min-height:0;padding:26px 0;border:0;border-bottom:1px solid rgba(222,202,165,.2);border-radius:0;background:transparent;box-shadow:none;overflow:visible}
+body.menu-page .prod:last-child{border-bottom:0}
+body.menu-page .prod:hover{background:transparent;box-shadow:none}
+body.menu-page .prod-foto{grid-column:1;width:190px;height:160px;min-height:0;aspect-ratio:auto;padding:8px;align-self:center;border:1px solid rgba(222,202,165,.15);border-radius:12px;background:#202623;overflow:hidden}
+body.menu-page .prod-foto img,body.menu-page .grid--3 .prod-foto img{width:100%;height:100%;min-height:0;max-height:none;aspect-ratio:auto;object-fit:contain;border-radius:8px}
+body.menu-page .prod-body{display:grid;grid-template-columns:minmax(0,1fr) 184px;column-gap:28px;row-gap:8px;align-items:start;padding:0;min-width:0}
+body.menu-page .prod-name{grid-column:1;margin:0;font-size:1.65rem;line-height:1.15}
+body.menu-page .prod-ing{grid-column:1;margin:0;max-width:58ch;font-size:1rem;line-height:1.55;display:block;overflow:visible}
+body.menu-page .prod-gram{grid-column:1;margin:0;font-size:.82rem}
+body.menu-page .prod-sizes{grid-column:1;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:8px 0 0;padding:0;min-width:0}
+body.menu-page .prod-sizes legend{margin-bottom:4px;font-size:.73rem}
+body.menu-page .prod-size{display:flex;flex-direction:column;align-items:flex-start;gap:6px;padding:10px 12px;margin:0;border-radius:8px;min-height:46px;font-size:.85rem}
+body.menu-page .prod-size-pret{align-items:flex-start;gap:2px}
+body.menu-page .prod-size .prod-ambalaj{font-size:.76rem}
+body.menu-page .prod-buy,body.menu-page .prod--fara-foto .prod-buy{grid-column:2;grid-row:1/span 5;display:flex;flex-direction:column;align-items:stretch;justify-content:center;align-self:stretch;gap:14px;margin:0;padding:0 0 0 24px;border:0;border-left:1px solid rgba(222,202,165,.2)}
+body.menu-page .prod-price{font-size:1.85rem;line-height:1.2;margin:0;white-space:normal}
+body.menu-page .prod-price .prod-price-label{font-size:.74rem;margin-bottom:6px}
+body.menu-page .prod-price .prod-ambalaj[data-ambalaj-afisat]{margin-top:8px;font-size:.86rem;color:#dfd3be}
+body.menu-page .btn--add{width:100%;min-width:0;min-height:46px;padding:10px 12px;font-size:.85rem;white-space:normal}
+body.menu-page .prod-err{grid-column:1/-1}
+body.menu-page .prod-oprit{grid-column:1;font-size:.85rem}
+body.menu-page .prod--fara-foto{grid-template-columns:minmax(0,1fr)}
+body.menu-page .prod--fara-foto .prod-body{grid-column:1}
+body.menu-page .menu-group-title{margin-top:24px;font-size:1.5rem}
+body.menu-page .prod-price-linie{gap:5px;line-height:1.5}
+@media(max-width:950px){
+ body.menu-page .prod{grid-template-columns:140px minmax(0,1fr);gap:18px}
+ body.menu-page .prod-foto{width:140px;height:140px}
+ body.menu-page .prod-body{grid-template-columns:minmax(0,1fr) 158px;column-gap:18px}
+ body.menu-page .prod-buy,body.menu-page .prod--fara-foto .prod-buy{padding-left:18px}
+ body.menu-page .prod-name{font-size:1.45rem}
+}
+@media(max-width:640px){
+ body.menu-page .menu-panel{padding:16px}
+ body.menu-page .prod{grid-template-columns:92px minmax(0,1fr);gap:8px 14px;padding:22px 0}
+ body.menu-page .prod-body{display:contents}
+ body.menu-page .prod-foto{grid-column:1;grid-row:1/span 3;align-self:start;width:92px;height:92px;padding:5px}
+ body.menu-page .prod-name{grid-column:2;grid-row:1;font-size:1.32rem;line-height:1.18;align-self:end}
+ body.menu-page .prod-ing{grid-column:2;grid-row:2;font-size:.91rem;line-height:1.45}
+ body.menu-page .prod-gram{grid-column:2;grid-row:3;font-size:.75rem}
+ body.menu-page .prod-sizes{grid-column:1/-1;grid-row:4;margin:8px 0 4px}
+ body.menu-page .prod-size{padding:10px;gap:4px}
+ body.menu-page .prod-buy,body.menu-page .prod--fara-foto .prod-buy{grid-column:1/-1;grid-row:5;flex-direction:row;align-items:center;justify-content:space-between;gap:12px;border:0;padding:12px 0 0}
+ body.menu-page .prod-price{font-size:1.6rem}
+ body.menu-page .btn--add{width:auto;max-width:48%;min-height:46px;padding:10px 12px}
+ body.menu-page .prod-price .prod-ambalaj[data-ambalaj-afisat]{font-size:.82rem;margin-top:5px}
+ body.menu-page .prod--fara-foto{grid-template-columns:minmax(0,1fr)}
+ body.menu-page .prod--fara-foto :is(.prod-name,.prod-ing,.prod-gram){grid-column:1}
+ body.menu-page .prod-err,body.menu-page .prod-oprit{grid-column:1/-1;grid-row:6}
+ body.menu-page .prod-buy--oprit{align-items:flex-start}
+ body.menu-page .menu-panel-head h3{font-size:1.7rem}
+}
+@media(max-width:640px){body.menu-page .prod--fara-foto .prod-body{display:contents;padding:0}}
