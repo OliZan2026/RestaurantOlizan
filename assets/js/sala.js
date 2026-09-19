@@ -248,17 +248,53 @@
     });
   }
 
-  function ia() {
-    if (typeof fetch !== "function") return Promise.resolve(null);
-    return fetch("/api/sala", { headers: { accept: "application/json" } })
-      .then(function (r) { return r.ok ? r.json() : null; })
-      .catch(function () { return null; });
+  function indisponibil() {
+    sectiuni.forEach(function (sectiune) {
+      var zile = sectiune.querySelector("[data-sala-zile]");
+      var luna = sectiune.querySelector("[data-sala-luna]");
+      if (zile) zile.innerHTML = "";
+      if (luna) luna.textContent = "Disponibilitate neconfirmată";
+      sectiune.querySelectorAll("[data-sala-inapoi], [data-sala-inainte]").forEach(function (b) { b.disabled = true; });
+      var mesaj = sectiune.querySelector("[data-sala-fara-zi]");
+      if (mesaj) {
+        mesaj.hidden = false;
+        mesaj.setAttribute("role", "status");
+        mesaj.innerHTML = 'Calendarul nu poate fi încărcat acum. Pentru disponibilitate și rezervări, sună la <a href="tel:+40720409320">+40 720 409 320</a> sau reîncarcă pagina.';
+      }
+      var ajutor = sectiune.querySelector(".sala-ajutor");
+      if (ajutor) ajutor.textContent = "Datele nu sunt disponibile momentan. Nicio zi nu este confirmată ca liberă.";
+    });
   }
 
-  /* Dacă serverul nu răspunde, secțiunea rămâne folosibilă: textul scris în
-     pagină, fotografiile lipsă ca locuri goale și un calendar fără zile
-     ocupate — cererea tot ajunge pe WhatsApp. */
+  function ia() {
+    if (typeof fetch !== "function") return Promise.resolve(null);
+    return new Promise(function (resolve) {
+      var gata = false;
+      var controller = typeof AbortController === "function" ? new AbortController() : null;
+      var ceas = setTimeout(function () {
+        termina(null);
+        if (controller) controller.abort();
+      }, 8000);
+      function termina(date) {
+        if (gata) return;
+        gata = true;
+        clearTimeout(ceas);
+        resolve(date);
+      }
+      var optiuni = { headers: { accept: "application/json" } };
+      if (controller) optiuni.signal = controller.signal;
+      fetch("/api/sala", optiuni)
+        .then(function (r) { return r.ok ? r.json() : null; })
+        .then(termina).catch(function () { termina(null); });
+    });
+  }
+
+  /* Missing or malformed availability must never advertise every day as free. */
   ia().then(function (date) {
-    aplica(date && typeof date === "object" ? date : { ocupate: [], imagini: [] });
+    if (!date || typeof date !== "object" || !Array.isArray(date.ocupate)) {
+      indisponibil();
+      return;
+    }
+    aplica(date);
   });
 })();
