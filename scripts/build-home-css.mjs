@@ -4,6 +4,9 @@ const surse = [
   "assets/css/fonts.css",
   "assets/css/style.css",
   "assets/css/home-luxury.css",
+  "assets/css/ambience.css",
+  "assets/css/hero-brand.css",
+  "assets/css/brand-logo.css",
 ];
 
 const continut = (await Promise.all(surse.map((fisier) => readFile(fisier, "utf8")))).join("\n");

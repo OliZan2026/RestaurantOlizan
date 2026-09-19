@@ -31,13 +31,7 @@ body:not(.home-luxury) :is(.sala-ajutor,.sala-nota,.sala-legenda,.sala-saptamana
 .home-luxury .lux-contact span{color:#d3cbbd}
 .home-luxury .lux-events__media{filter:saturate(.95) brightness(.95);background-image:linear-gradient(90deg,#212723,transparent 32%),url('/assets/img/sala-evenimente-olizan.webp')}
 .home-luxury .lux-hero{background:radial-gradient(ellipse at 75% 45%,#464732 0%,#2d342b 35%,#202623 73%)}
-.home-luxury .lux-hero::before{
- inset:auto;right:3%;top:50%;width:min(49vw,700px);height:auto;aspect-ratio:1;
- background-position:center;background-size:contain;background-repeat:no-repeat;
- border-radius:50%;mask-image:radial-gradient(circle,#000 61%,transparent 71%);
- filter:saturate(1.08) brightness(1.06);transform:translateY(-50%) rotate(0deg);
- animation:olizan-pizza-turn 48s linear infinite;
-}
+.home-luxury .lux-hero::before{content:none;display:none;background:none}
 .home-luxury .lux-hero::after{background:linear-gradient(90deg,#202623 0%,rgba(32,38,35,.98) 31%,rgba(32,38,35,.72) 44%,transparent 66%)}
 .lux-motion-toggle{display:inline-flex;align-items:center;margin-top:20px;padding:8px 13px;min-height:40px;border:1px solid var(--site-line);border-radius:30px;background:#2b322c;color:#dfd2b9;font-size:.85rem;cursor:pointer}
 .lux-motion-toggle:hover{background:#3b4237;color:#fff}
@@ -45,11 +39,11 @@ body:not(.home-luxury) :is(.sala-ajutor,.sala-nota,.sala-legenda,.sala-saptamana
 @keyframes olizan-pizza-turn{to{transform:translateY(-50%) rotate(360deg)}}
 @media(max-width:1000px){body .nav{background:#252c27}}
 @media(max-width:700px){
- .home-luxury .lux-hero::before{width:310px;max-width:90vw;right:calc(50% - min(155px,45vw));top:168px}
+ .home-luxury .lux-hero::before{content:none;display:none;background:none}
  .home-luxury .lux-hero::after{background:linear-gradient(180deg,transparent 0%,transparent 25%,#202623 48%,#202623 100%)}
  .home-luxury .lux-hero__inner{padding-top:330px}
 }
-@media(prefers-reduced-motion:reduce){.home-luxury .lux-hero::before{animation:none}.lux-motion-toggle{display:none}}
+@media(prefers-reduced-motion:reduce){.home-luxury .lux-hero::before{content:none;display:none;background:none}.lux-motion-toggle{display:none}}
 
 /* Match the specificity of both existing homepage and subpage themes. */
 body.home-luxury .header,body.home-luxury .header.is-scrolled,body:not(.home-luxury) .header,body:not(.home-luxury) .header.is-scrolled{background:rgba(29,34,31,.98)}
@@ -58,22 +52,18 @@ body.home-luxury .cookie,body:not(.home-luxury) .cookie{background:#272e29}
 @media(max-width:1000px){body.home-luxury .nav,body:not(.home-luxury) .nav{background:#252c27}}
 
 /* Separate layers: a clean pizza cutout above stationary, glowing charcoal. */
-.home-luxury .lux-hero::before{
- background-image:url('/assets/img/pizza-hero-real.webp');
- mask-image:none;filter:drop-shadow(0 20px 24px rgba(0,0,0,.4));
- width:min(48vw,670px);right:4%;
-}
+.home-luxury .lux-hero::before{content:none;display:none;background:none}
 .lux-embers{position:absolute;inset:0;z-index:-3;pointer-events:none;background:url('/assets/img/hero-embers.webp') center/cover no-repeat}
 .lux-embers::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 83% 88%,rgba(245,86,19,.33),transparent 48%);animation:olizan-ember-glow 5s ease-in-out infinite alternate}
 @keyframes olizan-ember-glow{from{opacity:.3}to{opacity:.85}}
 .lux-hero.is-motion-paused .lux-embers::after,.lux-hero.is-outside .lux-embers::after{animation-play-state:paused}
 @media(max-width:700px){
- .home-luxury .lux-hero::before{background-image:url('/assets/img/pizza-hero-real-mobile.webp');width:310px;right:calc(50% - min(155px,45vw))}
+ .home-luxury .lux-hero::before{content:none;display:none;background:none}
  .lux-embers{background-image:url('/assets/img/hero-embers-mobile.webp');background-size:auto 440px;background-position:center top}
 }
 @media(prefers-reduced-motion:reduce){.lux-embers::after{animation:none;opacity:.45}}
 
-@media(max-width:700px){.home-luxury .lux-hero::before{z-index:0}.home-luxury .lux-hero__inner{position:relative;z-index:1}}
+@media(max-width:700px){.home-luxury .lux-hero::before{content:none;display:none;background:none}.home-luxury .lux-hero__inner{position:relative;z-index:1}}
 
 /* Slightly smaller cards, while keeping prices and touch targets readable. */
 .home-luxury .lux-menu-grid{gap:20px}
