@@ -14,7 +14,10 @@
       if (preference.matches || document.hidden || !el.animate || el.contains(document.activeElement)) return;
       var distance = window.innerWidth < 700 ? 24 : 44;
       var x = el.dataset.scrollSide === "left" ? -distance : distance;
-      var animation = el.animate([
+      var menuCategory = el.matches(".lux-menu-card");
+      var animation = el.animate(menuCategory ? [
+        { opacity: .7 }, { opacity: 1 }
+      ] : [
         { translate: x + "px 0", opacity: .45 },
         { translate: "0px 0", opacity: 1 }
       ], { duration: 620, easing: "cubic-bezier(.22,1,.36,1)" });

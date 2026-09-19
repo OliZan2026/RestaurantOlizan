@@ -262,6 +262,31 @@ function olizanPorneste() {
   /* Pictograma WhatsApp folosită în conținutul generat din JavaScript */
   var ICON_WA = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2c-5.5 0-9.96 4.46-9.96 9.96 0 1.76.46 3.48 1.34 5L2 22l5.2-1.36a9.9 9.9 0 0 0 4.84 1.24h.01c5.5 0 9.96-4.46 9.96-9.96A9.9 9.9 0 0 0 19.08 4.9 9.9 9.9 0 0 0 12.04 2Zm0 1.8c2.18 0 4.23.85 5.77 2.4a8.1 8.1 0 0 1 2.39 5.77c0 4.5-3.66 8.16-8.16 8.16a8.2 8.2 0 0 1-4.17-1.14l-.3-.18-3.09.81.82-3-.19-.31a8.1 8.1 0 0 1-1.24-4.34c0-4.5 3.66-8.17 8.17-8.17Zm-2.6 4.14c-.16 0-.42.06-.64.3-.22.24-.85.83-.85 2.03s.87 2.35.99 2.51c.12.16 1.7 2.6 4.13 3.55 2.02.8 2.43.64 2.87.6.44-.04 1.42-.58 1.62-1.15.2-.56.2-1.05.14-1.15-.06-.1-.22-.16-.46-.28-.24-.12-1.42-.7-1.64-.78-.22-.08-.38-.12-.54.12-.16.24-.62.78-.76.94-.14.16-.28.18-.52.06-.24-.12-1.01-.37-1.93-1.19-.71-.63-1.19-1.42-1.33-1.66-.14-.24-.02-.37.1-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.53-1.3-.74-1.78-.19-.45-.39-.39-.53-.4h-.47Z"/></svg>';
 
+    /* butonul de coș stă în antet, care rămâne fixat pe ecran pe toate paginile */
+    function butonCos(clasa, eticheta) {
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = clasa;
+      b.setAttribute("data-cart-open", "");
+      b.setAttribute("aria-controls", "cos");
+      b.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+        '<path d="M3 4h2l2.4 11.2a2 2 0 0 0 2 1.6h7.5a2 2 0 0 0 2-1.55L20.5 8H6"/>' +
+        '<circle cx="10" cy="20" r="1.4"/><circle cx="17" cy="20" r="1.4"/></svg>' +
+        '<span class="cart-btn-txt">' + esc(eticheta) + '</span>' +
+        '<span class="cart-count" data-cart-count>0</span>';
+      return b;
+    }
+    var headerInner = $(".header-inner");
+    if (headerInner) {
+      var tintaHeader = $(".header-cta", headerInner);
+      var bh = butonCos("cart-btn", "Coș");
+      bh.setAttribute("aria-label", "Se pregătește coșul de comandă");
+      bh.disabled = true;
+      if (tintaHeader) headerInner.insertBefore(bh, tintaHeader);
+      else headerInner.appendChild(bh);
+    }
+
+
   return window.olizanDatePublice.then(function () {
   /* ---- 4b. Oprirea comenzilor (pauză sau concediu) ----------------------- */
   /* Starea vine de la server. Cât timp este „blocat", nicăieri în pagină nu
@@ -936,28 +961,7 @@ function olizanPorneste() {
     document.body.appendChild(fundal);
     document.body.appendChild(drawer);
 
-    /* butonul de coș stă în antet, care rămâne fixat pe ecran pe toate paginile */
-    function butonCos(clasa, eticheta) {
-      var b = document.createElement("button");
-      b.type = "button";
-      b.className = clasa;
-      b.setAttribute("data-cart-open", "");
-      b.setAttribute("aria-controls", "cos");
-      b.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
-        '<path d="M3 4h2l2.4 11.2a2 2 0 0 0 2 1.6h7.5a2 2 0 0 0 2-1.55L20.5 8H6"/>' +
-        '<circle cx="10" cy="20" r="1.4"/><circle cx="17" cy="20" r="1.4"/></svg>' +
-        '<span class="cart-btn-txt">' + esc(eticheta) + '</span>' +
-        '<span class="cart-count" data-cart-count>0</span>';
-      return b;
-    }
-    var headerInner = $(".header-inner");
-    if (headerInner) {
-      var tintaHeader = $(".header-cta", headerInner);
-      var bh = butonCos("cart-btn", "Coș");
-      bh.setAttribute("aria-label", "Deschide coșul de comandă");
-      if (tintaHeader) headerInner.insertBefore(bh, tintaHeader);
-      else headerInner.appendChild(bh);
-    }
+    if (bh) { bh.disabled = false; bh.setAttribute("aria-label", "Deschide coșul de comandă"); }
 
     var listaEl = $("#cart-items", drawer);
     var goleEl = $("#cart-empty", drawer);
